@@ -26,6 +26,7 @@ book:
         - "introduktion-till-r-miljön.qmd"
         - "grundläggande-kunskaper-i-programmering.qmd"
         - "r-del-två.qmd"
+        - "datamanipulering.qmd"
         - "grafik.qmd"
     - part: "Statistiska metoder"
       chapters:

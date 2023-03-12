@@ -1,0 +1,96 @@
+# Datamanipulering
+
+``` {r datamanipulering-imports, echo=FALSE}
+library(tibble)
+library(knitr)
+library(dplyr)
+```
+
+Från namnet kunde man tro att "datamanipulering" handlar om någon slags senmodern förtrycksmetod, men så är inte fallet. Datamanipulering handlar helt enkelt om att omforma, kombinera, separera och kategorisera data. Manipulation är nästan alltid nödvändigt - de flesta data finns inte i sådana former som vi skulle vilja, och ibland måste vi även manipulera data för att korrigera modellförväntningsbrott.
+
+I detta kapitel behandlar jag några funktioner för datamanipulation. Alla manipulationer som kan göras på enskilda siffror (t.ex. multiplikation eller logaritmering) kan förstås också göras på strukturerade data i en tibble eller dataram. För strukturerade data finns det dock några ytterligare behändiga manipulationsmetoder, som gör arbetet mycket lättare.
+
+## Faktorer
+
+I kapitel XXX behandlade jag statistiska variablers skalenivåer. Detta är ett så grundläggande koncept att R har inbyggda metoder angående skalenivåer. Datatypen `factor`, alltså faktor, är en sådan.
+
+Faktordata är data på nominal- eller ordinalskalenivå. Istället för att representera det i siffror kan R automatiskt förstå en variabel med några unika värden som en kvalitativ variabel. Tänk dig att du hade följande data:
+```{r eval=FALSE}
+personregister <- tibble("Person" = c("Jimmy","Claus","Susan","Freja","Timotej"),
+                         "Kön" = c("Man","Man","Kvinna","Annat","Man"),
+                         "Inkomst" = c(25000,0,35000,30000,15000)
+                         )
+```
+
+```{r}
+#| label: tbl-datamanip-1
+#| tbl-cap: "Personregister"
+#| echo: FALSE
+personregister <- tibble("Person" = c("Jimmy","Claus","Susan","Freja","Timotej"),
+                         "Kön" = c("Man","Man","Kvinna","Annat","Man"),
+                         "Inkomst" = c(25000,0,35000,30000,15000)
+                         )
+kable(personregister)
+```
+
+Variabeln `Person` fungerar i detta fall som en ID-variabel (eftersom varje namn är unikt), men kan också förstås som en nominalvariabel där de allra flesta värden kommer att vara unika. Förvisso kan det finnas flera personer med namnet "Jimmy", kanske även "Timotej", men för det mesta är dessa värden unika. Detta innebär att vi inte troligen vill göra mycket något med denna variabel. Dessutom representeras ju varje rad av en unik person, så summering enligt `Person` är inte så rimligt - vad betyder det att "Timotejer" har i medeltal 15 000 euro inkomst?
+
+Variabeln `Kön` representerar däremot en klassisk nominalvariabel. Det finns bara tre värden i vårt dataset, och vissa upprepas. Denna vill vi omvandla till en faktor, så att R vet att hantera variabeln som kategorisk!
+
+Variabeln `Inkomst` är tydligen på kvotskalenivå, eftersom den tycks representera euro (i året, om dessa personer inte är väldigt rika eller väldigt fattiga på en nordisk nivå). Då vill vi inte göra något åt denna variabel - den går att behandla som sådan i R-analyser.
+
+Hur berättar vi åt R att `Kön` ska vara kategorisk? Med funktionen `factor(data)`. Funktionen tar de data vi ger den, räknar unika värden, och markerar dessa som kategorier inom variabeln. Detta omvandlar variabeln till en speciell faktorvariabel, som går att använda i kvantitativa analyser (så länge kategoriska data är OK i modellen!). Vi utför detta i R:
+
+``` {r datamanip-example}
+personregister$Kön <- factor(personregister$Kön)
+personregister
+```
+
+Inga förändringar skedde till själva datapunkterna, och detta är vad som borde ske. Däremot har *datatypen* för `Kön` ändrat från `character` till `factor` - och detta möjliggör att den används i kategoriska analyser! Du kan se detta genom att granska kolumnnamnen i tibbleobjektet ovan.
+
+Kan `factor(data)` beakta nivåernas ordning, om det är fråga om ordinalskalenivå? Jovisst! Låt oss säga att vi har en ny variabel, som mäter `ångest`:
+
+```{r}
+#| echo: FALSE
+personregister <- add_column(personregister, "Ångest" = c("Låg","Hög","Hög","Medel","Låg"))
+personregister$Ångest <- ordered(personregister$Ångest, levels = c("Hög", "Medel", "Låg"))
+```
+
+```{r}
+#| label: tbl-datamanip-2
+#| tbl-cap: Personregister med nya data
+#| echo: FALSE
+kable(personregister)
+```
+För att skapa en ordinalfaktor använder vi funktionen `ordered(data, levels=x)`. Vi ger funktionen vårt data, `personregister$Ångest`, samt en vektor med alla variabelnivåer i ordning från högsta/största till lägsta/minsta. Egentligen kan vi även använda `factor()`-funktionen med tilläggsargumentet `ordered = TRUE`, men sättet jag gjorde det här är i min åsikt tydligare. Du gör förstås hur du vill.
+
+Som tidigare nämnt producerar detta ingen tydlig visuell skillnad - *de facto* var ångestvariabeln i @tbl-datamanip-2 redan ordnad före jag berättade om ordningsfunktionen! Däremot har det en påverkan i vissa metoder, om de använder nominal- eller ordinalskalevariabler. Det är därför bra kutym att spara kvalitativa variabler som sådana, inte kvantitativa, även om det till synes inte gör något åt materialet.
+
+### Omvandla sifferkodade faktorer till textkodade faktorer
+
+Om du kommer från ett annat statistikprogram har du kanske blivit van att spara kvalitativa variabler i sifferformat, med explicita kodböcker som berättar vilken siffra står för vilken kategori. Du skulle i såfall kanske ha velat koda `Kön` med siffrorna 1, 2 och 3, och sedan associerat siffrorna med etiketterna "Man", "Kvinna" och "Annat".
+
+I R är det bättre att använda de inbyggda faktor- och ordinalfaktordatatyperna, eftersom de förhindrar att du utför opasslig analys på datamaterialet. Om du sparar faktorer som siffror kan du i misstag analysera dem t.ex. med vanliga regressionsmetoder, även om detta bryter mot regressionsanalysens grundläggande krav (variablerna måste vara kvantitativa för regression).
+
+Om du dessutom har färdiga siffror i ditt datamaterial istället för textfaktorer kan det vara lockande att hålla kvar siffrorna. Du kan dock väldigt lätt omvandla kategorier med funktionen `case_match()` från paketet `dplyr`.^[En tidigare funktion som vissa läsare kan vara bekanta med, `recode()` ska vid skrivande stund avskrivas, så jag rekommenderar inte användningen av den.]
+
+Att omvandla från faktor till siffror (om du verkligen vill det) är väldigt lätt: `case_match(datakolumn, kategori_1 ~ siffra, kategori_2 ~ siffra, ...)`. Lista alltså bara upp varje faktorkategori och ge den en siffra.
+
+Omvandlande från siffror till faktor är lite svårare. För det måste vi först köra `case_match(datakolumn, siffra_1 ~ kategori, siffra_2 ~ kategori, ...)` och sedan omvandla den resulterande textvektorn till en faktor:
+
+```{r}
+#| eval: FALSE
+
+# Omvandla texten i "Kön" till siffror:
+personregister$Kön <- case_match(personregister$Kön, "Man" ~ 1, "Kvinna" ~ 2, "Annat" ~ 3)
+
+# Omvandla siffrorna i "Kön" tillbaka till text:
+# OBS: Märk att siffrorna bör vara omringade av citattecken!
+personregister$Kön <- case_match(personregister$Kön, 1 ~ "Man", 2 ~ "Kvinna", 3 ~ "Annat") |> factor(levels = c("Annat", "Kvinna", "Man"))
+```
+
+
+
+## Breda och långa tabeller
+
+Ett annat viktigt koncept i 
