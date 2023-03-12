@@ -55,4 +55,86 @@ Du kan aktivera ett paket i RStudio genom att trycka för checkboxen bredvid pak
 
 Klappa dig själv på axeln, du har kommit långt i din R-inlärning! Till nästa lär vi oss hur du får data in i och ut ur R-miljön. Detta är väldigt viktigt, eftersom du ju behöver dina data för att kunna utföra data-analys.
 
-Grunderna i att läsa in data är faktiskt väldigt lätta: `mina_data <- dataläsningsfunktion()`. Med andra ord skapar du ett objekt för dina data, och sedan **tilldelar** du dina data till objektet genom en dataläsningsfunktion. Oroa dig inte så mycket om syntaxen (skrivformatet) nu, detta hanteras i följande kapitel.
+Grunderna i att läsa in data är faktiskt väldigt lätta: `mina_data <- dataläsningsfunktion()`. Med andra ord skapar du ett objekt för dina data, och sedan tilldelar du dina data till objektet genom en dataläsningsfunktion. Hur detta exakt görs beror på typen av dina data. Övningsdatafilen vi använder är av formatet `csv`, men du kan även läsa in andra typer av data än just det. Ett populärt format är SPSS-filer, så första kapitlet handlar om dem.
+
+### SPSS
+
+Ett mycket vanligt verktyg för statistisk analys bland människovetare är *IBM SPSS Statistics*. Eftersom vi jobbar i R i denna bok, vill jag välkomna användare av SPSS att byta och se ljuset. Trots detta kommer ändå du, kära läsare, att garanterat bemöta SPSS i en form eller annan i framtiden. Då kan du briljera med hur enkelt det är att läsa in SPSS-data i R, köra dina fina analyser och skapa ännu finare grafiska upplägg, och exportera till olika filformat.
+
+Tidyverse-paketet `readr` innehåller behändiga verktyg för hantering av SPSS-datafiler, både i formaten `sav` och `por`. För läsning av SPSS-filer, använd funktionerna `read_sav(path)` och `read_por(path)`. Bägge funktion fungerar på samma sätt, ge dem filadressen för filen som ska läsas, samt valfria ytterligare argument. Nedan är några behändiga argument:
+
+::: {.column-margin}
+`readr::read_sav(path, ...)`: Läser in data från en `.sav`-fil. För övriga inställningar, se hjälpfunktionen `?read_sav`.
+`readr::read_por(path, ...)`: Läser in data från en `.por`-fil. För övriga inställningar, se hjälpfunktionen `?read_por`.
+:::
+
+*  `encoding`: Om filen använder en speciell teckenkodning, eller om det inte går att läsa teckenkodningen automatiskt från filen, så kan du specificera den med detta argument.
+*  `user_na`: Huruvida användarspecificerade saknande koder ska kodas till egna faktornivåer (`TRUE`) eller konverteras till `NA` (`FALSE`). Det är rekommenderat att använda `NA` inom R om du inte absolut måste använda något annat, eftersom de flesta R-funktioner kan automatiskt hantera saknande värden med `NA`-värdet.
+*  `col_select`: Vilka kolumner/variabler ska hämtas in? Utan detta argument läses alla kolumner in.
+*  `skip`: Hur många rader vill du skippa före du börjar läsa in data? Standardvärdet är noll, alltså att funktionen börjar från första dataraden.
+*  `n_max`: Största mängden rader som funktionen läser in.
+
+För skrivning av SPSS-data, använd funktionen `write_sav(data, path)`. Du kan ytterligare ge kompressionsfunktionen som argument, om du vet vad en sådan är och kan använda dem, samt tidszonsdefinitioner.
+
+::: {.column-margin}
+`readr::write_sav(x, path, ...)`: Skriver in data `x` till en `.sav`-fil med namnet och adressen `path`. För övriga inställningar, se hjälpfunktionen `?write_sav`.
+:::
+
+### CSV
+
+Dataformatet vi föredrar är kommaseparerade värden, eller `csv` (eng. *comma-separated values*). Detta är ett maskin- och människoläsbart format, där varje datarad är en... rad och värden för raderna listas upp separerade med kommatering - därav namnet. Ungefär så här ser en CSV-fil ut:
+
+```
+1,1,1,1,5,2
+1,1,1,2,3,7
+0,0,2,2,3,2
+1,1,,2,6,3
+,,,,,
+0,0,0,0,0,0
+```
+
+För att förenkla läsningen av CSV-filer kan du öppna dem i ett kalkylbladprogram så som Excel eller Calc, och se varje värde uppställt i separata celler. Det är dock bra att förstå, att under huven är alla värden bara listade på ovan sätt, lite som en väldigt stor textfil.
+
+Tanken bakom CSV är att formatet ska vara ett öppet, lätt användbart och enkelt strukturerat datasystem. Det är därför lite synd, att det finns *olika former* av CSV - och du måste bara veta vilken form du har.
+
+Format 1 använder komma som separator (därav namnet CSV) och punkt som decimalskiljetecken: `1.5,2.7` är två värden, det andra större än det första. Format 2 använder semikolon som separator och komma som decimalskiljetecken: `1,5;2,7` för samma värde i format 2. Det andra används bl.a. i Norden, eftersom vi tenderar att skriva decimaltal med komma som skiljetecken.
+
+Du kan läsa in CSV-filer med två funktioner från Tidyverse-paketet `readr`: `read_csv(path)` och `read_csv2(path)`. Bägge tar som obligatoriska argument filadressen och returnerar en tibble av de avlästa data. Den första använder kommaseparator, den andra semikolonseparator. Glömmer du vilken är vilken kan du alltid kolla upp `?read_csv`^[Märk, att det finns liknande funktioner i paketet `foreign` om du har det aktiverat. Var noggrann med vad du skriver och hur!].
+
+::: {.column-margin}
+`readr::read_csv(path)`: Läser in CSV-data från filen `path`. Använder kommaseparator och punktdecimal. Returnerar en tibble.
+`readr::read_csv2(path)`: Läser in CSV-data från filen `path`. Använder semikolonseparator och kommadecimal. Returnerar en tibble.
+:::
+
+För att skriva filer använder du motsvarande funktioner `write_csv(data, path)` (kommaseparation) och `write_csv2(data,path)` (semikolonseparation) från `readr`. Första argumentet ger data du vill skriva till en fil, andra argumentet namnet på filen. Filen sparas i din arbetsfilmiljö om du inte specificerar en noggrannare filadress.
+
+::: {.column-margin}
+`readr::write_csv(x, path)`: Skriver objektet `x` till `csv`-filen vid namnet och adressen `path`.  Använder kommaseparation och punktdecimal.
+`readr::write_csv2(x, path)`: Skriver objektet `x` till `csv`-filen vid namnet och adressen `path`.  Använder semikolonseparation och kommadecimal.
+:::
+
+### Andra format
+
+Om du får data i andra format kan du först skrika inombords - varför måste det vara så svårt?! - och sedan lugna dig själv med tilltron i R-samhörigheten. Högst troligen finns det en funktion som kan läsa in de mystiska data du har fått, men du måste lite rota. Paketen `readr`, `foreign` och `haven` innehåller många olika läs- och skrivfunktioner. Börja med dem, och om du inte hittar en passande funktion, gå sedan till Google för hjälp. Om inget hjälper, säg åt dataägaren att de tar sig i kragen och levererar ett dataformat som vanliga dödliga kan avläsa.
+
+### Övning: Läs in barometerdata till R
+
+Nu övar vi datainläsning! Vi hämtar in data från Finlandssvenska barometern 2008 och sparar det som ett tibble-objekt med namnet `data`. Jag gör koden aningen mer explicit än vad som behövs, för pedagogiska syften.
+
+``` {r data-read}
+library(readr) # Aktivera readr. Om paketet är aktivt gör denna rad ingenting.
+path <- "FSD3200/Study/Data/daF3200.csv" # Byt detta till adressen där du har datafilen.
+data <- read_csv2(path)
+```
+
+Nu borde våra data finnas inladdade i objektet `data`! Vi kan granska detta genom att kalla `data`, vilket borde ge en förkortad version av tibbleobjektet:
+
+``` {r data-check}
+data
+```
+
+Allt fungerade bra! Från förhandsgranskningen av tibbleobjektet ser vi att vi har 819 rader data (respondenter) och 116 kolumner (statistiska variabler). Inläsningsfunktionen producerar även en hel del debuggningstext, som kan vara nyttigt om du märker fel i inläsningen. För att försäkra oss att allt gick korrekt kan vi öppna den ursprungliga `csv`-filen i ett kalkylbladprogram och jämföra visuellt med vårt inlästa objekt. Gör du detta, så märker du att saknande värden (tomma celler i CSV-filen) har konverterats till `NA`-värden i R - något vi oftast vill att ska ske, som tur.
+
+Om du jobbar i RStudio kan du även öppna `data`-objektet från Environment-tabben i övre högra hörnet. I denna vy kan du visuellt bearbeta materialet, t.ex. lägga på olika värdefilter eller t.o.m. ändra enskilda datapunkters värden. Vi strävar däremot att jobba i kod så långt som möjligt för pedagogiska syften - det är bäst att du först lär dig kod, sedan lättare verktyg, så att du kan lösa mer komplexa problem i datahanteringen om/när de uppstår. Sträva alltså till att göra saker i kod först, och ta de visuella verktygen i bruk senare.
+
+Däremot har vi ett problem: vi vet ju inte vad dessa variabler betyder! I nästa kapitel hanterar vi några grundläggande datamanipuleringsmetoder i R, och putsar upp vårt dataset till något mer brukbart.
