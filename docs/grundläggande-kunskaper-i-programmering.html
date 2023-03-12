@@ -331,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>logical</code>: Logiskt värde, t.ex. <code>TRUE, FALSE, NA</code>. Kallas även booleanska värden.</p></li>
 <li><p><code>factor</code>: Speciell texttyp med inbyggd ordning. Dessa hanteras i ett eget kapitel.</p></li>
 </ul>
-<p>Du kan granska klassen av en variabel eller data genom att ge det som argument till funktionen <code>class()</code>:</p>
+<p>Du kan granska klassen av ett objekt eller data genom att ge det som argument till funktionen <code>class()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">12</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -349,7 +349,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-</section>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::class(x)</code>: Returnerar klassen för objektet <code>x</code>.</p>
+</div></div></section>
 <section id="manipulering-av-objekt" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="manipulering-av-objekt"><span class="header-section-number">8.2</span> Manipulering av objekt</h2>
 <p>Objekt är gjorda för att manipuleras på ett sätt eller annat. Du kan addera, subtrahera, multiplicera och dividera objekt, men även utföra oändligt mer komplexa funktioner på objekt.</p>
@@ -418,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Du kan även definiera dina egna funktioner, men detta är inte nödvändigt för grundläggande kunskaper i statistisk programmering i detta skede. Om du är intresserad, vänd dig t.ex. till <a href="https://intro2r.com/functions-in-r.html">Intro2r-boken</a>.</p>
 <p>Det finns otroligt många funktioner, och jag kan inte rada upp alla. Istället kommer jag att sakta introducera olika funktioner genom boken. Var liberal med din användning av hjälpfunktionen - du kommer att behöva den!</p>
 </section>
-<section id="vektorer" class="level2" data-number="8.4">
+<section id="vektorer" class="level2 page-columns page-full" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="vektorer"><span class="header-section-number">8.4</span> Vektorer</h2>
 <p>Att ha en datapunkt i ett objekt är helt okej och användbart, men vi jobbar ju med större mängder data. Vi vill ha flera datapunkter i ett objekt! Detta kan vi åstadkomma enkelt med vektorer. En <strong>vektor</strong> konstrueras med funktionen <code>c()</code> (från engelskan <em>concatenate</em>).</p>
 <div class="cell">
@@ -428,7 +431,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 1 2 3 4</code></pre>
 </div>
 </div>
-<p>Vektorer har samma klass som de värden som tillhör vektorn - ovanstående vektor är av klassen <code>numeric</code> - vilket även betyder att klasser inte kan blandas i en vektor. Om du trots allt försöker göra det, så tvingar vektorn <em>alla</em> värden till en klass som kan innehålla alla. Detta är oftast <code>character</code>:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::c(x)</code>: Konstruerar en vektor av givna data <code>x</code>.</p>
+</div></div><p>Vektorer har samma klass som de värden som tillhör vektorn - ovanstående vektor är av klassen <code>numeric</code> - vilket även betyder att klasser inte kan blandas i en vektor. Om du trots allt försöker göra det, så tvingar vektorn <em>alla</em> värden till en klass som kan innehålla alla. Detta är oftast <code>character</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="dv">2</span>, <span class="cn">TRUE</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vektor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -487,10 +493,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Det är mycket vanligt att programmerar gör <strong>fel-med-ett</strong> (eng. <em>off-by-one error</em>). Detta innebär att du misstolkar vilka element som hämtas eller behandlas, och ökar eller minskar intervallets storlek med ett i misstag. Var alltså alltid noggrann med dina intervall, och dubbelkolla att rätt mängd element har hämtats eller rätt mängd iterationer (upprepningar) har gjorts!</p>
 </div>
 </section>
-<section id="matriser-arrays-listor-och-dataramar" class="level2" data-number="8.5">
+<section id="matriser-arrays-listor-och-dataramar" class="level2 page-columns page-full" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="matriser-arrays-listor-och-dataramar"><span class="header-section-number">8.5</span> Matriser, arrays, listor och dataramar</h2>
 <p>Vektorer och enkla värden (även kallat <strong>scalars</strong>) är exempel på <strong>datastrukturer</strong>. Eftersom du ska lära dig statistik i R, är det viktigt att du lär dig hur du kan forma och omforma dina data. Det finns fyra ytterligare datastrukturer i basinstallationen av R som du bör känna till: matriser, arrays, listor och dataramar</p>
-<section id="matriser" class="level3" data-number="8.5.1">
+<section id="matriser" class="level3 page-columns page-full" data-number="8.5.1">
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="matriser"><span class="header-section-number">8.5.1</span> Matriser</h3>
 <p><strong>Matriser</strong> är tvådimensionella versioner av vektorer. En matris har kolumner och rader, och varje kombination av kolumn- och radposition utgör en cell. Du kan skapa matriser med funktionen <code>matrix(data, nrow = x, ...)</code></p>
 <div class="cell">
@@ -511,7 +517,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [3,]    7    8    9</code></pre>
 </div>
 </div>
-<p>Argumentet <code>byrow=TRUE</code> tvingar matrisen att lägga in data enligt rader (börja med kolumn 1, rad 1, sedan kolumn 1, rad 2, osv.), medan <code>byrow=FALSE</code> eller tomt argument lägger in data enligt kolumner.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::matrix(x, nrow, ncol, byrow, dimnames)</code>: Definierar en datamatris. <code>x</code> ger data, <code>nrow</code> och <code>ncol</code> ger mängden rader och kolumner, <code>byrow</code> väljer om matrisen ska fyllas per rad eller per kolumn, och <code>dimnames</code> ger namn åt raderna och kolumnerna i en lista med två element.</p>
+</div></div><p>Argumentet <code>byrow=TRUE</code> tvingar matrisen att lägga in data enligt rader (börja med kolumn 1, rad 1, sedan kolumn 1, rad 2, osv.), medan <code>byrow=FALSE</code> eller tomt argument lägger in data enligt kolumner.</p>
 <p>Du kan söka data från matriser genom att ge ett indexpar, där det första indexet är radindex och det andra är kolumnindex:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>matris_kol[<span class="dv">1</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -535,8 +544,11 @@ C 3 6 9</code></pre>
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
-</section>
-<section id="arrays" class="level3" data-number="8.5.2">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::rownames(M)</code>: Returnerar eller bestämmer radnamnen för matrisen <code>M</code>, beroende på riktning. <br> <code>base::colnames(M)</code>: Returnerar eller bestämmer kolumnnamnen för matrisen <code>M</code>, beroende på riktning.</p>
+</div></div></section>
+<section id="arrays" class="level3 page-columns page-full" data-number="8.5.2">
 <h3 data-number="8.5.2" class="anchored" data-anchor-id="arrays"><span class="header-section-number">8.5.2</span> Arrays</h3>
 <p><strong>Arrays</strong> är mångdimensionella versioner av matriser. Arrays är därmed mycket lika som matriser, men fungerar i högre dimensioner och skapas med funktionen <code>array(data, dim = x, ...)</code>:</p>
 <div class="cell">
@@ -562,9 +574,12 @@ C 3 6 9</code></pre>
 <pre><code>[1] 16</code></pre>
 </div>
 </div>
-<p>Arrays fungerar på samma sätt som matriser, men de definieras med argumentet <code>dim</code> och en vektor som beskriver hur många nivåer i varje dimension. Första indextalet hänvisar till raden, andra till kolumnen, tredje till tredje dimensionen. Det blir dock komplext att tänka i flera dimensioner, och därför har det utvecklats bättre verktyg än arrays för detta. Mer om det senare.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::array(x, dim, dimnames)</code>: Definierar en array. <code>x</code> ger data, <code>dim</code> ger storleken på varje dimension i en vektor, och <code>dimnames</code> ger ger namn åt dimensionerna i en lista med lika många element som dimensioner.</p>
+</div></div><p>Arrays fungerar på samma sätt som matriser, men de definieras med argumentet <code>dim</code> och en vektor som beskriver hur många nivåer i varje dimension. Första indextalet hänvisar till raden, andra till kolumnen, tredje till tredje dimensionen. Det blir dock komplext att tänka i flera dimensioner, och därför har det utvecklats bättre verktyg än arrays för detta. Mer om det senare.</p>
 </section>
-<section id="listor" class="level3" data-number="8.5.3">
+<section id="listor" class="level3 page-columns page-full" data-number="8.5.3">
 <h3 data-number="8.5.3" class="anchored" data-anchor-id="listor"><span class="header-section-number">8.5.3</span> Listor</h3>
 <p><strong>Listor</strong> är mångdimensionella datastrukturer. Unikt för listor är dock att de kan innehålla flera dataklasser! En lista kan skapas med konstruktorfunktionen <code>list(element_1, element_2, ...)</code>:</p>
 <div class="cell">
@@ -583,7 +598,10 @@ C 3 6 9</code></pre>
 [1] 50000 32000     0</code></pre>
 </div>
 </div>
-<p>Du kan kalla data från listan med index, eller genom att ge namn åt de olika elementen. Namngivning kan göras i konstruktorfunktionen: <code>list(namn_1 = data_1, namn_2 = data_2, ...)</code> eller i efterhand med <code>names(lista)</code>:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::list(x, all.names, sorted)</code>: Definierar en lista. <code>x</code> ger data, antingen som vektorer eller som nyckel-tal-kopplingar; <code>all.names</code> bestämmer huruvida alla data i <code>x</code> ska kopieras i listan eller enbart de som inte börjar med en punkt; och <code>sorted</code> bestämmer huruvida listans element ska sorteras enligt ökande storlek.</p>
+</div></div><p>Du kan kalla data från listan med index, eller genom att ge namn åt de olika elementen. Namngivning kan göras i konstruktorfunktionen: <code>list(namn_1 = data_1, namn_2 = data_2, ...)</code> eller i efterhand med <code>names(lista)</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(min_lista) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Namn"</span>, <span class="st">"Födelseår"</span>, <span class="st">"Inkomst"</span>)</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>min_lista</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -602,9 +620,12 @@ $Inkomst
 <pre><code>[1] "Celery Man"      "Carol Henderson" "Dee Vee"        </code></pre>
 </div>
 </div>
-<p>Som du ser kan specifika namngivna element kallas med formen <code>lista$element</code>. Märk väl att namnet ska vara skrivet exakt som det är i listan: <code>$Namn</code> och <code>$namn</code> är två olika elementnamn.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::names(x)</code>: Returnerar namnen för objektet <code>x</code>. Vad som returneras beror på objektet: vektorer returnerar en namnvektor om namnen är definierade, annars <code>NULL</code>. Arrays och matriser returnerar <code>dimnames</code>. Listor returnerar ordningsföljden eller <code>name</code> om namnen är definierade.</p>
+</div></div><p>Som du ser kan specifika namngivna element kallas med formen <code>lista$element</code>. Märk väl att namnet ska vara skrivet exakt som det är i listan: <code>$Namn</code> och <code>$namn</code> är två olika elementnamn.</p>
 </section>
-<section id="dataramar" class="level3" data-number="8.5.4">
+<section id="dataramar" class="level3 page-columns page-full" data-number="8.5.4">
 <h3 data-number="8.5.4" class="anchored" data-anchor-id="dataramar"><span class="header-section-number">8.5.4</span> Dataramar</h3>
 <p><strong>Dataramar</strong> (eng. <em>data frames</em>) är en speciell datastruktur i R, och kanske den mest användbara av alla dessa (förutom vektorer, som behövs hela tiden). Du kan tänka dig att en dataram är en matris vars varje kolumn är en egen vektor. Detta innebär att varje enskild kolumn bör innehålla samma klass av data, men kolumnerna i sig kan innehålla olika klasser. Kolumn A kan vara text, kolumn B bilder, kolumn C datum, och så vidare.</p>
 <p>Dataramar skapas med konstruktorfunktionen <code>data.frame(data)</code>:</p>
@@ -622,46 +643,55 @@ $Inkomst
 3 Jonatan   X    28</code></pre>
 </div>
 </div>
-<p>Du kan hämta kolumner från dataramar med indicering samt med namnsökningsoperatorn, t.ex. <code>personer[1]</code> eller <code>personer$namn</code>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::data.frame(x, ...)</code>: Definierar en dataram. <code>x</code> ger data som värden eller nyckel-tal-kopplingar. För övriga inställningar, se hjälpfunktionen <code>?data.frame</code>.</p>
+</div></div><p>Du kan hämta kolumner från dataramar med indicering samt med namnsökningsoperatorn, t.ex. <code>personer[1]</code> eller <code>personer$namn</code>.</p>
 <p>För dataramar finns det även ett antal behändiga funktioner för snabba översikter. Funktionen <code>head(data.frame)</code> ger de första sex rader för en snabb insikt i vad som finns i datastrukturen, och funktionen <code>tail(data.frame)</code> gör detsamma för de sista sex raderna. Funktionen <code>str(data.frame)</code> ger en kort summering av dataramens innehåll. Funktionen <code>summary(data.frame)</code> gör det samma, men med statistisk information om en kolumn innehåller siffror.</p>
-<div class="cell" data-paged.print="true">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>utils::head(df, n)</code>: Returnerar de <code>n</code> första raderna i dataramen <code>df</code>. Standardvärdet är 6 rader.</p>
+<p><code>utils::tail(df, n)</code>: Returnerar de <code>n</code> sista raderna i dataramen <code>df</code>. Standardvärdet är 6 rader.</p>
+<p><code>utils::str(x, ...)</code>: Visar strukturen på ett objekt <code>x</code>. Resultatet beror på hurudant objekt som ges och vad det innehåller. För övriga inställningar, se hjälpfunktionen <code>?str</code>.</p>
+<p><code>base::summary(x, maxsum, digits, quantile.type)</code>: Ger summerande statistik på objektet <code>x</code>. <code>maxsum</code> ställer in hur många faktornivåer som summeras (i fallande frekvens), <code>digits</code> hur många decimaler som rapporteras, och <code>quantile.type</code> vilken kvantilalgoritm som används (se <code>?quantile</code> för information om dessa).</p>
+</div></div><div class="cell" data-paged.print="true">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>min_dataram <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">digits =</span> <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>), <span class="at">z =</span> <span class="dv">5</span>)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      x y z
-1 -2.35 1 5
-2 -0.47 2 5
-3  1.02 3 5
-4 -0.45 4 5
-5 -1.52 5 5
-6  1.07 6 5</code></pre>
+1 -0.82 1 5
+2 -0.85 2 5
+3 -0.28 3 5
+4 -1.28 4 5
+5 -1.13 5 5
+6  0.52 6 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        x   y z
-95   0.69  95 5
-96  -1.45  96 5
-97   0.56  97 5
-98   1.24  98 5
-99  -0.09  99 5
-100  0.02 100 5</code></pre>
+95   0.54  95 5
+96  -1.15  96 5
+97   0.15  97 5
+98  -0.34  98 5
+99  -1.27  99 5
+100 -0.37 100 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   100 obs. of  3 variables:
- $ x: num  -2.35 -0.47 1.02 -0.45 -1.52 1.07 0.64 0.15 0.63 -0.28 ...
+ $ x: num  -0.82 -0.85 -0.28 -1.28 -1.13 0.52 -2.67 0.37 -1.42 -1.52 ...
  $ y: int  1 2 3 4 5 6 7 8 9 10 ...
  $ z: num  5 5 5 5 5 5 5 5 5 5 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       x                 y                z    
- Min.   :-3.3300   Min.   :  1.00   Min.   :5  
- 1st Qu.:-0.4750   1st Qu.: 25.75   1st Qu.:5  
- Median : 0.1300   Median : 50.50   Median :5  
- Mean   : 0.0810   Mean   : 50.50   Mean   :5  
- 3rd Qu.: 0.8825   3rd Qu.: 75.25   3rd Qu.:5  
- Max.   : 2.3200   Max.   :100.00   Max.   :5  </code></pre>
+ Min.   :-2.6700   Min.   :  1.00   Min.   :5  
+ 1st Qu.:-0.8400   1st Qu.: 25.75   1st Qu.:5  
+ Median :-0.0700   Median : 50.50   Median :5  
+ Mean   :-0.1546   Mean   : 50.50   Mean   :5  
+ 3rd Qu.: 0.5425   3rd Qu.: 75.25   3rd Qu.:5  
+ Max.   : 2.1400   Max.   :100.00   Max.   :5  </code></pre>
 </div>
 </div>
 </section>
@@ -671,7 +701,11 @@ $Inkomst
 <p>En sista datatyp är värd att nämna. <strong>Tibbles</strong> är en alternativ version av dataramar som fungerar enligt <strong>Tidy Data-principen</strong>. Detta är en slags designfilosofi utvecklad för R, där alla olika sätt att hantera data (datastrukturer, grafik, kategoriska variabler…) följer samma principer. Detaljerna kan bli klarare för dig när du jobbar med Tidy Data, men principen är att Tidy Data gör arbetet smidigare, mer organiserat och tydligare.</p>
 <p>För att använda <strong>tibbles</strong> bör du installera paketet <code>tibble</code>. Vi kommer även att använda andra Tidyverse-verktyg, så om du vill kan du installera hela moderpaketet <code>tidyverse</code> på en gång. Se kapitel XXX om paketinstallation i detta skede, och återvänd här när du är klar.</p>
 <div class="page-columns page-full"><p>En tibble skapas på samma sätt som en dataram, men med konstruktorfunktionen <code>tibble(data)</code>. Om du har en färdig dataram kan du även omvandla den med funktionen <code>as_tibble(dataram)</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I versioner av Tibble äldre än 2.0.0 heter funktionen <code>as.tibble()</code>.</p></li></div></div>
-<div class="cell">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>tibble::tibble(x)</code>: Definierar en tibble från data <code>x</code>.</p>
+<p><code>tibble::as_tibble(df)</code>: Definierar en tibble från en färdig dataram <code>df</code>.</p>
+</div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>min_tibble <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(min_dataram)</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>min_tibble</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -679,29 +713,37 @@ $Inkomst
 <pre><code># A tibble: 100 × 3
        x     y     z
    &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
- 1 -2.35     1     5
- 2 -0.47     2     5
- 3  1.02     3     5
- 4 -0.45     4     5
- 5 -1.52     5     5
- 6  1.07     6     5
- 7  0.64     7     5
- 8  0.15     8     5
- 9  0.63     9     5
-10 -0.28    10     5
+ 1 -0.82     1     5
+ 2 -0.85     2     5
+ 3 -0.28     3     5
+ 4 -1.28     4     5
+ 5 -1.13     5     5
+ 6  0.52     6     5
+ 7 -2.67     7     5
+ 8  0.37     8     5
+ 9 -1.42     9     5
+10 -1.52    10     5
 # … with 90 more rows</code></pre>
 </div>
 </div>
 <p>Tibbles har några inbyggda fördelar (eller skillnader) framöver dataramar:</p>
 <ul>
 <li>När du kallar ett tibbleobjekt skriver den endast ut de tio första raderna, så att du inte i misstag fyller din konsol med tusentals rader och kraschar RStudio. Behöver du flera rader kan du använda funktionen <code>print(data, n = x, width = Inf)</code> för att skriva ut alla kolumner för X rader.</li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::print(x, ...)</code>: Skriver ut objektet <code>x</code>. Inställningarna beror på objektets klass och datatyp. För tibbles kan man bl.a. ge <code>width</code> för mängden kolumner och <code>n</code> för mängden rader.</p>
+</div></div><ul>
 <li>Tibbles ändrar inte dataklassen av värdena som matas in i den. Dataramar har en tendens att omvandla text till faktorer, vilket du kanske inte alltid vill göra - tibbles garanterar att data går in på samma sätt som du matade det in.</li>
 <li>Tibbles kräver att hela kolumnens namn skrivs ut när du kallar data, medan dataramar kan tolka halvfärdiga kolumnnamn. Detta kan vara både positivt (skyddar mot misstag) och negativt (orsakar fler fel).</li>
 <li>Om du hämtar en kolumn från en tibble returnerar den alltid en tibble, medan en dataram returnerar en vektor.</li>
 <li>Tibbles är strikta med inläggning av nya data i existerande tibbles, och kräver att du ger exakt lika många cellvärden som det finns celler i tibblen. Om du har en tibble med 500 rader, och du ger den en ny kolumn med 450 unika värden, kastar tibblen ett fel. Dataramar gör inte detta, utan upprepar vektorn från början när den nått slutet, ända tills alla rader har blivit fyllda.</li>
 </ul>
 <p>Tibbles kan användas i så gott som alla situationer där dataramar kan användas, men om en funktion inte tillåter en tibble som argument kan du alltid omvandla tibblen till en dataram med <code>as.data.frame(tibble)</code>.</p>
-</section>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::as.data.frame(x, ...)</code>: Omvandlar objektet <code>x</code> till en dataram. För övriga inställningar, se hjälpfunktionen <code>?as.data.frame</code>.</p>
+</div></div></section>
 <section id="sammanfattning" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="sammanfattning"><span class="header-section-number">8.7</span> Sammanfattning</h2>
 <p>Grunderna i programmering är relativt enkla: definiera objekt och manipulera objekt. Du har lärt dig att göra detta med olika klasser. Kom ihåg att hålla reda på vilken klass varje objekt är, så att du kan förutspå vad som händer i dina manipulationer!</p>
