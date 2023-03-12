@@ -1,0 +1,125 @@
+# Vad är data?
+
+Kapitlets rubrik berättar vad det handlar om: vad är data? Denna till synes enkla fråga kan faktiskt vara svår! Under mina doktorsstudier gick jag en kurs i datahantering för forskare, och under kursen tillbads deltagarna (från alla olika vetenskapliga fält) att fundera kring hurudana data deras forskningsprojekt producerar. En avsevärt stor del av deltagarna - främst människovetare! - svarade att de inte producerar några som helst data. Detta är inte sant, men avslöjar hur den vardagliga uppfattningen av data kan skilja sig markant från den vetenskapliga.
+
+Data (sg. *datum*) är ett latinskt begrepp och står ungefär för "det givna" eller "saken som gavs". Idag kan vi tala om data som *information* av något slag. Exakta definitioner på vad "data" är skiljer sig, men i grund och botten har data åtminstone följande egenskaper:
+
+*  Data är information av något slag.
+*  Data är systematiskt insamlat.
+*  Data kan analyseras.
+
+**Information** innebär här att data omskriver något annat. Mängden steg i min stegmätare omskriver hur och när jag har gått, inspelningar av diskussioner omskriver diskussionerna som fördes, nyhetsutklipp omskriver världshändelser.
+
+För att skapa data måste denna information även samlas **systematiskt**. Detta innebär att det finns vissa regler för hur data samlas in. Mängden steg i min stegmätare blir data när jag lägger gränser på vilka dagar eller stunder som räknas med (och vilka som lämnas utanför). Diskussionsinspelningar blir data när jag bestämmer vilka diskussioner som ska spelas in samt när de spelas in. Nyhetsutklippen blir data när jag vilka nyheter, vilka källor, vilken tidpunkt och vilka tema som väljs. Denna process innebär beslut angående **urval** och **urvalsramar**, något vi behandlar senare i boken.
+
+Vad innebär det att **analysera** något? Här faller kanske studenter och forskare ibland av. Det finns en allmän tanke att data berättar historier. Du har kanske hört, eller sagt själv, meningar så som "data ljuger aldrig", "låt data berätta sanningen", "finns det data bakom detta?" I denna bok tar jag ett annat perspektiv, som kan kallas **epistemologisk icke-realism**: Data berättar inget för sig själv. Att analysera innebär faktiskt att **tolka** den information som har samlats. Bäst syns detta när du börjar utföra statistiska analyser, dvs. producera olika nyckeltal och summeringar av större mängder data.
+
+Låt oss tänka att vi är intresserade av att förstå hur bra en blodtrycksmedicinering fungerar. För att göra detta väljer vi kanske att mäta blodtrycket före och efter doseringen av medicin för ett antal människor. Vi väljer även att mäta samma grej hos ett antal människor som *inte* har tagit medicineringen - de kallas för **kontrollgruppen** och logiken bakom detta behandlas i ett senare kapitel.
+
+Utifrån våra mätningar får vi en datafil som ser ut ungefär så här:
+
+`(80,100);(76,103);(65,99);...`
+
+Kan vi säga något om vår fråga nu? Troligen inte, vi har en lång rad siffror. Dessa kan förstås som data, eftersom vi samlade in dem systematiskt, de omskriver information, och de kan analysera - men vi har ju inte faktiskt analyserat dem!
+
+En analys vi kan göra är att ställa upp dem i en tabell, och ge dem deskriptiva namn:
+
+|ID|Grupp|Sys|Dia|
+|-|-|-|-|
+|1|0|80|100|
+|2|1|76|103|
+|3|1|65|99|
+|...|...|...|
+: Blodtryck {#tbl-blodtryck}
+
+Nu kan vi börja förstå vad som sker lite bättre! Vi kan avläsa tabellen för att se hur det finns olika mätningar (ID), de tillhör grupperna 0 eller 1 (grupp), och vi har mätt det systoliska och diastoliska blodtrycket (Sys och Dia), två vanliga tal för att beskriva ett blodtryck. Vidare analys kanske berättar åt oss olika gruppvärden, dvs. hurudant blodtryck varje grupp har i medeltal, vilka dessa grupper är, huruvida grupperna skiljer sig i blodtrycket, och så vidare. Det viktiga är, att före vi kan besvara vår fråga om huruvida medicinen fungerar, så måste vi processera och analysera data väldigt mycket. *Data talar inte för sig, de måste masseras till de börjar tala.*
+
+Alla dessa meningar innefattar större filosofiska problem och diskussioner som vi inte nödvändigvis behöver hantera (men som nog är intressanta!). I grund och botten menar detta dock, att nästan vadsomhelst kan vara data, så länge det uppfyller dessa tre huvudkriterier!
+
+Resultaten från en systematiskt utförd enkätstudie? Data.
+
+Arkivdokument? Data.
+
+Inspelade cafédiskussioner? Data.
+
+TikTok-klipp? Data.
+
+Dina hårt utformade tankar? Data.
+
+Alla dessa inbegriper information, kan vara samlade systematiskt (men behöver inte alltid vara det - mer om detta senare), och kan analyseras på något sätt.
+
+## Datalivscykel
+
+Vi kan även förstå data genom att överväga dess **livscykel** metaforiskt. Data föds, data lever, och data dör.
+
+När exakt data föds är - liksom med människor - lite av en filosofisk fråga. För enkelhetens skull kan vi säga att data föds när det har gjorts tillgängligt åt forskaren. Detta innebär att råfilen från ett enkätverktyg är data, men bibliotekets samling är inte data (förutom kanske för huvudbibliotekarien).
+
+Efter att data har fötts måste det hållas i liv för att kunna analyseras. Vi kan tala om datalivsstegen:
+
+1.  Råa data.
+2.  Behandlade data.
+3.  Analyserade data.
+4.  Publicerade data.
+
+Data går då från råvara till processerade varor till produkter och deras publikationer. Vi kan jämföra dessa livssteg med de nationalekonomiska industrierna: råvaruindustrin, förädlingsindustrin och serviceindustrin. Så som björk kan bli plankor och Ikea-möbler kan data bli **variabler**, **analyser** och **publikationer**. Enkätverktygens råfil är en dataråvara, medan den behandlade och summerade datafilen är en förädling, och de resulterande graferna och artikelmanuskripten är produkten.
+
+Många forskare avslutar här, men moderna dataprocesser föreslår att livscykeln inte alls är över ännu! Efter att data har fullbordat sina ursprungliga syften bör de **arkiveras**, **skyddas** och **katalogiseras**. Du bränner inte upp en bok genast då du läst den klart - varför skulle du radera dina data?
+
+## Datakomplexitet
+
+Syftet med detta kapitel är att få dig att tänka på data som en mer komplex grej än bara några siffror eller intervjutranskriptioner. Data är verktyg med vilka vi kan berätta något om verkligheten, berätta historier, eller berätta våra åsikter. För att göra detta **reliabelt** måste våra data hållas rena, fina och dokumenterade. Våra analyser bör vara möjliga att upprepa, våra datamanipulationer genomskinliga och tydliga, våra data okorrumperade och tillgängliga. Detta kan förstås som **dataintegritet**, att våra data håller hög integritet genom hela livscykeln.
+
+Dåligt dokumenterade, konstigt manipulerade, förfalskade, korrumperade eller obegripligt röriga data är inte analyserbara. Tänker du tillbaka till de tre definitionerna på data, så märker du att sådana data faktiskt inte är data! När du jobbar med dina data, håll därför i minnet några av de följande tipsen:
+
+*  Dina data ska vara väldokumenterade. En utomstående ska kunna förstå vad alla siffror/tecken betyder, hur de har skapats och manipulerats, var de finns och hur de kan få tillgång till dessa data.
+*  Skriv loggböcker av dina analyser. Filosofen Bruno Latour rekommenderade fyra sådana: en för forskningsprojektets praktiska arrangemang, en för databehandlingen, en för skrivprocessens delmoment och en för projektets slutliga effekt på det som studerades. Detta kan vara lite *overkill*, men skriv gärna ned vilka datamanipulationer du gjort, vilka inställningar du använder, hur du tolkar och resonerar!
+*  Dokumentation kan finnas så nära data som möjligt: vissa analysprogram tillåter att dokumentationen kopplas i datafilen, andra kräver separata dokument. Ju mera avstånd det är mellan dokumentationen och data, desto lättare är det att tappa kopplingen och göra datafilen obegriplig. Om du jobbar med R har du en fördel: alla manipulationer dokumenteras i dina script-filer!
+
+## Datadelning
+
+Som tidigare sagt bör data skyddas, arkiveras och katalogiseras efter användningen. Ett sådant steg är en **öppen datadelning**. Detta innebär att du publicerar dina data offentligt i ett **datalager** (eng. *data repository*). Hur detta praktiskt görs behandlas i ett senare kapitel, men för att baka in detta som ett gott beteende ska vi inleda med att ladda ned data för senare analyser.
+
+Ett datalager är en service som någon upprätthåller, där du kan förvara dina datafiler för viss tid eller för evigt. Idén med ett datalager är lite som ett dokumentarkiv: i princip ska data förvaras för evigt, eller åtminstone så länge som det går med grundliga arrangemang. Det finns många olika datalager, vissa kostnadsbelagda och vissa gratis.
+
+**Zenodo** är ett datalager som vi kommer att bruka senare. Gå till kapitel XXX om du vill veta mera om Zenodo.
+
+För vårt bruk använder vi [Finlands samhällsvetenskapliga dataarkiv](https://www.fsd.tuni.fi/sv/), FSD eller även kallat **Aila**. Datalagret upprätthålls av Tammerfors universitet, och är gratis att bruka. I datalagret kan du finna både kvantitativa (siffror) och kvalitativa (texter) datafiler, och du kan även arkivera dina egna data med lite möd och arbete.
+
+På Aila-hemsidan kan du välja att söka efter datafiler enligt namn, tillgänglighet, datatyp och språk. Datatillgänglighet är indelad i fyra kategorier:
+
+A.  Tillgänglig för alla utan registrering (licens CC-BY 4.0)
+B.  Tillgänglig med registrering för forskning, studier och undervisning
+C.  Tillgänglig med registrering endast för forskning, inklusive högre lärdomsprov och doktorsavhandlingar
+D.  Tillgänglig endast med tillstånd
+
+Registrering innebär inloggning med Haka-federationens lösen, vilka är tillgängliga åt dig automatiskt om du är student vid en finländsk högskola. Om du har problem med Haka-inloggning, följ instruktionerna din högskola ger dig (t.ex. på intranätet eller genom att kontakta IT-stödet vid din högskola). Om du inte har Haka-lösen kan du endast använda data i kategori A - men det finns mycket av dessa, och A-data är inte sämre än andra data!
+
+Tillgängligheten ställs in av forskaren enligt principen *så öppet som tillåtet, så stängt som krävt*. Detta innebär att datafiler i princip ska öppnas för allmänheten (A), men begränsningar så som personsekretess, licenser och dylikt kan medföra mer strikta användningsnivåer (B-D).
+
+## Övning: Ladda ned Finlandssvenska barometern 2008
+
+I denna kursbok använder vi oss av en specifik datafil: **Finlandssvenska barometern 2008**. Du kan prova hitta den genom Aila själv, eller klicka på [denna länk](https://services.fsd.tuni.fi/catalogue/FSD3200?tab=summary&study_language=en&lang=en).
+
+Följ stegen till att ladda ned datafilen, i formen av en Zip-fil. Detta är en komprimerad mapp, vilket innebär att den måste avkomprimeras med ditt favorit zip-program^[Något alla vanliga människor har, förmodar jag.].
+
+Om du lyckas avkomprimera filen hittar du en mapp med några textfiler och ytterligare en mapp, `Study`. Textfilen `README.txt` innehåller information om de data du nyss laddade ned, inklusive en listning av alla filer som borde finnas med samt en licensbeskrivning.
+
+Genom att ladda ned filen har vi godkänt att vi licenserar filen med licensen **CC-BY 4.0**. Detta står för "Creative Commons Attribution 4.0 license", och är en slags öppen licens för diverse resurser. Det viktiga som du måste beakta är licensdelen "-BY", alltså "Attribution". Detta betyder att du **måste** (inte en rekommendation, ett krav!) säga vem som har skapat datafilen när du använder den. Du får manipulera den, du får ompublicera den, du får förtjäna pengar på den, men du måste säga vem som skapade den ursprungligen.
+
+Finlandssvenska barometern 2008 är skapad av Kjell Herberts vid Åbo Akademi - som det står i `README.txt`.
+
+I mappen `Study` hittar du två PDF-filer och en ytterligare mapp, `data`. PDF-filen vars namn börjar med `cb` är **kodboken** (eng. *code book*, därför *cb*), och är ytterst viktig! I kodboken hittar du en förklaring på hur dessa data är insamlade, vilka variabler som finns i datafilen, vad alla siffervärden står för, samt den ursprungliga enkäten. PDF-filen som börjar med `qu` är den ursprungliga enkäten (står för eng. *questionnaire*, därför *qu*), alltså samma som du finner i slutet av kodboken.
+
+Om du kan finska, bekanta dig gärna med kodbokens innehåll i lugn och ro. Om inte, så kommer jag under bokens lopp att översätta relevanta delar - ingen fara!
+
+Inom undermappen `data` hittar du det viktigaste: datafilerna! Det finns tre filer: en med ändelsen `.csv`, en med ändelsen `.por`, och en med ändelsen `.html`.
+
+`.csv`-filen är vad vi kommer att använda. Förkortningen står för `comma-separated value`, filen är ett slags öppet format för hanteringen av större mängder data i **tabularformat**. Detta innebär att varje rad är en **observation** eller en **respondent**, varje kolumn är en **variabel** och varje cell (ruta) är ett **datavärde**. Vi hanterar senare vad dessa betyder. Du kan öppna filen i ett kalkylbladsprogram (Microsoft Excel, LibreOffice Calc, Google Sheets eller liknande) om du vill se innehållet. Då möts du av något som detta:
+
+[Bild av datafilen]
+
+Obegripligt, eller hur? Men ingen fara, vi kommer att sakta bearbeta oss genom filens innehåll och förstå vad allt betyder.
+
+## Avslutningsvis
+
+Grattis, du har påbörjat din resa i forskningens värld genom att bekanta dig med konceptet av *data* och dess innebörd! Det finns dock några ytterligare teoretiska koncept vi måste öva före vi kan hoppa in i den praktiska analysen. Först tar vi ett fågelperspektiv: hur går forskningsprocessen till väga? Hur kommer du genom datalivscykeln, vad händer på vägen, och är du samma människa när du hoppar ut som när du hoppade in? Svaret på den sista frågan beror på din livsfilosofi, men de övriga handlar om **forskningsprocessen**.

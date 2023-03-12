@@ -1,5 +1,9 @@
 # Introduktion till R-språket
 
+<!-- TODO:
+- Replace RStudio pictures with an empty project structure, to lessen confusion.
+-->
+
 R är ett öppet programmeringsspråk för statistisk analys. "Öppet" innebär att vem som helst kan gratis ladda ned och installera R, men även utveckla R. Detta innebär att R har otroliga mängder statistiska verktyg, de nyaste metoderna, och många sätt att göra statistisk forskning. Detta innebär också att verktyg kan gå sönder, fungera instabilt eller innehålla fel.
 
 Om du har jobbat med statistik tidigare, kanske du är bekant med ett annat verktyg, så som IBM SPSS Statistics, SAS, Stata, eller kanske Microsoft Excel. Det dåliga är, att du måste troligen lära dig mycket nytt med R - inte minst för att det största arbetet görs med kodtext, inte med menyer och visuella hjälpmedel. Å andra sidan är statistiken densamma överallt, och i många syften är R mer pedagogiskt än "enklare" statistiska verktyg: då du skriver kod i R måste du berätta *exakt* vad du vill ha ut ur analysen. Det finns med andra ord inga genvägar (nästan).
@@ -10,7 +14,11 @@ För att använda R (och följa med i boken) måste du först installera R. Utö
 
 ### Installering av R
 
-Du finner den nyaste installationen av R på [R-projektets hemsida](https://www.r-project.org/). Vid skrivande stund är den nyaste versionen 4.2.2, och denna bok är skriven med Version `r getRversion()`.
+Du finner den nyaste installationen av R på [R-projektets hemsida](https://www.r-project.org/). Vid skrivande stund är den nyaste versionen 4.2.2, och denna bok är skriven med version `r getRversion()`.
+
+::: {.column-margin}
+`base::getRversion()`: Returnerar versionen av R du har aktiv.
+:::
 
 R är decentraliserat, vilket bl.a. innebär att det inte finns en endaste plats att ladda ned språket från. Istället laddar vi R (och senare R-resurser) från **CRAN** (eng. *Comprehensive R Archive Network*). CRAN uppdateras kontinuerligt till servrar upprätthållna av universitet runtom världen. Det betyder att i sällsynta fall kan en specifik CRAN-server vara "efter" i uppdateringarna, men oftast innebär detta enbart att du måste välja vilken server du laddar R-relaterade resurser ned från.
 
@@ -30,17 +38,21 @@ RStudio är ett öppet IDE för R-språket. Du finner den nyaste versionen av RS
 
 Öppna RStudio när installationen är klar. Du kommer att mötas av en syn ungefär lik denna:
 
-```{r, r-studio-pic, echo=FALSE}
-knitr::include_graphics("images/r-studio.png")
-```
+![RStudio i sin spektakulära helhet](images/r-studio.png){#fig-rstudio-total}
 
 Programmet är uppdelat ungefär i fem delar: högst uppe över hela fönstret finner du en **navigeringsbalk** med menyer så som `File`, `Edit`, `Code`, och så vidare. Sedan finner du fyra fönsteraktiga rutor, alla med en massa text, filer, tabbar och så vidare. Vi går igenom de viktigaste kort nedan.
 
+![Navigeringsbalken](images/r-studio-1.png){#fig-rstudio-1}
+
 I **övre vänstra hörnet** lever dina filer. Märk, att om du öppnar RStudio för första gången, så finns det inga filer här. Med andra ord finns inte heller fönstret. Men ingen fara! När du skapar dina första R-filer kommer de att synas här, och din vy kommer att se ut som på bilden.
 
-I bilden har jag öppet fyra filer relaterade till denna bok: `_bookdown.yml`, `introduktion-till-r-spraket.Rmd` (detta kapitel), `_output.yml` och `statistisk-inferens.Rmd`. R-kod kan skrivas i en fil för att sedan **köras** (eng. *execute*). Du kan skapa R-filer fritt, med en regel: om du inte importerar filen som ett paket (se kapitel XXX), så kan du inte köra kod från en fil om inte filen är öppen och aktiv i rutan. Det är bra att lära sig att samla skriven kod i filer, så att du kan **reproducera** ditt arbete i ett senare skede.
+![Filområdet](images/r-studio-2.png){#fig-rstudio-2}
 
-I **nedre vänstra hörnet** finner du verktyg relaterade till att köra kod.
+I @fig-rstudio-2 har jag öppet fyra filer relaterade till denna bok: `_bookdown.yml`, `introduktion-till-r-spraket.Rmd` (detta kapitel), `_output.yml` och `statistisk-inferens.Rmd`. R-kod kan skrivas i en fil för att sedan **köras** (eng. *execute*). Du kan skapa R-filer fritt, med en regel: om du inte importerar filen som ett paket (se kapitel XXX), så kan du inte köra kod från en fil om inte filen är öppen och aktiv i rutan. Det är bra att lära sig att samla skriven kod i filer, så att du kan **reproducera** ditt arbete i ett senare skede.
+
+I **nedre vänstra hörnet** finner du verktyg relaterade till att köra kod, så som visas i @fig-rstudio-3.
+
+![Körningsområdet](images/r-studio-3.png){#fig-rstudio-3}
 
 Tabben `Console` agerar som ett slags live-fönster för att köra kod: du kan skriva direkta kommando i konsolen och trycka på Enter för att köra dem i realtid. Allt du kan göra genom kod i filerna kan du även göra i konsolen, men det blir tungt att köra komplexa kodfiler rad för rad i konsolen. Konsolen är dock användbar när du testar saker, eftersom du kan snabbt köra om kommando: använd `PIL UPP` och `PIL NED` för att återskapa kommando som du kört senast!
 
@@ -52,15 +64,22 @@ Tabben `Background Jobs` används om du gör asynkrona kodkörningar - något v�
 
 I **övre högra hörnet** finns några verktyg för att undersöka vad som finns öppet i din R-instans. **Instanser** är aktiva "versioner" av R. Du kan tänka dig att varje gång du öppnar R, öppnar du en ny papplåda inom vilken du kan stapla data, ändra på variabler, skapa grafer, jobba med olika paket, osv. Då du stänger R tömmer du lådan och packar den undan.
 
+![Instansområdet](images/r-studio-4.png){#fig-rstudio-4}
+
 Under tabben `Environment` finner du dina öppna variabler. Då du öppnar RStudio är rutan kanske tom. Men pröva på att köra nedanstående kod i konsolen (klipp och klistra kodtexten i konsolen och tryck Enter för att köra):
 
 ```{r environment-exempel}
 data <- c(1:5)
 ```
+::: {.column-margin}
+`base::c()`: Skapar en vektor av givna data.
+:::
 
 Om du körde den rätt, så borde det dyka upp en variabel med namnet `data` i `Environment`-rutan. Grattis, du har skapat din första variabel! Tabben `History` berättar åt dig vilka kodsnuttar som har körts senast, vilket kan vara nyttigt om du testar funktioner i konsolen. De övriga tabbarna är inte nödvändiga för vårt bruk, men du kan alltid undersöka [manualen för RStudio](https://docs.posit.co/ide/user/) om du är intresserad.
 
 I **nedre högra hörnet** finner du filer, grafik och hjälpmenyn, bland annat. Dessa är väldigt användbara, och du kommer ofta att återvända till detta hörn.
+
+![Produktområdet](images/r-studio-5.png){#fig-rstudio-5}
 
 Tabben `Files` visar dig filstrukturen av den aktiva arbetskatalogen (eng. *working directory*). I detta skede kanske du ser filstrukturen av R-installationens katalog. Vi återkommer till hur du byter denna arbetskatalog till mappen där du (förhoppningsvis) sparar dina projektfiler.
 
@@ -69,6 +88,10 @@ Tabben `Plots` innehåller din grafik. Just nu är den tom, men ändra på saken
 ```{r plots-exempel}
 hist(rnorm(100))
 ```
+::: {.column-margin}
+`graphics::hist()`: Skapar ett histogram av givna data. <br/>
+`stats::rnorm(n)`: Drar `n` antal urval från en normalfördelning.
+:::
 
 Nu borde du se en fin graf med namnet `Histogram of rnorm(100)` i rutan[^introduktion-till-r-spraket-1]. Grattis - det var din första graf!
 
@@ -77,6 +100,11 @@ Nu borde du se en fin graf med namnet `Histogram of rnorm(100)` i rutan[^introdu
 Tabben `Packages` visar alla paket du har installerat på din dator, samt ifall du har aktiverat paketet i din R-instans. Detta förklaras i ett senare kapitel.
 
 Tabben `Help` visar dig hjälpfiler och dokumentation om du ber om det. Detta är ytterst viktigt! Du kommer väldigt ofta att finna dig i en situation där du vet att en funktion finns, men du vet inte hur den fungerar. Med förtecknet `?` kan du söka efter förklaringar i R-dokumentationen: `?hist` öppnar hjälpsidan för den inbyggda R-funktionen för att skapa histogram. I början kan hjälpsidorna vara svåra att läsa, men du finner snabbt att de alltid är strukturerade på ungefär samma sätt. Vi diskuterar detta mera i nästa underkapitel.
+
+::: {.column-margin}
+`?func`: Visar hjälpsidorna för funktionen `func()`. <br/>
+`??func`: Söker hjälpsidorna genom för dokument som nämner `func`.
+:::
 
 Tabbarna `Viewer` och `Presentation` används inte i denna bok.
 
@@ -102,6 +130,11 @@ Din filstruktur blir nu synlig i `Files`-tabben i nedre högra hörnet, och inne
 Om du märker senare i ditt arbete att du inte längre minns var dina filer har blivit sparade på din dator, kan du använda dig av funktionen `getwd()`. Genom att köra den i konsolen får du reda på filadressen.
 
 Du kan även ändra adressen senare, genom funktionen `setwd()`. Märk dock att detta *inte* flyttar över alla dina nuvarande filer, och kan därmed orsaka mycket strul och bekymmer.
+:::
+
+::: {.column-margin}
+`base::getwd()`: Returnerar filadressen för nuvarande arbetsmiljö. <br/>
+`base::setwd(path)`: Ställer in filadressen för arbetsmiljön till `path`.
 :::
 
 Till näst ska du skapa en **R-fil**. Detta blir filen som du skriver din kod i för att sedan processera med datorn och köra. Du kan skapa en ny R-fil på tre sätt:
@@ -153,6 +186,10 @@ På samma sätt har R olika "register", vilka kallas för **paket**. I själva v
 -   `foreign`: Verktyg för att läsa in data från olika filformater, bl.a. SPSS- och Stata-filer.
 -   `stats`: Grundläggande statistiska modeller och testverktyg.
 
+::: {.column-margin}
+`base::loadedNamespaces()`: Returnerar vektor med alla aktiva paket.
+:::
+
 ::: {.extra-info data-latex=""}
 ::: {.center data-latex=""}
 **Masking**
@@ -171,13 +208,21 @@ Paket laddas ned från CRAN[^introduktion-till-r-spraket-5], på samma sätt som
 
 [^introduktion-till-r-spraket-5]: De kan även laddas ned och byggas från t.ex. GitHub, men vi håller oss till CRAN-paket i denna bok.
 
-Funktionen `install_packages(*paket)` låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument `install_packages()`, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. `install_packages(ppcor)`. Detta exempel installerar paketet `ppcor`, vilket innehåller funktioner för partiella och delkorrelationer.
+Funktionen `install.packages(*paket)` låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument `install.packages()`, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. `install.packages(ppcor)`. Detta exempel installerar paketet `ppcor`, vilket innehåller funktioner för partiella och delkorrelationer.
 
-För att ladda ned ett paket *samt* alla de subpaket paketet kräver för att fungera, använd argumentet "dependencies": `install_packages("ppcor", dependencies=TRUE)`.
+::: {.column-margin}
+`utils::install.packages(paket)`: Installerar paketet `paket` från CRAN. Ber dig välja CRAN-server om den inte redan är vald.
+:::
+
+För att ladda ned ett paket *samt* alla de subpaket paketet kräver för att fungera, använd argumentet "dependencies": `install.packages("ppcor", dependencies=TRUE)`.
 
 Du behöver endast installera ett paket en gång, så du har inget behov att köra funktionen varje gång du öppnar R. Däremot måste du **aktivera** ett paket varje gång du vill använda det i en unik R-instans. När du aktiverar ett paket dyker det upp i vektorn som `loadedNamespaces()` producerar, och då är alla paketets funktioner äntligen användbara.
 
 Du kan aktivera ett paket i RStudio genom att trycka för checkboxen bredvid paketets namn. I kod kan du aktivera ett paket med funktionen `library(paket)`. Märk att ordningen av paketens aktivering kan påverka vilken funktion som blir aktiv i en situation där du har dubbletter!
+
+::: {.column-margin}
+`base::library(paket)`: Aktiverar paketet `paket`. Paketet måste vara installerat först.
+:::
 
 ## Data in och ut ur R
 

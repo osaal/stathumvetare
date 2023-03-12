@@ -16,6 +16,7 @@ book:
     - part: "Analysens logik"
       chapters:
         - "01-vad-är-statistik.qmd"
+        - "vad-är-data.qmd"
         - "02-från-ide-till-rapport.qmd"
         - "03-variabler.qmd"
         - "04-modeller.qmd"
@@ -38,3 +39,5 @@ format:
   html:
     theme: cosmo
     css: "style.css"
+    citation-location: margin
+    reference-location: margin

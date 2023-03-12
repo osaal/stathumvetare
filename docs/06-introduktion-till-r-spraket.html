@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 6&nbsp; Introduktion till R-språket</title>
+<title>Människovetaren och statistiken - 7&nbsp; Introduktion till R-språket</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,13 +129,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -178,22 +178,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  <a href="./vad-är-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vad är data?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
   </div>
 </li>
       </ul>
@@ -208,27 +213,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Paket</span></a>
+  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Paket</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
+  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -243,16 +248,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./källförteckning.html" class="sidebar-item-text sidebar-link">Källförteckning</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -262,27 +272,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installera-r-och-rstudio" id="toc-installera-r-och-rstudio" class="nav-link active" data-scroll-target="#installera-r-och-rstudio"><span class="toc-section-number">6.1</span>  Installera R och RStudio</a>
+  <li><a href="#installera-r-och-rstudio" id="toc-installera-r-och-rstudio" class="nav-link active" data-scroll-target="#installera-r-och-rstudio"><span class="toc-section-number">7.1</span>  Installera R och RStudio</a>
   <ul class="collapse">
-  <li><a href="#installering-av-r" id="toc-installering-av-r" class="nav-link" data-scroll-target="#installering-av-r"><span class="toc-section-number">6.1.1</span>  Installering av R</a></li>
-  <li><a href="#installering-av-rstudio" id="toc-installering-av-rstudio" class="nav-link" data-scroll-target="#installering-av-rstudio"><span class="toc-section-number">6.1.2</span>  Installering av RStudio</a></li>
-  <li><a href="#navigering-i-rstudio" id="toc-navigering-i-rstudio" class="nav-link" data-scroll-target="#navigering-i-rstudio"><span class="toc-section-number">6.1.3</span>  Navigering i RStudio</a></li>
+  <li><a href="#installering-av-r" id="toc-installering-av-r" class="nav-link" data-scroll-target="#installering-av-r"><span class="toc-section-number">7.1.1</span>  Installering av R</a></li>
+  <li><a href="#installering-av-rstudio" id="toc-installering-av-rstudio" class="nav-link" data-scroll-target="#installering-av-rstudio"><span class="toc-section-number">7.1.2</span>  Installering av RStudio</a></li>
+  <li><a href="#navigering-i-rstudio" id="toc-navigering-i-rstudio" class="nav-link" data-scroll-target="#navigering-i-rstudio"><span class="toc-section-number">7.1.3</span>  Navigering i RStudio</a></li>
   </ul></li>
-  <li><a href="#ställ-in-din-r-miljö" id="toc-ställ-in-din-r-miljö" class="nav-link" data-scroll-target="#ställ-in-din-r-miljö"><span class="toc-section-number">6.2</span>  Ställ in din R-miljö</a></li>
-  <li><a href="#paket" id="toc-paket" class="nav-link" data-scroll-target="#paket"><span class="toc-section-number">6.3</span>  Paket</a>
+  <li><a href="#ställ-in-din-r-miljö" id="toc-ställ-in-din-r-miljö" class="nav-link" data-scroll-target="#ställ-in-din-r-miljö"><span class="toc-section-number">7.2</span>  Ställ in din R-miljö</a></li>
+  <li><a href="#paket" id="toc-paket" class="nav-link" data-scroll-target="#paket"><span class="toc-section-number">7.3</span>  Paket</a>
   <ul class="collapse">
-  <li><a href="#installera-och-aktivera-paket" id="toc-installera-och-aktivera-paket" class="nav-link" data-scroll-target="#installera-och-aktivera-paket"><span class="toc-section-number">6.3.1</span>  Installera och aktivera paket</a></li>
+  <li><a href="#installera-och-aktivera-paket" id="toc-installera-och-aktivera-paket" class="nav-link" data-scroll-target="#installera-och-aktivera-paket"><span class="toc-section-number">7.3.1</span>  Installera och aktivera paket</a></li>
   </ul></li>
-  <li><a href="#data-in-och-ut-ur-r" id="toc-data-in-och-ut-ur-r" class="nav-link" data-scroll-target="#data-in-och-ut-ur-r"><span class="toc-section-number">6.4</span>  Data in och ut ur R</a></li>
+  <li><a href="#data-in-och-ut-ur-r" id="toc-data-in-och-ut-ur-r" class="nav-link" data-scroll-target="#data-in-och-ut-ur-r"><span class="toc-section-number">7.4</span>  Data in och ut ur R</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></h1>
 </div>
 
 
@@ -297,47 +307,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<!-- TODO:
+- Replace RStudio pictures with an empty project structure, to lessen confusion.
+-->
 <p>R är ett öppet programmeringsspråk för statistisk analys. “Öppet” innebär att vem som helst kan gratis ladda ned och installera R, men även utveckla R. Detta innebär att R har otroliga mängder statistiska verktyg, de nyaste metoderna, och många sätt att göra statistisk forskning. Detta innebär också att verktyg kan gå sönder, fungera instabilt eller innehålla fel.</p>
 <p>Om du har jobbat med statistik tidigare, kanske du är bekant med ett annat verktyg, så som IBM SPSS Statistics, SAS, Stata, eller kanske Microsoft Excel. Det dåliga är, att du måste troligen lära dig mycket nytt med R - inte minst för att det största arbetet görs med kodtext, inte med menyer och visuella hjälpmedel. Å andra sidan är statistiken densamma överallt, och i många syften är R mer pedagogiskt än “enklare” statistiska verktyg: då du skriver kod i R måste du berätta <em>exakt</em> vad du vill ha ut ur analysen. Det finns med andra ord inga genvägar (nästan).</p>
-<section id="installera-r-och-rstudio" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="installera-r-och-rstudio"><span class="header-section-number">6.1</span> Installera R och RStudio</h2>
+<section id="installera-r-och-rstudio" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="installera-r-och-rstudio"><span class="header-section-number">7.1</span> Installera R och RStudio</h2>
 <p>För att använda R (och följa med i boken) måste du först installera R. Utöver detta rekommenderar jag varmt att du installerar ett <strong>IDE</strong> (eng. <strong>Integrated Development Environment</strong>). I denna bok använder jag <strong>RStudio</strong>, och därför ger jag instruktionerna för att installera RStudio. Du kan fritt välja ditt eget IDE, men märk då att den visuella utläggningen (samt några verktyg) kan se annorlunda ut eller saknas. R i sig är detsamma oavsett vilket IDE du väljer.</p>
-<section id="installering-av-r" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="installering-av-r"><span class="header-section-number">6.1.1</span> Installering av R</h3>
-<p>Du finner den nyaste installationen av R på <a href="https://www.r-project.org/">R-projektets hemsida</a>. Vid skrivande stund är den nyaste versionen 4.2.2, och denna bok är skriven med Version 4.2.2.</p>
-<p>R är decentraliserat, vilket bl.a. innebär att det inte finns en endaste plats att ladda ned språket från. Istället laddar vi R (och senare R-resurser) från <strong>CRAN</strong> (eng. <em>Comprehensive R Archive Network</em>). CRAN uppdateras kontinuerligt till servrar upprätthållna av universitet runtom världen. Det betyder att i sällsynta fall kan en specifik CRAN-server vara “efter” i uppdateringarna, men oftast innebär detta enbart att du måste välja vilken server du laddar R-relaterade resurser ned från.</p>
+<section id="installering-av-r" class="level3 page-columns page-full" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="installering-av-r"><span class="header-section-number">7.1.1</span> Installering av R</h3>
+<p>Du finner den nyaste installationen av R på <a href="https://www.r-project.org/">R-projektets hemsida</a>. Vid skrivande stund är den nyaste versionen 4.2.2, och denna bok är skriven med version 4.2.2.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::getRversion()</code>: Returnerar versionen av R du har aktiv.</p>
+</div></div><p>R är decentraliserat, vilket bl.a. innebär att det inte finns en endaste plats att ladda ned språket från. Istället laddar vi R (och senare R-resurser) från <strong>CRAN</strong> (eng. <em>Comprehensive R Archive Network</em>). CRAN uppdateras kontinuerligt till servrar upprätthållna av universitet runtom världen. Det betyder att i sällsynta fall kan en specifik CRAN-server vara “efter” i uppdateringarna, men oftast innebär detta enbart att du måste välja vilken server du laddar R-relaterade resurser ned från.</p>
 <p>Inget universitet i Finland upprätthåller CRAN vid tillfället, men t.ex. <a href="https://ftp.acc.umu.se/mirror/CRAN/">Umeå universitet</a> har en uppdaterad CRAN-server.</p>
 <p>Efter att du har valt CRAN-server, välj R-installation enligt versionen du vill ha (oftast den nyaste stabila; undvik beta-versioner om du inte har ett explicit behov för dem), och välj ditt operativsystem. Windows-, Mac- och Linux-system kan alla använda R - och använder du Linux, kanske du redan har en installation på din dator. Jag använder Windows, så exempelbilderna i denna bok kommer att härstamma från en Windows-installation.</p>
 <p>Installera R enligt installationsfilens instruktioner. Om du åker fast kan du finna noggrannare instruktioner på <a href="https://ftp.acc.umu.se/mirror/CRAN/">CRAN-serverns sidor</a>.</p>
 <p>Om du vill kan du köra igång med programmering bara med R-installationen. Jag rekommenderar dock att du även installerar ett IDE, t.ex. RStudio nedan, eftersom det stort underlättar arbetet (du kommer att inse varför).</p>
 </section>
-<section id="installering-av-rstudio" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="installering-av-rstudio"><span class="header-section-number">6.1.2</span> Installering av RStudio</h3>
+<section id="installering-av-rstudio" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="installering-av-rstudio"><span class="header-section-number">7.1.2</span> Installering av RStudio</h3>
 <p>RStudio är ett öppet IDE för R-språket. Du finner den nyaste versionen av RStudio på <a href="https://posit.co/">projektets hemsida</a>. Navigera dig till installationslänken. När nätsidan ber dig att installera R kan du fnissa för dig själv - det har du redan gjort! - och bara välja att ladda ned installationsfilen för RStudio för ditt operativsystem.</p>
 </section>
-<section id="navigering-i-rstudio" class="level3" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="navigering-i-rstudio"><span class="header-section-number">6.1.3</span> Navigering i RStudio</h3>
+<section id="navigering-i-rstudio" class="level3 page-columns page-full" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="navigering-i-rstudio"><span class="header-section-number">7.1.3</span> Navigering i RStudio</h3>
 <p>Öppna RStudio när installationen är klar. Du kommer att mötas av en syn ungefär lik denna:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/r-studio.png" class="img-fluid" width="1280"></p>
-</div>
+<div id="fig-rstudio-total" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: RStudio i sin spektakulära helhet</figcaption><p></p>
+</figure>
 </div>
 <p>Programmet är uppdelat ungefär i fem delar: högst uppe över hela fönstret finner du en <strong>navigeringsbalk</strong> med menyer så som <code>File</code>, <code>Edit</code>, <code>Code</code>, och så vidare. Sedan finner du fyra fönsteraktiga rutor, alla med en massa text, filer, tabbar och så vidare. Vi går igenom de viktigaste kort nedan.</p>
+<div id="fig-rstudio-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Navigeringsbalken</figcaption><p></p>
+</figure>
+</div>
 <p>I <strong>övre vänstra hörnet</strong> lever dina filer. Märk, att om du öppnar RStudio för första gången, så finns det inga filer här. Med andra ord finns inte heller fönstret. Men ingen fara! När du skapar dina första R-filer kommer de att synas här, och din vy kommer att se ut som på bilden.</p>
-<p>I bilden har jag öppet fyra filer relaterade till denna bok: <code>_bookdown.yml</code>, <code>introduktion-till-r-spraket.Rmd</code> (detta kapitel), <code>_output.yml</code> och <code>statistisk-inferens.Rmd</code>. R-kod kan skrivas i en fil för att sedan <strong>köras</strong> (eng. <em>execute</em>). Du kan skapa R-filer fritt, med en regel: om du inte importerar filen som ett paket (se kapitel XXX), så kan du inte köra kod från en fil om inte filen är öppen och aktiv i rutan. Det är bra att lära sig att samla skriven kod i filer, så att du kan <strong>reproducera</strong> ditt arbete i ett senare skede.</p>
-<p>I <strong>nedre vänstra hörnet</strong> finner du verktyg relaterade till att köra kod.</p>
+<div id="fig-rstudio-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.3: Filområdet</figcaption><p></p>
+</figure>
+</div>
+<p>I <a href="#fig-rstudio-2">Figure&nbsp;<span>7.3</span></a> har jag öppet fyra filer relaterade till denna bok: <code>_bookdown.yml</code>, <code>introduktion-till-r-spraket.Rmd</code> (detta kapitel), <code>_output.yml</code> och <code>statistisk-inferens.Rmd</code>. R-kod kan skrivas i en fil för att sedan <strong>köras</strong> (eng. <em>execute</em>). Du kan skapa R-filer fritt, med en regel: om du inte importerar filen som ett paket (se kapitel XXX), så kan du inte köra kod från en fil om inte filen är öppen och aktiv i rutan. Det är bra att lära sig att samla skriven kod i filer, så att du kan <strong>reproducera</strong> ditt arbete i ett senare skede.</p>
+<p>I <strong>nedre vänstra hörnet</strong> finner du verktyg relaterade till att köra kod, så som visas i <a href="#fig-rstudio-3">Figure&nbsp;<span>7.4</span></a>.</p>
+<div id="fig-rstudio-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio-3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.4: Körningsområdet</figcaption><p></p>
+</figure>
+</div>
 <p>Tabben <code>Console</code> agerar som ett slags live-fönster för att köra kod: du kan skriva direkta kommando i konsolen och trycka på Enter för att köra dem i realtid. Allt du kan göra genom kod i filerna kan du även göra i konsolen, men det blir tungt att köra komplexa kodfiler rad för rad i konsolen. Konsolen är dock användbar när du testar saker, eftersom du kan snabbt köra om kommando: använd <code>PIL UPP</code> och <code>PIL NED</code> för att återskapa kommando som du kört senast!</p>
 <p>Tabben <code>Terminal</code> kör ditt operativsystems egna kodterminal. I denna kurs behöver du inte den, men om du kan använda terminalen eller vill jobba med t.ex. Git eller annan versionskontroll, kan terminalen vara av god användning.</p>
 <p>Tabben <code>Render</code> beskriver vad som görs när du kör en fil. Här ser du bl.a. varningar och felmeddelanden (du kommer att se dessa ofta!), samt annan text och <strong>debugging</strong> som du kanske gör.</p>
 <p>Tabben <code>Background Jobs</code> används om du gör asynkrona kodkörningar - något väldigt överkurs för en nybörjare i statistisk data-analys.</p>
 <p>I <strong>övre högra hörnet</strong> finns några verktyg för att undersöka vad som finns öppet i din R-instans. <strong>Instanser</strong> är aktiva “versioner” av R. Du kan tänka dig att varje gång du öppnar R, öppnar du en ny papplåda inom vilken du kan stapla data, ändra på variabler, skapa grafer, jobba med olika paket, osv. Då du stänger R tömmer du lådan och packar den undan.</p>
+<div id="fig-rstudio-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio-4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.5: Instansområdet</figcaption><p></p>
+</figure>
+</div>
 <p>Under tabben <code>Environment</code> finner du dina öppna variabler. Då du öppnar RStudio är rutan kanske tom. Men pröva på att köra nedanstående kod i konsolen (klipp och klistra kodtexten i konsolen och tryck Enter för att köra):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Om du körde den rätt, så borde det dyka upp en variabel med namnet <code>data</code> i <code>Environment</code>-rutan. Grattis, du har skapat din första variabel! Tabben <code>History</code> berättar åt dig vilka kodsnuttar som har körts senast, vilket kan vara nyttigt om du testar funktioner i konsolen. De övriga tabbarna är inte nödvändiga för vårt bruk, men du kan alltid undersöka <a href="https://docs.posit.co/ide/user/">manualen för RStudio</a> om du är intresserad.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::c()</code>: Skapar en vektor av givna data.</p>
+</div></div><p>Om du körde den rätt, så borde det dyka upp en variabel med namnet <code>data</code> i <code>Environment</code>-rutan. Grattis, du har skapat din första variabel! Tabben <code>History</code> berättar åt dig vilka kodsnuttar som har körts senast, vilket kan vara nyttigt om du testar funktioner i konsolen. De övriga tabbarna är inte nödvändiga för vårt bruk, men du kan alltid undersöka <a href="https://docs.posit.co/ide/user/">manualen för RStudio</a> om du är intresserad.</p>
 <p>I <strong>nedre högra hörnet</strong> finner du filer, grafik och hjälpmenyn, bland annat. Dessa är väldigt användbara, och du kommer ofta att återvända till detta hörn.</p>
+<div id="fig-rstudio-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/r-studio-5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.6: Produktområdet</figcaption><p></p>
+</figure>
+</div>
 <p>Tabben <code>Files</code> visar dig filstrukturen av den aktiva arbetskatalogen (eng. <em>working directory</em>). I detta skede kanske du ser filstrukturen av R-installationens katalog. Vi återkommer till hur du byter denna arbetskatalog till mappen där du (förhoppningsvis) sparar dina projektfiler.</p>
 <p>Tabben <code>Plots</code> innehåller din grafik. Just nu är den tom, men ändra på saken genom att köra följande kod i konsolen:</p>
 <div class="cell">
@@ -346,14 +396,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="06-introduktion-till-r-spraket_files/figure-html/plots-exempel-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Nu borde du se en fin graf med namnet <code>Histogram of rnorm(100)</code> i rutan<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Grattis - det var din första graf!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>graphics::hist()</code>: Skapar ett histogram av givna data. <br> <code>stats::rnorm(n)</code>: Drar <code>n</code> antal urval från en normalfördelning.</p>
+</div></div><div class="page-columns page-full"><p>Nu borde du se en fin graf med namnet <code>Histogram of rnorm(100)</code> i rutan<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Grattis - det var din första graf!</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Denna bok visar exempel på vad som borde synas när jag skriver in grafisk kod. Du kan alltså jämföra bilden du skapade i RStudio med bilden i boken, för att kolla att du har kört allt rätt.</p></li></div></div>
 <p>Tabben <code>Packages</code> visar alla paket du har installerat på din dator, samt ifall du har aktiverat paketet i din R-instans. Detta förklaras i ett senare kapitel.</p>
 <p>Tabben <code>Help</code> visar dig hjälpfiler och dokumentation om du ber om det. Detta är ytterst viktigt! Du kommer väldigt ofta att finna dig i en situation där du vet att en funktion finns, men du vet inte hur den fungerar. Med förtecknet <code>?</code> kan du söka efter förklaringar i R-dokumentationen: <code>?hist</code> öppnar hjälpsidan för den inbyggda R-funktionen för att skapa histogram. I början kan hjälpsidorna vara svåra att läsa, men du finner snabbt att de alltid är strukturerade på ungefär samma sätt. Vi diskuterar detta mera i nästa underkapitel.</p>
-<p>Tabbarna <code>Viewer</code> och <code>Presentation</code> används inte i denna bok.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>?func</code>: Visar hjälpsidorna för funktionen <code>func()</code>. <br> <code>??func</code>: Söker hjälpsidorna genom för dokument som nämner <code>func</code>.</p>
+</div></div><p>Tabbarna <code>Viewer</code> och <code>Presentation</code> används inte i denna bok.</p>
 </section>
 </section>
-<section id="ställ-in-din-r-miljö" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="ställ-in-din-r-miljö"><span class="header-section-number">6.2</span> Ställ in din R-miljö</h2>
+<section id="ställ-in-din-r-miljö" class="level2 page-columns page-full" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="ställ-in-din-r-miljö"><span class="header-section-number">7.2</span> Ställ in din R-miljö</h2>
 <p>För att kunna jobba flytande med noggrann koll på var alla dina filer finns behöver du göra några preliminära inställningar i RStudio.</p>
 <p>Det första du gör är att du skapar ett <strong>R-projekt</strong>:</p>
 <ul>
@@ -371,7 +427,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Om du märker senare i ditt arbete att du inte längre minns var dina filer har blivit sparade på din dator, kan du använda dig av funktionen <code>getwd()</code>. Genom att köra den i konsolen får du reda på filadressen.</p>
 <p>Du kan även ändra adressen senare, genom funktionen <code>setwd()</code>. Märk dock att detta <em>inte</em> flyttar över alla dina nuvarande filer, och kan därmed orsaka mycket strul och bekymmer.</p>
 </div>
-<p>Till näst ska du skapa en <strong>R-fil</strong>. Detta blir filen som du skriver din kod i för att sedan processera med datorn och köra. Du kan skapa en ny R-fil på tre sätt:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::getwd()</code>: Returnerar filadressen för nuvarande arbetsmiljö. <br> <code>base::setwd(path)</code>: Ställer in filadressen för arbetsmiljön till <code>path</code>.</p>
+</div></div><p>Till näst ska du skapa en <strong>R-fil</strong>. Detta blir filen som du skriver din kod i för att sedan processera med datorn och köra. Du kan skapa en ny R-fil på tre sätt:</p>
 <ol type="1">
 <li><code>File &gt; New File &gt; R Script</code></li>
 <li>Ikonen för ny fil strax under <code>File</code>-menyn &gt; <code>R Script</code></li>
@@ -390,19 +449,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Markera (måla över) en eller flera kodrader i kodfilen och tryck på <code>Run</code>-knappen i kodfönstrets övre högra hörn. Alternativt, tryck <code>Ctrl + Enter</code>.</li>
 <li><code>Code &gt; Run Region &gt; Run All</code> för att köra hela kodfilen i en gång. Alternativt, tryck ´Alt + Ctrl + R`.</li>
 </ol>
-<div class="extra-info">
+<div class="extra-info page-columns page-full">
 <div class="center">
 <p><strong>Konsolen och kodfiler</strong></p>
 </div>
-<p>Konsolen och kodfilerna lever i skilda världar. Du kan tänka dig kodfilen som en receptbok<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> och konsolen som ditt kök. Bara för att du har ett mumsigt recept på vegetarisk lasagne betyder inte att maten finns färdig i ditt kök!</p>
+<div class="page-columns page-full"><p>Konsolen och kodfilerna lever i skilda världar. Du kan tänka dig kodfilen som en receptbok<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> och konsolen som ditt kök. Bara för att du har ett mumsigt recept på vegetarisk lasagne betyder inte att maten finns färdig i ditt kök!</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Fysiska versioner av receptbloggar.</p></li></div></div>
 <p>Att skriva kod är skilt från att köra kod: när du skriver ned koden händer ännu inget. Först när du trycker på ´Run` skickas koden till konsolen som omtolkar den till maskinspråk bakom kulisserna, utför alla instruktioner, och spottar ut de värden du bett den att ge (inklusive felmeddelande).</p>
 <p>Detta betyder, att om du inte har kört en viss rad kod sedan du öppnade konsolen (varje gång du stänger RStudio nollställs konsolen!), så vet inte konsolen om att den raden kod finns till. Om du får fel som tyder på att ett visst värde inte existerar, kan det alltså bero på att du kanske definierat värdet i din kodfil, men glömt att köra definitionen i konsolen.</p>
 </div>
 <p>När du stänger RStudio tömmer den sitt minne och “glömmer” bort allt som inte har sparats. Om du sparat dina kodfiler är det ingen fara, du kan öppna dem på nytt. Däremot glömmer R bort alla objekt du kallat i konsolen (mera om vad dessa är senare), så du måste upprepa dina steg på nytt när du börjar om nästa gång. Detta är en bra sak, trots att det låter arbetsdrygt! Det tvingar dig att reproducera dina resultat om och om igen, vilket säkrar att du vet vad du gör, resultaten stannar detsamma, och det faktiskt går att reproducera dina analyser.</p>
 <p>RStudio <em>kan</em> spara arbetsmiljön i formen av en <code>.Rdata</code>-fil, och när du stänger RStudio frågar den dig om du vill göra så. Detta är dålig praxis och rekommenderas inte, eftersom du riskerar att blanda ihop projekt och data om du byter mellan olika analyser.</p>
 </section>
-<section id="paket" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="paket"><span class="header-section-number">6.3</span> Paket</h2>
+<section id="paket" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="paket"><span class="header-section-number">7.3</span> Paket</h2>
 <p>R-språket kan förstås som en bas, lite liknande som grunderna i ett naturligt språk. Du kan göra en hel del med grunderna, uttrycka grundläggande meningar och kanske även klara dig relativt långt i kommunikation. Snabbt når du dock en vägg, där språket inte räcker till. För att utvidga språket lär du dig nya semantiska register, samlingar av ord som alla tillhör något visst område. Du kanske lär dig naturvetenskapliga ord, eller IT-relaterade ord, eller ord om familjelivet.</p>
 <p>På samma sätt har R olika “register”, vilka kallas för <strong>paket</strong>. I själva verket är basinstallationen av R uppbyggd av paket. I <code>Packages</code>-tabben i RStudio kan du se vilka paket som finns installerade samt aktiverade i din R-instans. Du kan även hämta en vektor med alla aktiva paket genom att köra kommandot <code>base::loadedNamespaces()</code>. Några viktiga paket som kan hjälpa dig i dina studier är:</p>
 <ul>
@@ -411,7 +470,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>foreign</code>: Verktyg för att läsa in data från olika filformater, bl.a. SPSS- och Stata-filer.</li>
 <li><code>stats</code>: Grundläggande statistiska modeller och testverktyg.</li>
 </ul>
-<div class="extra-info">
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::loadedNamespaces()</code>: Returnerar vektor med alla aktiva paket.</p>
+</div></div><div class="extra-info">
 <div class="center">
 <p><strong>Masking</strong></p>
 </div>
@@ -419,29 +481,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Låt oss säga att vi har två paket, <code>A</code> och <code>B</code>, som båda innehåller en funktion med samma namn, <code>f()</code>. Om du aktiverar paket <code>A</code> först och paket <code>B</code> sedan, och kör <code>f()</code>, så kommer R att köra versionen från <code>B</code>. Om du aktiverar <code>B</code> först och <code>A</code> sedan, kör R versionen från <code>A</code>.</p>
 <p>Hur kommer man runt detta? Det lättaste sättet är att köra <strong>explicita</strong> kommandon. Dessa skrivs i formen <code>paket::funktion()</code>. Detta säkrar att du kör funktionen från det paket du vill köra från.</p>
 </div>
-<section id="installera-och-aktivera-paket" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="installera-och-aktivera-paket"><span class="header-section-number">6.3.1</span> Installera och aktivera paket</h3>
-<p>Paket laddas ned från CRAN<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, på samma sätt som basinstallationen av R. Men du behöver inte gå på nätet och söka efter suspekta <code>.exe</code>-filer - du kan installera paket direkt ur R!</p>
-<p>Funktionen <code>install_packages(*paket)</code> låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument <code>install_packages()</code>, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. <code>install_packages(ppcor)</code>. Detta exempel installerar paketet <code>ppcor</code>, vilket innehåller funktioner för partiella och delkorrelationer.</p>
-<p>För att ladda ned ett paket <em>samt</em> alla de subpaket paketet kräver för att fungera, använd argumentet “dependencies”: <code>install_packages("ppcor", dependencies=TRUE)</code>.</p>
+<section id="installera-och-aktivera-paket" class="level3 page-columns page-full" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="installera-och-aktivera-paket"><span class="header-section-number">7.3.1</span> Installera och aktivera paket</h3>
+<div class="page-columns page-full"><p>Paket laddas ned från CRAN<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, på samma sätt som basinstallationen av R. Men du behöver inte gå på nätet och söka efter suspekta <code>.exe</code>-filer - du kan installera paket direkt ur R!</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;De kan även laddas ned och byggas från t.ex. GitHub, men vi håller oss till CRAN-paket i denna bok.</p></li></div></div>
+<p>Funktionen <code>install.packages(*paket)</code> låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument <code>install.packages()</code>, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. <code>install.packages(ppcor)</code>. Detta exempel installerar paketet <code>ppcor</code>, vilket innehåller funktioner för partiella och delkorrelationer.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>utils::install.packages(paket)</code>: Installerar paketet <code>paket</code> från CRAN. Ber dig välja CRAN-server om den inte redan är vald.</p>
+</div></div><p>För att ladda ned ett paket <em>samt</em> alla de subpaket paketet kräver för att fungera, använd argumentet “dependencies”: <code>install.packages("ppcor", dependencies=TRUE)</code>.</p>
 <p>Du behöver endast installera ett paket en gång, så du har inget behov att köra funktionen varje gång du öppnar R. Däremot måste du <strong>aktivera</strong> ett paket varje gång du vill använda det i en unik R-instans. När du aktiverar ett paket dyker det upp i vektorn som <code>loadedNamespaces()</code> producerar, och då är alla paketets funktioner äntligen användbara.</p>
 <p>Du kan aktivera ett paket i RStudio genom att trycka för checkboxen bredvid paketets namn. I kod kan du aktivera ett paket med funktionen <code>library(paket)</code>. Märk att ordningen av paketens aktivering kan påverka vilken funktion som blir aktiv i en situation där du har dubbletter!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>base::library(paket)</code>: Aktiverar paketet <code>paket</code>. Paketet måste vara installerat först.</p>
+</div></div></section>
 </section>
-</section>
-<section id="data-in-och-ut-ur-r" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="data-in-och-ut-ur-r"><span class="header-section-number">6.4</span> Data in och ut ur R</h2>
+<section id="data-in-och-ut-ur-r" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="data-in-och-ut-ur-r"><span class="header-section-number">7.4</span> Data in och ut ur R</h2>
 <p>Klappa dig själv på axeln, du har kommit långt i din R-inlärning!</p>
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Denna bok visar exempel på vad som borde synas när jag skriver in grafisk kod. Du kan alltså jämföra bilden du skapade i RStudio med bilden i boken, för att kolla att du har kört allt rätt.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Fysiska versioner av receptbloggar.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>De kan även laddas ned och byggas från t.ex. GitHub, men vi håller oss till CRAN-paket i denna bok.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -580,12 +641,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05-statistisk-inferens.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
