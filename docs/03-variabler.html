@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
+
+<title>Människovetaren och statistiken - 3&nbsp; Variabler</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-modeller.html" rel="next">
+<link href="./02-från-ide-till-rapport.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Människovetaren och statistiken</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Förord</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Analysens logik</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R-miljön</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Paket</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Statistiska metoder</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#vad-är-en-variabel" id="toc-vad-är-en-variabel" class="nav-link active" data-scroll-target="#vad-är-en-variabel"><span class="toc-section-number">3.1</span>  Vad är en variabel?</a></li>
+  <li><a href="#variabelförhållande-1-beroende-och-oberoende-variabler" id="toc-variabelförhållande-1-beroende-och-oberoende-variabler" class="nav-link" data-scroll-target="#variabelförhållande-1-beroende-och-oberoende-variabler"><span class="toc-section-number">3.2</span>  Variabelförhållande 1: Beroende och oberoende variabler</a></li>
+  <li><a href="#variabelskalenivåer" id="toc-variabelskalenivåer" class="nav-link" data-scroll-target="#variabelskalenivåer"><span class="toc-section-number">3.3</span>  Variabelskalenivåer</a></li>
+  <li><a href="#variabelförhållande-2-medierande-dämpande-och-externa-variabler" id="toc-variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="nav-link" data-scroll-target="#variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="toc-section-number">3.4</span>  Variabelförhållande 2: Medierande, dämpande och externa variabler</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Detta kapitel handlar om <strong>variabler</strong>. Jag inleder med att förklara vad en variabel är, och diskuterar sedan vilka sorters variabler vi analytiskt kan skilja mellan.</p>
+<section id="vad-är-en-variabel" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="vad-är-en-variabel"><span class="header-section-number">3.1</span> Vad är en variabel?</h2>
+<p>Låt oss säga att du vill undersöka följande frågeställning: “Är hunger relaterat till ökade matköp?” Du har bestämt dig att du undersöker frågan genom ett experiment, där du skickar 50 personer till Lidl för matköp. Du har valt att ställa upp ett kontrollerat experiment, så 25 av personerna är hungriga och 25 är mätta. Data du samlar är i formen “Euro spenderat på mat”, samt några bakgrundsfrågor från en enkät: kön och inkomst.</p>
+<p>Variabler är små lådor som kan innehålla någon form av data. En variabel innehåller data av en typ. Variabeln innehåller olika data för varje analysobjekt, eller med andra ord: variabeln <em>varierar</em> mellan analysobjekten.</p>
+<p>I exemplet ovan finns därför följande variabler:</p>
+<ul>
+<li>Grupp (hungrig eller mätt)</li>
+<li>Matköp (euro spenderat på mat)</li>
+<li>Kön (man, kvinna eller annat)</li>
+<li>Inkomst (bruttoeuro i året)</li>
+</ul>
+<p>Vi kan tänka oss en slumpmässig person i experimentet. Hen tar olika <strong>värden</strong> på alla variabler, men enbart ett värde per variabel: - Grupp = “mätt” - Matköp = 75 - Kön = “kvinna” - Inkomst = 40000</p>
+<p>Med andra ord: vår person var en mätt kvinna med en bruttoårsinkomst på 40 000 euro, som köpte mat för 75 euro under experimentet.</p>
+<p>Tanken bakom variabler är att vi kan jämföra olika analysobjekt på samma skalor: vilka kön är representerade i vårt datamaterial? Vad är de största och minsta matköpen som våra analysobjekt gjorde? Vi kan även försöka besvara vår frågeställning genom en uppsättning noll- och alternativa hypoteser:</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_{1a}\)</span>: Hungriga personer köper mera mat än mätta personer.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_{1b}\)</span>: Hungriga personer köper mindre mat än mätta personer.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_{0}\)</span>: Det finns ingen skillnad i matköp mellan hungriga och mätta personer.</p>
+</blockquote>
+</section>
+<section id="variabelförhållande-1-beroende-och-oberoende-variabler" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="variabelförhållande-1-beroende-och-oberoende-variabler"><span class="header-section-number">3.2</span> Variabelförhållande 1: Beroende och oberoende variabler</h2>
+<p>Om vi funderar på vår frågeställning, så finns det en inbyggd kausal<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> riktning. I vår frågeställning utreder vi egentligen huruvida hunger <em>orsakar</em> ökade matköp. Hypoteserna ställer upp påståenden i förhållande till denna kausalitet: <span class="math inline">\(H_0\)</span> handlar om avsaknaden av kausalt förhållande, medan <span class="math inline">\(H_{1a}\)</span> och <span class="math inline">\(H_{1b}\)</span> bägge handlar om <em>på vilket sätt</em> hunger orsakar ökade matköp.</p>
+<p>Före vi går vidare, ett varningens ord: definitionen av en variabel som beroende definierar inte att det faktiskt skulle finnas kausalitet, även om du hittar ett förhållande i dina data. Detta kan vara svårbegripligt, men du har säkert hört detta påstående i en annan form: <strong>korrelation är inte kausalitet</strong>. [MERA HÄR]</p>
+<p>Vi kan klassificera variabler i <strong>beroende</strong> och <strong>oberoende</strong> variabler. Tänker vi tillbaka på kausaliteten i vår frågeställning, så kan vi med lite logik översätta våra termer:</p>
+<ul>
+<li>Hunger orsakar ökade matköp.</li>
+<li>Ökade matköp är orsakade av hunger.</li>
+<li>Ökade matköp är <strong>beroende</strong> av hunger.</li>
+</ul>
+<p>Således är “matköp” vår beroende variabel! De variabler som blir utanför, men som vi använder i vår analys, är våra oberoende variabler (eftersom de inte, i denna analys, beror på någonting utan enbart finns till).</p>
+<p>De flesta statistiska analyser utförs på en beroende variabel och en eller flera oberoende variabler. Fler än en beroende variabel kan i vissa fall användas (och vi blir bekanta med en sådan situation, vid multipel variansanalys eller MANOVA), och enbart en oberoende variabel är också möjligt.</p>
+</section>
+<section id="variabelskalenivåer" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="variabelskalenivåer"><span class="header-section-number">3.3</span> Variabelskalenivåer</h2>
+<p>För att kunna besvara våra hypoteser måste vi utföra något slags statistiskt <strong>test</strong>. Enligt NHST-principen ska vi specifikt utföra ett statistiskt test som kan bevisa nollhypotesen <em>fel</em>, alltså ett test som kan visa att det faktiskt finns skillnad i matköp mellan hungriga och mätta personer.</p>
+<p>Av diverse matematiska orsaker finns det olika statistiska test för olika former av data. En stor del av denna bok handlar om dessa test - men det finns nästan oändligt många. Dataformen som är relevant är variablernas <strong>skalenivåer</strong>. (eng. <em>scale level</em>). Följande figur exemplifierar dessa:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/skalenivåer.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Variabelskalenivåer</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Skalenivåerna representerar variabeln på ett spektrum från <strong>kvalitativa</strong> till <strong>kvantitativa</strong> variabler. Terminologin kan vara lite förbryllande. Vi kan tänka oss att en variabel kan ha fyra olika fundamentala egenskaper:</p>
+<ol type="1">
+<li><em>Absolut nollpunkt</em> innebär att det finns en logisk nollpunkt på skalan, som har en betydelse. Exempelvis inkomst (0 € skiljer mellan de som förtjänar pengar och de som förlorar pengar) och temperatur (0<span class="math inline">\(\circ\)</span> är vattnets fryspunkt vid en atmosfär med tryck) har en nollpunkt. Kommuner, däremot, har inte: det finns inget som “noll kommun”.</li>
+<li><em>Intervall</em> innebär att avstånden mellan punkterna på skalan är lika långa. Inkomst är igen ett exempel på detta: skillnaden mellan 5 och 6 euro är lika stor som skillnaden mellan 50 000 och 50 001 euro (i bägge fallen, en euro).</li>
+<li><em>Ordning</em> innebär att variabelns värden kan ordnas från minst till störst. Detta gäller förstås för inkomst.</li>
+<li><em>Skillnad</em> innebär att variabelns värden skiljer mellan olika kategorier. Vi kan förstå inkomst som en nästan oändlig rad av kategorier, separerade enligt varje euro (eller cent).</li>
+</ol>
+<p>Om vi ställer upp dessa i en tabell kan vi se hur variablerna skiljer sig från varandra:</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Absolut nollpunkt</td>
+<td>Intervall</td>
+<td>Ordning</td>
+<td>Skillnad</td>
+</tr>
+<tr class="even">
+<td>Kvot</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>Intervall</td>
+<td></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>Ordinal</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>Nominal</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kvotvariabler</strong> är de “mest” kvantitativa variablerna (vad det än betyder…). Kvotvariabler skiljer mellan variabelvärden, kan ställas i ordning från minst till störst, har lika stora mellanrum mellan varje värde, och har en meningsfull nollpunkt. Med andra ord uppvisar de alla fyra egenskaper. Riktiga kvotvariabler är något sällsynta i människoforskning.</p>
+<p><strong>Intervallvariabler</strong> är ett steg ifrån kvotvariabler. Intervallvariabler skiljer mellan värden, kan ställas i ordning, och har lika stora mellanrum, men de saknar en meningsfull nollpunkt. Liksom kvotvariabler är dessa något sällsynta i människoforskning, men de både finns, och i vissa situationer kan vi konstruera sådana genom <strong>index</strong>.</p>
+<p><strong>Ordinalvariabler</strong> är ett steg vidare. Ordinalvariabler skiljer mellan värden och kan ställas i ordning, men stegen mellan värden är inte längre likstora och det finns inte heller en nollpunkt. Denna variabeltyp är mycket vanlig inom människovetenskaper, bland annat i formen av Likert-skalor.</p>
+<p><strong>Nominalvariabler</strong> är de “mest” kvalitativa variablerna. De uppvisar endast skillnad, men ingen meningsfull ordning, inga jämna steg mellan värden och ingen nollpunkt. Dessa är även typiska i samhällsforskning.</p>
+<p>Vissa forskare brukar kalla kvot- och intervallvariablerna för kvantitativa, och ordinal- och nominalvariablerna för kvalitativa, medan andra inkluderar ordinalvariablerna inom de kvantitativa. Jag anser att detta påvisar att skiljelinjen är något flytande, istället för en hård linje, och att det är mer meningsfullt att överväga vilka <em>metoder</em> som kan tillämpas på de olika skalenivåerna.</p>
+<p>Vi kan även tala om <strong>multikategoriska</strong> variabler. Dessa är helt enkelt variabler som har fler än två kategorier - oavsett om de är nominal-, ordinal-, intervall- eller kvotvariabler. Ofta brukar man inte kalla intervall- och kvotvariablernas värden för “kategorier” (eftersom det börjar bli meningslöst med, t.ex. femtiotusen kategorier), men tekniskt sett har alla variabler kategorier - vissa är bara så små att vi inte anser dem vara kategorier.</p>
+<p><strong>Binära</strong> variabler bör nämnas skiljt. Dessa har enbart två kategorier, och är ofta nominalvariabler. Däremot går binära variabler att använda i analyser som vanligen kräver intervall- eller kvotvariabler. Detta beskrivs i större noggrannhet i kapitlet <a href="@ref{#medeltal}">8.1.1</a> [FIXA REFERENS]</p>
+<p>Om vi granskar variablerna i vårt exempel kan vi relativt lätt bestämma vilka skalenivåer de uttrycker. “Hunger” är mätt som en binär variabel: analysobjektet är antingen hungrigt eller mätt. Det har egentligen ingen betydelse vilka siffror vi använder för att representera detta, men av konvention brukar man använda 0 för avsaknad av effekt (“Inte hungrig”, alltså “mätt”) och 1 för förekomst av effekt (“Hungrig”). Matköp och inkomst är bägge kvotvariabler, eftersom de har absoluta nollpunkter (0 euro spenderat på mat respektive 0 euro bruttoinkomst i året). Kön är en multikategorisk nominalvariabel, eftersom vi har mätt kön i tre kategorier och det inte finns någon ordning mellan kategorierna.</p>
+<p>Om du följer med noga har du kanske märkt att jag ofta säger “mätt som” och “vi har mätt” i diskussionen. Detta är för att ingen operationalisering automatiskt har en viss skalenivå. Vi kan alltid välja att mäta kön genom graden av människor som skulle kalla personen ett visst kön (kvotvariabel), matköp genom mycket eller lite matköp (binär), inkomst enligt inkomstpercentiler (multikategorisk ordinalvariabel), och så vidare. Kvot- och intervallnivåer är behändiga, eftersom vi kan utföra väldigt komplexa statistiska analyser på dem, men allt är inte rimligt att mäta så - mitt exempel på att mäta kön på kvotnivå är ett exempel på en orimlig analys.</p>
+<p>Vi kan även omvandla mellan skalenivåer, men enbart åt ett håll: vi kan “förenkla” variabler ner från kvantitativa ändan mot kvalitativa ändan, men inte direkt vice versa. Inkomst kan därmed kategoriseras i hög, medel och låg inkomst, vilket skapar en multikategorisk ordinalvariabel, men kön kan inte kvantifieras till en skala av “könhet”.</p>
+</section>
+<section id="variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="header-section-number">3.4</span> Variabelförhållande 2: Medierande, dämpande och externa variabler</h2>
+<p>När vi utökar analysen från bivariat (två variabler) till multivariat (flera variabler), kan vi börja tala om mer komplexa förhållanden än bara beroende och oberoende variabler. I en multivariat analys inför man ofta <strong>kontrollvariabler</strong>. Deras uppgift är att kontrollera för någon variation som vi inte vill att ska påverka resultatet.</p>
+<p>Orsaken varför man gör multivariata analyser är att man vill <strong>elaborera</strong> ett samband: Vad kunde sambandet bero på? Finns det andra förklaringar till sambandet, eller är vår förklaring den bästa? Finns det situationer där sambandet försvinner eller blir starkare?</p>
+<p>För att exemplifiera detta, låt oss tänka oss några ytterligare hypoteser på vårt hungerexempel:</p>
+<ul>
+<li><span class="math inline">\(H_2\)</span>: Män påverkas av hunger i större grad än kvinnor och icke-binära vad kommer matköp.</li>
+<li><span class="math inline">\(H_0\)</span>: Kön har ingen påverkan på förhållandet mellan hunger och matköp.</li>
+</ul>
+<p>Nu har vi lagt till en kontrollvariabel, kön, i vår analys. Vi kan testa om kön <strong>modifierar</strong> förhållandet mellan hunger och matköp. Hur gör vi detta? Jo, analytiskt sett fördelar vi vår analys upp i mindre delar:</p>
+<ol type="1">
+<li>Matköp när hunger = 1 vs.&nbsp;matköp när hunger = 0 (<em>detta är vårt ursprungliga test</em>)</li>
+<li>Matköp när hunger = 1 och kön = 1 vs.&nbsp;matköp när hunger = 0 och kön = 1 (<em>effekten hos män</em>)</li>
+<li>Matköp när hunger = 1 och kön = 2 vs.&nbsp;matköp när hunger = 0 och kön = 2 (<em>effekten hos kvinnor</em>)</li>
+<li>Matköp när hunger = 1 och kön = 3 vs.&nbsp;matköp när hunger = 0 och kön = 3 (<em>effekten hos icke-binära</em>)</li>
+</ol>
+<p>Sedan kan vi jämföra de olika sambandsmåtten vi har fått mellan testen 2-4. För att testa vår nya nollhypotes, att kön inte har en påverkan, granskar vi huruvida sambandsmåtten för testerna är <em>desamma</em>, alltså att T2 = T3 = T4.</p>
+<p>När man <strong>kontrollerar</strong> för en variabel testar man ifall kontrollvariabeln kunde förklara det ursprungliga sambandet. Säg att vi finner ett samband mellan hunger och matköp, alltså vi ser att hungriga personer köper mer mat än mätta personer. Om vi inför kön som kontrollvariabel, och finner att sambandet <em>försvinner</em>, så kan vi säga att det faktiskt var <em>kön</em> som orsakade sambandet. Orsaken varför vi trodde att det var hunger kan vara att ett kön oftare var hungrigt än ett annat - så vi kunde inte skilja mellan hunger och kön i vår analys före vi kontrollerade för kön. I detta fall säger vi att vårt samband var <strong>spuriöst</strong>. Till synes fanns det ett samband, men när vi kontrollerade för <strong>externa</strong> variabler så försvann sambandet.</p>
+<p>Man kan även finna att ett samband blir starkare eller svagare när man kontrollerar för en variabel. Då säger vi att kontrollvariabeln är en <strong>amplifierande</strong> (förstärker sambandet) eller <strong>dämpande</strong> (försvagar sambandet) variabel.</p>
+<p>Till sist kan vi även finna att ett samband förekommer först <em>efter</em> att vi kontrollerat för en extern variabel. I det fallet kallar vi kontrollvariabeln för en <strong>medierande</strong> variabel eller mediatorvariabel, eftersom den <em>medför</em> ett samband.</p>
+<p>Alla dessa termer kan vara svåra att minnas, och desto svårare att skilja mellan i praktisk analys, så det är värt att repetera dem ofta och väl. Elaboreringsprocessen är en viktig del av forskningen, eftersom vi vill vara säkra om att vi förstår ett potentiellt samband väl. Om vi påstår att ett samband finns, men någon annan finner att det faktiskt var ett spuriöst samband och att en kontrollvariabel förklarar våra resultat, så är det en ganska genant situation…</p>
+<p>[SKAPA GRAFIK FÖR VARIABELFÖRHÅLLANDEN]</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Kausalitet är, förenklat, idén att fenomen har orsak och verkan. A är orsaken till B, och B är därmed A:s verkan.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-från-ide-till-rapport.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-modeller.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

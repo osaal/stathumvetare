@@ -1,0 +1,31 @@
+# Från idé till rapport
+
+Detta kapitel beskriver forskningsprocessen, från preliminära idéer till operationalisering, datainsamlingsmetoder, processering, analys och rapportformulering. Läsare som är bekanta med forskningsprocessen finner kanske inte alltför mycket nytt i detta kapitel. För nybörjaren är det dock väldigt viktigt att ta in följande sidor - kanske mer viktigt än de statistiska metoderna. Forskningsprocessen är **kumulativ**: ett dåligt beslut i början ackumulerar till en stor hög sk- dålig forskning i slutet. Det är därför viktigt att sträva till att "gå rätt" redan i början.
+
+Men forskning är också kumulativt på en längre skala: någon har alltid gjort något bättre och snyggare än du, och någon annan kommer alltid att korrigera dig senare^[Om du löper lyckan att faktiskt ha din forskningsrapport läst av andra - detta är inte givet.]. Låt inte varningarna lamslå ditt arbete! Om du aldrig kommer till slutet, kan du aldrig säga om arbetet var värt tiden.
+
+En sista kommentar: Följande diskussion är mycket förkortad och förenklad från långa debatter inom vetenskapsfilosofi. Den filosofiskt riktade läsaren kan finna diskussionen irriterande förenklad - "var är alla ismer?!" - men detta är, som vanligt, i pedagogiskt syfte. Det är inte alltför nödvändigt att kunna stämpla sitt beteende som en filosofi eller annan, så länge arbetet du gör producerar resultat och du är kritisk mot dina egna beslut och möjliga tankeförvrängingar^[Ironiskt nog, en pragmatisk filosofi.].
+
+## Forskningsobjektet och frågeställningen
+För att forska behöver vi ett **forskningsobjekt**. Vad vill vi studera? Är det en person, en organisation, en samhällsstruktur, eller något annat? Forskningsobjektet kan vara hur abstrakt eller konkret som helst, det kan vara frågan om en ideologi eller en hjärna.
+
+Hur väljer man ett forskningsobjekt? Detta kommer från dina egna intressen! Vad eller vem vill du studera? Du kan börja med att fundera ut vad som gör forskningsobjektet intressant - varför vill du studera det? Frågan om intresse leder snabbt in till en rad olika **frågeställningar**. Ett exempel kan hjälpa.
+
+Jag är intresserad av datorspelet *Sid Meyer's Civilization VI*. Spelet är ett strategispel där du bygger ett historiskt rike, utvecklas i kultur och vetenskap, för krig, sprider religion, upprätthåller diplomatiska relationer, och så vidare. Jag har förmodligen lagt ned fler timmar i att både spela och läsa om *Civilization VI* än jag har lagt ned på denna bok. En av de största dragen till spelet för mig är hur versatilt och varierande det är: det finns flera olika sätt att vinna ett spel, det finns nästan oändligt många sätt spelet beter sig över tid, och därför kan man spela det på nytt flera gånger.
+
+Här finns redan flera frågeställningar. Som sociolog är jag intresserad av människor, deras kunskapssystem och sociala system. Därför kan jag tänka mig att t.ex. fråga:
+-  Vilka sociala grupper spelar *Civilization VI*?
+-  Finns det skillnader i vem (vilka sociala grupper) som tenderar att vinna spelet genom krig?
+-  Spelar människor oftare med religioner de själva följer?
+Vore jag en psykolog kanske jag skulle intressera mig för frågor så som:
+-  Är spelets beroendeframkallande natur kopplat till de snabba spelaktionerna?
+-  Hur ändrar graden av spelvinster över individens utveckling som barn och ung vuxen?
+-  Har spelarna personlighetstyper som skiljer sig från den allmänna populationen?
+Om jag istället forskade inom medier kunde frågorna lyda:
+-  Vilka paramedier (wiki-sidor, YouTube-kanaler, TikTok-producenter...) konsumerar spelarna?
+-  Hur vanligt är produktion av media angående spelet?
+-  Hur ofta talar datorspelmedia om *Civilization VI* jämfört med andra strategispel?
+
+Märk, att alla dessa frågor kan uttryckas som förhållanden mellan två eller flera saker: "Vilka sociala grupper spelar *Civlization VI*?" är det samma som "Graden av spelande mellan olika sociala grupper", alltså ett förhållande mellan "spelande" och "social grupp". "Är spelets beroendeframkallande natur kopplat till de snabba spelaktionerna?" är det samma som förhållandet mellan "beroendeframkallande natur" och "snabba spelaktioner". "Hur vanligt är produktion av media angående spelet?" är det samma som förhållandet mellan "alla spelare" och "medieproducenter". Du ser säkert logiken. Genom att omformulera frågeställningen till en fråga om förhållanden (t.ex. skillnader, likheter, grader) kan vi skapa en *statistisk* frågeställning.
+
+Valet av frågeställning kan inte lösas med statistik. Du måste se på frågan, fundera ut vad det skulle innebära att besvara den, och huruvida du kan och vill lägga ned tiden för att besvara frågan.

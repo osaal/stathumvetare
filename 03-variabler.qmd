@@ -1,0 +1,191 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Variabler
+
+Detta kapitel handlar om **variabler**. Jag inleder med att förklara vad
+en variabel är, och diskuterar sedan vilka sorters variabler vi
+analytiskt kan skilja mellan.
+
+## Vad är en variabel?
+
+Låt oss säga att du vill undersöka följande frågeställning: "Är hunger
+relaterat till ökade matköp?" Du har bestämt dig att du undersöker
+frågan genom ett experiment, där du skickar 50 personer till Lidl för
+matköp. Du har valt att ställa upp ett kontrollerat experiment, så 25 av
+personerna är hungriga och 25 är mätta. Data du samlar är i formen "Euro
+spenderat på mat", samt några bakgrundsfrågor från en enkät: kön och
+inkomst.
+
+Variabler är små lådor som kan innehålla någon form av data. En variabel
+innehåller data av en typ. Variabeln innehåller olika data för varje
+analysobjekt, eller med andra ord: variabeln *varierar* mellan
+analysobjekten.
+
+I exemplet ovan finns därför följande variabler:
+
+-  Grupp (hungrig eller mätt)
+-  Matköp (euro spenderat på mat)
+-  Kön (man, kvinna eller annat)
+-  Inkomst (bruttoeuro i året)
+
+Vi kan tänka oss en slumpmässig person i experimentet. Hen tar olika
+**värden** på alla variabler, men enbart ett värde per variabel: - Grupp
+= "mätt" - Matköp = 75 - Kön = "kvinna" - Inkomst = 40000
+
+Med andra ord: vår person var en mätt kvinna med en bruttoårsinkomst på
+40 000 euro, som köpte mat för 75 euro under experimentet.
+
+Tanken bakom variabler är att vi kan jämföra olika analysobjekt på samma
+skalor: vilka kön är representerade i vårt datamaterial? Vad är de
+största och minsta matköpen som våra analysobjekt gjorde? Vi kan även
+försöka besvara vår frågeställning genom en uppsättning noll- och
+alternativa hypoteser:
+
+> $H_{1a}$: Hungriga personer köper mera mat än mätta personer.
+
+> $H_{1b}$: Hungriga personer köper mindre mat än mätta personer.
+
+> $H_{0}$: Det finns ingen skillnad i matköp mellan hungriga och mätta
+> personer.
+
+## Variabelförhållande 1: Beroende och oberoende variabler
+
+Om vi funderar på vår frågeställning, så finns det en inbyggd
+kausal[^03-variabler-1] riktning. I vår frågeställning utreder vi
+egentligen huruvida hunger *orsakar* ökade matköp. Hypoteserna ställer
+upp påståenden i förhållande till denna kausalitet: $H_0$ handlar om
+avsaknaden av kausalt förhållande, medan $H_{1a}$ och $H_{1b}$ bägge
+handlar om *på vilket sätt* hunger orsakar ökade matköp.
+
+[^03-variabler-1]: Kausalitet är, förenklat, idén att fenomen har orsak
+    och verkan. A är orsaken till B, och B är därmed A:s verkan.
+
+Före vi går vidare, ett varningens ord: definitionen av en variabel som
+beroende definierar inte att det faktiskt skulle finnas kausalitet, även
+om du hittar ett förhållande i dina data. Detta kan vara svårbegripligt,
+men du har säkert hört detta påstående i en annan form: **korrelation är
+inte kausalitet**. [MERA HÄR]
+
+Vi kan klassificera variabler i **beroende** och **oberoende**
+variabler. Tänker vi tillbaka på kausaliteten i vår frågeställning, så
+kan vi med lite logik översätta våra termer:
+
+-   Hunger orsakar ökade matköp.
+-   Ökade matköp är orsakade av hunger.
+-   Ökade matköp är **beroende** av hunger.
+
+Således är "matköp" vår beroende variabel! De variabler som blir
+utanför, men som vi använder i vår analys, är våra oberoende variabler
+(eftersom de inte, i denna analys, beror på någonting utan enbart finns
+till).
+
+De flesta statistiska analyser utförs på en beroende variabel och en
+eller flera oberoende variabler. Fler än en beroende variabel kan i
+vissa fall användas (och vi blir bekanta med en sådan situation, vid
+multipel variansanalys eller MANOVA), och enbart en oberoende variabel
+är också möjligt.
+
+## Variabelskalenivåer
+
+För att kunna besvara våra hypoteser måste vi utföra något slags
+statistiskt **test**. Enligt NHST-principen ska vi specifikt utföra ett
+statistiskt test som kan bevisa nollhypotesen *fel*, alltså ett test som
+kan visa att det faktiskt finns skillnad i matköp mellan hungriga och
+mätta personer.
+
+Av diverse matematiska orsaker finns det olika statistiska test för
+olika former av data. En stor del av denna bok handlar om dessa test -
+men det finns nästan oändligt många. Dataformen som är relevant är
+variablernas **skalenivåer**. (eng. *scale level*). Följande figur
+exemplifierar dessa:
+
+```{r skalenivåer-pic, echo=FALSE, out.width="100%", fig.cap="Variabelskalenivåer"}
+knitr::include_graphics("images/skalenivåer.png")
+```
+
+Skalenivåerna representerar variabeln på ett spektrum från
+**kvalitativa** till **kvantitativa** variabler. Terminologin kan vara
+lite förbryllande. Vi kan tänka oss att en variabel kan ha fyra olika
+fundamentala egenskaper:
+
+1.  *Absolut nollpunkt* innebär att det finns en logisk nollpunkt på
+    skalan, som har en betydelse. Exempelvis inkomst (0 € skiljer mellan
+    de som förtjänar pengar och de som förlorar pengar) och temperatur
+    (0$\circ$ är vattnets fryspunkt vid en atmosfär med tryck) har en
+    nollpunkt. Kommuner, däremot, har inte: det finns inget som "noll
+    kommun".
+2.  *Intervall* innebär att avstånden mellan punkterna på skalan är lika
+    långa. Inkomst är igen ett exempel på detta: skillnaden mellan 5 och
+    6 euro är lika stor som skillnaden mellan 50 000 och 50 001 euro (i
+    bägge fallen, en euro).
+3.  *Ordning* innebär att variabelns värden kan ordnas från minst till
+    störst. Detta gäller förstås för inkomst.
+4.  *Skillnad* innebär att variabelns värden skiljer mellan olika
+    kategorier. Vi kan förstå inkomst som en nästan oändlig rad av
+    kategorier, separerade enligt varje euro (eller cent).
+
+Om vi ställer upp dessa i en tabell kan vi se hur variablerna skiljer
+sig från varandra:
+
+|           |                   |           |         |          |
+|-----------|-------------------|-----------|---------|----------|
+|           | Absolut nollpunkt | Intervall | Ordning | Skillnad |
+| Kvot      | X                 | X         | X       | X        |
+| Intervall |                   | X         | X       | X        |
+| Ordinal   |                   |           | X       | X        |
+| Nominal   |                   |           |         | X        |
+
+**Kvotvariabler** är de "mest" kvantitativa variablerna (vad det än
+betyder...). Kvotvariabler skiljer mellan variabelvärden, kan ställas i ordning från minst till störst, har lika stora mellanrum mellan varje värde, och har en meningsfull nollpunkt. Med andra ord uppvisar de alla fyra egenskaper. Riktiga kvotvariabler är något sällsynta i människoforskning.
+
+**Intervallvariabler** är ett steg ifrån kvotvariabler. Intervallvariabler skiljer mellan värden, kan ställas i ordning, och har lika stora mellanrum, men de saknar en meningsfull nollpunkt. Liksom kvotvariabler är dessa något sällsynta i människoforskning, men de både finns, och i vissa situationer kan vi konstruera sådana genom **index**.
+
+**Ordinalvariabler** är ett steg vidare. Ordinalvariabler skiljer mellan värden och kan ställas i ordning, men stegen mellan värden är inte längre likstora och det finns inte heller en nollpunkt. Denna variabeltyp är mycket vanlig inom människovetenskaper, bland annat i formen av Likert-skalor.
+
+**Nominalvariabler** är de "mest" kvalitativa variablerna. De uppvisar endast skillnad, men ingen meningsfull ordning, inga jämna steg mellan värden och ingen nollpunkt. Dessa är även typiska i samhällsforskning.
+
+Vissa forskare brukar kalla kvot- och intervallvariablerna för kvantitativa, och ordinal- och nominalvariablerna för kvalitativa, medan andra inkluderar ordinalvariablerna inom de kvantitativa. Jag anser att detta påvisar att skiljelinjen är något flytande, istället för en hård linje, och att det är mer meningsfullt att överväga vilka *metoder* som kan tillämpas på de olika skalenivåerna.
+
+Vi kan även tala om **multikategoriska** variabler. Dessa är helt enkelt variabler som har fler än två kategorier - oavsett om de är nominal-, ordinal-, intervall- eller kvotvariabler. Ofta brukar man inte kalla intervall- och kvotvariablernas värden för "kategorier" (eftersom det börjar bli meningslöst med, t.ex. femtiotusen kategorier), men tekniskt sett har alla variabler kategorier - vissa är bara så små att vi inte anser dem vara kategorier.
+
+**Binära** variabler bör nämnas skiljt. Dessa har enbart två kategorier, och är ofta nominalvariabler. Däremot går binära variabler att använda i analyser som vanligen kräver intervall- eller kvotvariabler. Detta beskrivs i större noggrannhet i kapitlet [8.1.1](@ref{#medeltal}) [FIXA REFERENS]
+
+Om vi granskar variablerna i vårt exempel kan vi relativt lätt bestämma vilka skalenivåer de uttrycker. "Hunger" är mätt som en binär variabel: analysobjektet är antingen hungrigt eller mätt. Det har egentligen ingen betydelse vilka siffror vi använder för att representera detta, men av konvention brukar man använda 0 för avsaknad av effekt ("Inte hungrig", alltså "mätt") och 1 för förekomst av effekt ("Hungrig"). Matköp och inkomst är bägge kvotvariabler, eftersom de har absoluta nollpunkter (0 euro spenderat på mat respektive 0 euro bruttoinkomst i året). Kön är en multikategorisk nominalvariabel, eftersom vi har mätt kön i tre kategorier och det inte finns någon ordning mellan kategorierna.
+
+Om du följer med noga har du kanske märkt att jag ofta säger "mätt som" och "vi har mätt" i diskussionen. Detta är för att ingen operationalisering automatiskt har en viss skalenivå. Vi kan alltid välja att mäta kön genom graden av människor som skulle kalla personen ett visst kön (kvotvariabel), matköp genom mycket eller lite matköp (binär), inkomst enligt inkomstpercentiler (multikategorisk ordinalvariabel), och så vidare. Kvot- och intervallnivåer är behändiga, eftersom vi kan utföra väldigt komplexa statistiska analyser på dem, men allt är inte rimligt att mäta så - mitt exempel på att mäta kön på kvotnivå är ett exempel på en orimlig analys.
+
+Vi kan även omvandla mellan skalenivåer, men enbart åt ett håll: vi kan "förenkla" variabler ner från kvantitativa ändan mot kvalitativa ändan, men inte direkt vice versa. Inkomst kan därmed kategoriseras i hög, medel och låg inkomst, vilket skapar en multikategorisk ordinalvariabel, men kön kan inte kvantifieras till en skala av "könhet".
+
+## Variabelförhållande 2: Medierande, dämpande och externa variabler
+
+När vi utökar analysen från bivariat (två variabler) till multivariat (flera variabler), kan vi börja tala om mer komplexa förhållanden än bara beroende och oberoende variabler. I en multivariat analys inför man ofta **kontrollvariabler**. Deras uppgift är att kontrollera för någon variation som vi inte vill att ska påverka resultatet.
+
+Orsaken varför man gör multivariata analyser är att man vill **elaborera** ett samband: Vad kunde sambandet bero på? Finns det andra förklaringar till sambandet, eller är vår förklaring den bästa? Finns det situationer där sambandet försvinner eller blir starkare?
+
+För att exemplifiera detta, låt oss tänka oss några ytterligare hypoteser på vårt hungerexempel:
+
+-  $H_2$: Män påverkas av hunger i större grad än kvinnor och icke-binära vad kommer matköp.
+-  $H_0$: Kön har ingen påverkan på förhållandet mellan hunger och matköp.
+
+Nu har vi lagt till en kontrollvariabel, kön, i vår analys. Vi kan testa om kön **modifierar** förhållandet mellan hunger och matköp. Hur gör vi detta? Jo, analytiskt sett fördelar vi vår analys upp i mindre delar:
+
+1.  Matköp när hunger = 1 vs. matköp när hunger = 0 (*detta är vårt ursprungliga test*)
+2.  Matköp när hunger = 1 och kön = 1 vs. matköp när hunger = 0 och kön = 1 (*effekten hos män*)
+3.  Matköp när hunger = 1 och kön = 2 vs. matköp när hunger = 0 och kön = 2 (*effekten hos kvinnor*)
+4.  Matköp när hunger = 1 och kön = 3 vs. matköp när hunger = 0 och kön = 3 (*effekten hos icke-binära*)
+
+Sedan kan vi jämföra de olika sambandsmåtten vi har fått mellan testen 2-4. För att testa vår nya nollhypotes, att kön inte har en påverkan, granskar vi huruvida sambandsmåtten för testerna är *desamma*, alltså att T2 = T3 = T4.
+
+När man **kontrollerar** för en variabel testar man ifall kontrollvariabeln kunde förklara det ursprungliga sambandet. Säg att vi finner ett samband mellan hunger och matköp, alltså vi ser att hungriga personer köper mer mat än mätta personer. Om vi inför kön som kontrollvariabel, och finner att sambandet *försvinner*, så kan vi säga att det faktiskt var *kön* som orsakade sambandet. Orsaken varför vi trodde att det var hunger kan vara att ett kön oftare var hungrigt än ett annat - så vi kunde inte skilja mellan hunger och kön i vår analys före vi kontrollerade för kön. I detta fall säger vi att vårt samband var **spuriöst**. Till synes fanns det ett samband, men när vi kontrollerade för **externa** variabler så försvann sambandet.
+
+Man kan även finna att ett samband blir starkare eller svagare när man kontrollerar för en variabel. Då säger vi att kontrollvariabeln är en **amplifierande** (förstärker sambandet) eller **dämpande** (försvagar sambandet) variabel.
+
+Till sist kan vi även finna att ett samband förekommer först *efter* att vi kontrollerat för en extern variabel. I det fallet kallar vi kontrollvariabeln för en **medierande** variabel eller mediatorvariabel, eftersom den *medför* ett samband.
+
+Alla dessa termer kan vara svåra att minnas, och desto svårare att skilja mellan i praktisk analys, så det är värt att repetera dem ofta och väl. Elaboreringsprocessen är en viktig del av forskningen, eftersom vi vill vara säkra om att vi förstår ett potentiellt samband väl. Om vi påstår att ett samband finns, men någon annan finner att det faktiskt var ett spuriöst samband och att en kontrollvariabel förklarar våra resultat, så är det en ganska genant situation...
+
+[SKAPA GRAFIK FÖR VARIABELFÖRHÅLLANDEN]

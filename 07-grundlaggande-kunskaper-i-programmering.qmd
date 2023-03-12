@@ -1,0 +1,322 @@
+# Grundläggande kunskaper i R-programmering
+
+Detta kapitel handlar om baskunskaper i programmering, med fokus på R och statistisk programmering. Om du redan kan programmering, kan du hoppa över största delen av kapitlen. Kolla dock informationen om vektorer, faktormarkering, samt dataramar och tibbles, eftersom dessa är unika för R.
+
+Programmering är i grund och botten väldigt enkelt. Du ger instruktioner åt datorn. *That's it*. Att programmera är egentligen att rada upp instruktioner på rad, ofta flera hundra rader, och sedan **köra** (eng. *run*, *execute*) raderna.
+
+Programmering är också i grund och botten glorifierad matematik. Du kommer att märka att vad du egentligen oftast gör är, att du säger åt datorn: "Dator! Summera kolumn A med kolumn B! Dator! Vad är skillnaden mellan respondent 46 och respondent 15 på variabel X?". Visst blir det mycket mer komplext än så, men under huven är allt addition och multiplikation.
+
+## Objekt och datatyper
+
+Ett **objekt** kan hålla ett **värde**. Dessa kallas även ibland för "variabler", men för att skilja från statistiska variabler håller jag mig till termen "objekt".
+
+Objekt kan **skapas** med hjälp av en speciell operator: `<-` (uttalas "får" eller "tilldelas"). Du skapar ett objekt genom att ge det ett unikt namn, rikta pilen mot objektet, och skriv vad som objektet ska innehålla:
+
+```{r tilldelning-1, results:"markup"}
+x <- 12
+```
+
+Detta kommando skapar ett objekt med namnet `x`, och tilldelar det värdet `12`. Om du kör koden, märker du att inget tycks hända. Objektskapande gör inget annat än att det skapar objektet - om du vill skriva ut innehållet i konsolen måste du **kalla** objektet:
+
+```{r tilldelning-kalla, results:"markup"}
+x
+```
+
+Objekt kan omskrivas genom att tilldela dem nya värden. Det senaste tilldelade värdet är det som objektet innehåller:
+
+```{r tilldelning-2, results:"markup"}
+x <- 12
+x <- 47
+x
+```
+
+Objekt har en viss **klass**. I R görs detta **implicit**, till skillnad från vissa andra programmeringsspråk där du måste säga åt datorn: "Dator! Detta är objekt `x`, och den har klassen `numeric`!" R är lite smartare än så, och känner automatiskt igen vilken klass objektet har. Det finns fyra[^07-grundlaggande-kunskaper-i-programmering-1] grundläggande klasser:
+
+[^07-grundlaggande-kunskaper-i-programmering-1]: Enligt `?typeof()` finns det många fler än så, och skillnaden mellan klasser och datatyper (eng. *classes and data types*) är lite osäker i R. Förenklingen är för pedagogiskt syfte.
+
+-   `character`: Text, t.ex. `"a", "Här är en mening!", "klsjdfjjsdfksdnf"`
+
+-   `numeric`: Siffror, t.ex. `2.5, 96, 3068.12`. Notera att R använder punkt som decimalmarkerare!
+
+-   `logical`: Logiskt värde, t.ex. `TRUE, FALSE, NA`. Kallas även booleanska värden.
+
+-   `factor`: Speciell texttyp med inbyggd ordning. Dessa hanteras i ett eget kapitel.
+
+Du kan granska klassen av en variabel eller data genom att ge det som argument till funktionen `class()`:
+
+```{r klasser-1, results:"markup"}
+a <- 12
+class(a)
+b <- FALSE
+class(b)
+c <- "Äpple"
+class(c)
+```
+
+## Manipulering av objekt
+
+Objekt är gjorda för att manipuleras på ett sätt eller annat. Du kan addera, subtrahera, multiplicera och dividera objekt, men även utföra oändligt mer komplexa funktioner på objekt.
+
+Det finns sex grundläggande matematiska operatorer som du kan använda:
+
+-  `+`: Addition
+-  `-`: Subtraktion
+-  `*`: Multiplikation
+-  `/`: Division
+-  `^`: Exponentiering
+-  `%%`: Modulus
+
+Den sistnämnda är du kanske obekant med: **modulus** ger resten efter att två tal har dividerats:
+
+```{r modulus-exempel, results:"markup"}
+5 %% 2
+7.5 %% 2.5
+36.15 %% 2.34
+```
+
+Du kan även använda operatorerna på objekt - men märk väl vad som oftast händer när du blandar dataklasser:
+
+```{r klassblandning, results:"markup", error=TRUE}
+a <- 12
+b <- 3
+c <- "f"
+a+b
+a*b
+a+c
+```
+
+::: {.extra-info data-latex=""}
+::: {.center data-latex=""}
+**Tolkning av fel**
+:::
+
+Programmering är en process av att pröva, misslyckas och pröva igen. Det innebär att du kommer att bemöta väldigt många fel, ofta bemärkta med skrämmande röd text och ordet "Error". Var inte rädd!
+
+**Debugging** är processen där du utreder vad som gick fel. Varför **kastade** programmet detta fel? Vad händer om jag ändrar på inputen som orsakade felet? Kan jag hitta i vilket skede felet uppstod?
+
+Jag kan inte ge dig direkta instruktioner på hur du löser fel, men här är några råd:
+
+-   Testa din kod ofta! Skriv inte 500 rader kod i en session utan testning, eftersom det gör felhittande svårare.
+-   Om du hittar ett fel, börja med att läsa felet. Det kan låta lustigt, men de allra flesta användarna är... dåliga, ska vi säga, på att faktiskt läsa felmeddelandet! Läs genom och se om du kan förstå det.
+-   Efter ett fel, testa din nya kod en rad åt gången. Var sker felet? Detta hjälper dig lösa det.
+-   Om du inte kan lösa det, klipp och klistra felmeddelandet i en sökmotor och börja leta. Programmering är till stor del informationssökning, och det kan vara att flera personer har haft samma problem. Ibland är det ditt fel, ibland är det paketskaparens fel, ibland måste du bara starta datorn om och ta ett djupt andetag.
+-   Bli inte arg på dig själv när du skriver fel! De mest professionella programmerarna gör "nybörjarmisstag" (avsaknaden av slutparentes, tyrckfel, logikfel) konstant. Ett proffs utmärks av att de inte ger upp vid problem.
+:::
+
+## Funktioner
+
+**Funktioner** är som matlagningsrecept. De är färdiga instruktioner som du kan repetera om och om igen, med olika inputs och outputs. Du har redan stött på ett antal funktioner: `class()` i detta underkapitel, `hist()` och `c()` i det föregående underkapitlet.
+
+En funktion tar formen `funktion(argument, ...)`. En funktion har därmed ett namn, följt av parenteser som kan innehålla **argument**. Argument är data som du **överräcker** (eng. *pass*) åt funktionen. Vissa funktioner tar inga argument, andra måste ta argument. Du kan alltid ta reda på vad en funktion gör med hjälpfunktionen: `?funktion`.
+
+Du kan även definiera dina egna funktioner, men detta är inte nödvändigt för grundläggande kunskaper i statistisk programmering i detta skede. Om du är intresserad, vänd dig t.ex. till [Intro2r-boken](https://intro2r.com/functions-in-r.html).
+
+Det finns otroligt många funktioner, och jag kan inte rada upp alla. Istället kommer jag att sakta introducera olika funktioner genom boken. Var liberal med din användning av hjälpfunktionen - du kommer att behöva den!
+
+## Vektorer
+
+Att ha en datapunkt i ett objekt är helt okej och användbart, men vi jobbar ju med större mängder data. Vi vill ha flera datapunkter i ett objekt! Detta kan vi åstadkomma enkelt med vektorer. En **vektor** konstrueras med funktionen `c()` (från engelskan *concatenate*).
+
+```{r vektor-exempel, results="markup"}
+vektor <- c(1, 2, 3, 4)
+vektor
+```
+
+Vektorer har samma klass som de värden som tillhör vektorn - ovanstående vektor är av klassen `numeric` - vilket även betyder att klasser inte kan blandas i en vektor. Om du trots allt försöker göra det, så tvingar vektorn *alla* värden till en klass som kan innehålla alla. Detta är oftast `character`:
+
+```{r vektor-tvangskonvertering, results="markup"}
+vektor <- c("a", 2, TRUE)
+class(vektor)
+```
+
+Vektorer kan **indiceras**. Detta betyder att du kan hämta N:te värdet i vektor med klamrar:
+
+```{r vektor-indicering, results="markup"}
+vektor[1]
+vektor[2]
+vektor[4]
+```
+
+Märk, att om du söker ett index som inte finns (index 4 i ovan exempel), så returnerar R värdet "NA". Detta är ett speciellt logiskt värde som betyder "Hej! Här finns ju inget!".
+
+Förutom explicita indexvärden kan du även ge **intervall**, **vektorindex** och **logiska index**:
+
+```{r alternativa-index, results="markup"}
+vektor[1:3] # Hämtar värden vid position 1 till 3.
+vektor[c(1,3)] # Hämtar värden 1 och 3.
+vektor[vektor == "a"] # Hämtar alla värden som motsvarar logiska testet.
+```
+
+Med **booleanska uttryck** kan du även skapa mer komplexa index: `vektor > 1 & vektor != 4` söker alla värden över ett, förutom fyra. De booleanska basuttrycken är:
+
+-   `&`: "och", både A & B måste vara sanna.
+-   `|`: "eller", antingen A \| B måste vara sann, eller bägge.
+-   `!`: "inte", ger inversen av objektet (om A = TRUE, så !A = FALSE).
+-   `<`: "mindre än", testar för att A är mindre än B
+-   `>`: "större än", testar för att A är större än B
+-   `==`: "är lika med", testar för att A är samma som B
+-   `!=`: "är inte lika med", testar för att A är olika från B
+-   `<=`: "är mindre än eller lika med", testar för att A är antingen mindre än eller samma som B
+-   `>=`: "är större än eller lika med", testar för att A är antingen större än eller samma som B
+
+::: {.extra-info data-latex=""}
+::: {.center data-latex=""}
+**Indicering och fel-med-ett**
+:::
+
+R avviker från många andra programmeringsspråk genom att R räknar från 1, inkluderande. Detta innebär två saker: Att index alltid börjar från 1, och att en indexintervall innehåller den definierade ändan. Indexet [4] hämtar det fjärde elementet, intervallet [2:5] hämtar det andra, tredje, fjärde och femte elementet.
+
+Det är mycket vanligt att programmerar gör **fel-med-ett** (eng. *off-by-one error*). Detta innebär att du misstolkar vilka element som hämtas eller behandlas, och ökar eller minskar intervallets storlek med ett i misstag. Var alltså alltid noggrann med dina intervall, och dubbelkolla att rätt mängd element har hämtats eller rätt mängd iterationer (upprepningar) har gjorts!
+:::
+
+## Matriser, arrays, listor och dataramar
+
+Vektorer och enkla värden (även kallat **scalars**) är exempel på **datastrukturer**. Eftersom du ska lära dig statistik i R, är det viktigt att du lär dig hur du kan forma och omforma dina data. Det finns fyra ytterligare datastrukturer i basinstallationen av R som du bör känna till: matriser, arrays, listor och dataramar
+
+### Matriser
+
+**Matriser** är tvådimensionella versioner av vektorer. En matris har kolumner och rader, och varje kombination av kolumn- och radposition utgör en cell. Du kan skapa matriser med funktionen `matrix(data, nrow = x, ...)`
+
+```{r matriser, results="markup"}
+matris_kol <- matrix(1:9, nrow=3)
+matris_kol
+matris_rad <- matrix(1:9, nrow=3, byrow=TRUE)
+matris_rad
+```
+
+Argumentet `byrow=TRUE` tvingar matrisen att lägga in data enligt rader (börja med kolumn 1, rad 1, sedan kolumn 1, rad 2, osv.), medan `byrow=FALSE` eller tomt argument lägger in data enligt kolumner.
+
+Du kan söka data från matriser genom att ge ett indexpar, där det första indexet är radindex och det andra är kolumnindex:
+
+```{r matris-hamta, results="markup"}
+matris_kol[1,3]
+```
+
+Du kan även ge namn åt raderna och kolumnerna istället för ordningstal. Detta gör sökning av data något lättare. Du gör det genom funktionerna `rownames(matris)` och `colnames(matris)`:
+
+```{r matris-namn, results="markup"}
+rownames(matris_kol) <- c("A", "B", "C")
+colnames(matris_kol) <- c("Å", "Ä", "Ö")
+matris_kol
+matris_kol["A","Ö"]
+```
+
+### Arrays
+
+**Arrays** är mångdimensionella versioner av matriser. Arrays är därmed mycket lika som matriser, men fungerar i högre dimensioner och skapas med funktionen `array(data, dim = x, ...)`:
+
+```{r arrays-exempel, results="markup"}
+min_array <- array(1:18, dim = c(3, 3, 2))
+min_array
+min_array[1,3,2]
+```
+
+Arrays fungerar på samma sätt som matriser, men de definieras med argumentet `dim` och en vektor som beskriver hur många nivåer i varje dimension. Första indextalet hänvisar till raden, andra till kolumnen, tredje till tredje dimensionen. Det blir dock komplext att tänka i flera dimensioner, och därför har det utvecklats bättre verktyg än arrays för detta. Mer om det senare.
+
+### Listor
+
+**Listor** är mångdimensionella datastrukturer. Unikt för listor är dock att de kan innehålla flera dataklasser! En lista kan skapas med konstruktorfunktionen `list(element_1, element_2, ...)`:
+
+```{r listor-exempel, results="markup"}
+min_lista <- list(c("Celery Man", "Carol Henderson", "Dee Vee"),
+                  c(1962, 1978, 2054),
+                  c(50000, 32000, 0))
+min_lista
+```
+
+Du kan kalla data från listan med index, eller genom att ge namn åt de olika elementen. Namngivning kan göras i konstruktorfunktionen: `list(namn_1 = data_1, namn_2 = data_2, ...)` eller i efterhand med `names(lista)`:
+
+```{r listor-namngivning, results="markup"}
+names(min_lista) <- c("Namn", "Födelseår", "Inkomst")
+min_lista
+min_lista$Namn
+```
+
+Som du ser kan specifika namngivna element kallas med formen `lista$element`. Märk väl att namnet ska vara skrivet exakt som det är i listan: `$Namn` och `$namn` är två olika elementnamn.
+
+### Dataramar
+
+**Dataramar** (eng. *data frames*) är en speciell datastruktur i R, och kanske den mest användbara av alla dessa (förutom vektorer, som behövs hela tiden). Du kan tänka dig att en dataram är en matris vars varje kolumn är en egen vektor. Detta innebär att varje enskild kolumn bör innehålla samma klass av data, men kolumnerna i sig kan innehålla olika klasser. Kolumn A kan vara text, kolumn B bilder, kolumn C datum, och så vidare.
+
+Dataramar skapas med konstruktorfunktionen `data.frame(data)`:
+
+```{r dataramar-exempel, results="markup"}
+person.namn <- c("Kasper", "Jesper", "Jonatan")
+person.kön <- c("M", "M", "X")
+person.ålder <- c(17, 22, 28)
+
+personer <- data.frame(namn = person.namn, kön = person.kön, ålder = person.ålder)
+personer
+```
+
+Du kan hämta kolumner från dataramar med indicering samt med namnsökningsoperatorn, t.ex. `personer[1]` eller `personer$namn`.
+
+För dataramar finns det även ett antal behändiga funktioner för snabba översikter. Funktionen `head(data.frame)` ger de första sex rader för en snabb insikt i vad som finns i datastrukturen, och funktionen `tail(data.frame)` gör detsamma för de sista sex raderna. Funktionen `str(data.frame)` ger en kort summering av dataramens innehåll. Funktionen `summary(data.frame)` gör det samma, men med statistisk information om en kolumn innehåller siffror.
+
+```{r dataramar-funktioner, paged.print=TRUE}
+min_dataram <- data.frame(x = round(rnorm(100), digits = 2), y = rep(1:100), z = 5)
+head(min_dataram)
+tail(min_dataram)
+str(min_dataram)
+summary(min_dataram)
+```
+
+## Tibbles
+
+En sista datatyp är värd att nämna. **Tibbles** är en alternativ version av dataramar som fungerar enligt **Tidy Data-principen**. Detta är en slags designfilosofi utvecklad för R, där alla olika sätt att hantera data (datastrukturer, grafik, kategoriska variabler...) följer samma principer. Detaljerna kan bli klarare för dig när du jobbar med Tidy Data, men principen är att Tidy Data gör arbetet smidigare, mer organiserat och tydligare.
+
+För att använda **tibbles** bör du installera paketet `tibble`. Vi kommer även att använda andra Tidyverse-verktyg, så om du vill kan du installera hela moderpaketet `tidyverse` på en gång. Se kapitel XXX om paketinstallation i detta skede, och återvänd här när du är klar.
+
+En tibble skapas på samma sätt som en dataram, men med konstruktorfunktionen `tibble(data)`. Om du har en färdig dataram kan du även omvandla den med funktionen `as_tibble(dataram)`[^07-grundlaggande-kunskaper-i-programmering-2]:
+
+[^07-grundlaggande-kunskaper-i-programmering-2]: I versioner av Tibble äldre än 2.0.0 heter funktionen `as.tibble()`.
+
+```{r tibbles-exempel, results="markup"}
+library(tibble)
+min_tibble <- as_tibble(min_dataram)
+min_tibble
+```
+
+Tibbles har några inbyggda fördelar (eller skillnader) framöver dataramar:
+
+-   När du kallar ett tibbleobjekt skriver den endast ut de tio första raderna, så att du inte i misstag fyller din konsol med tusentals rader och kraschar RStudio. Behöver du flera rader kan du använda funktionen `print(data, n = x, width = Inf)` för att skriva ut alla kolumner för X rader.
+-   Tibbles ändrar inte dataklassen av värdena som matas in i den. Dataramar har en tendens att omvandla text till faktorer, vilket du kanske inte alltid vill göra - tibbles garanterar att data går in på samma sätt som du matade det in.
+-   Tibbles kräver att hela kolumnens namn skrivs ut när du kallar data, medan dataramar kan tolka halvfärdiga kolumnnamn. Detta kan vara både positivt (skyddar mot misstag) och negativt (orsakar fler fel).
+-   Om du hämtar en kolumn från en tibble returnerar den alltid en tibble, medan en dataram returnerar en vektor.
+-   Tibbles är strikta med inläggning av nya data i existerande tibbles, och kräver att du ger exakt lika många cellvärden som det finns celler i tibblen. Om du har en tibble med 500 rader, och du ger den en ny kolumn med 450 unika värden, kastar tibblen ett fel. Dataramar gör inte detta, utan upprepar vektorn från början när den nått slutet, ända tills alla rader har blivit fyllda.
+
+Tibbles kan användas i så gott som alla situationer där dataramar kan användas, men om en funktion inte tillåter en tibble som argument kan du alltid omvandla tibblen till en dataram med `as.data.frame(tibble)`.
+
+## Sammanfattning
+
+Grunderna i programmering är relativt enkla: definiera objekt och manipulera objekt. Du har lärt dig att göra detta med olika klasser. Kom ihåg att hålla reda på vilken klass varje objekt är, så att du kan förutspå vad som händer i dina manipulationer!
+
+Den allra största delen av programmering, speciellt i dina statistiska arbeten, sköts av diverse funktioner. Som du redan vet är dessa färdiga recept för att utföra en rad av instruktioner, så att du inte behöver skriva ut varje enskild instruktion för sig.
+
+Det finns flera olika datastrukturer: du har lärt dig om vektorer, matriser, arrays, listor, dataramar och tibbles. Av dessa är vektorer, dataramar och tibbles troligen de viktigaste för dina ändamål. Vektorer är ett lätt sätt att mata funktioner med multipla värden eller argument, dataramar är behändiga strukturer för att spara dina rådata (och varför inte senare analyser - allt kan sparas i dataramar!), och tibbles är uppstädade versioner av dataramar som fungerar något mera förutsägbart.
+
+I början kommer du säkert att göra missar med dataklasser och datastrukturer; det är lätt att glömma vilken typ av data som rör sig i ens objekt. Du kommer också att stöta på situationer där en viss funktion inte tar den klass eller struktur av data som du vill ge den. Återvänd till detta kapitel för att förfriska ditt minne, och pröva dig fram med kreativa lösningar. Glöm inte heller Google - chansen att någon annan har haft samma problem som du är väldigt stor!
+
+I nästa kapitel lär vi oss att skapa grafiska uppställningar av data - något R är speciellt bra på.
+
+::: {.functions-summary data-latex=""}
+::: {.left-adj data-latex=""}
+**Funktioner:**
+:::
+
+-   `class(data)`: Berättar objektets datatyp.
+-   `matrix(data, nrow = x, byrow = BOOL, ...)`: Skapar en matris. Argumentet `nrow` bestämmer mängden av rader, `byrow` bestämmer om matrisen fylls per kolumn eller per rad.
+-   `rownames(matris)`: Definierar radernas namn för en existerande matris.
+-   `colnames(matris)`: Definierar kolumnernas namn för en existerande matris.
+-   `array(data, dim = x)`: Skapar en array. Arrays är mångdimensionella versioner av matriser. Argumentet `dim` tar en vektor, där varje element står för hur stor dimensionen är. Exempel: `array(1:40, dim = c(5, 2, 4))` skapar en tredimensionell array med fem rader, två kolumner, och fyra nivåer av den tredje dimensionen. Exemplet fyller sedan arrayn med siffrorna 1 till 40.
+-   `list(data)`: Skapar en lista. Listor kan innehålla många olika datatyper.
+-   `names(lista)`: Definierar namnen på elementen i en existerande matris. Efter detta kan du kalla data från listan per namn istället för indexposition.
+-   `data.frame(data)`: Skapar en dataram. Du kan ge enskilda vektorer som argument i formen `kolumnnamn = vektor`.
+-   `head(dataram)`: Returnerar de sex första raderna i en dataram. Du kan ge argumentet `n = x` för att kalla X rader istället.
+-   `tail(dataram)`: Returnerar de sex sista raderna i en dataram. Samma argument gäller som för `head()`.
+-   `str(dataram)`: Returnerar en beskrivning av dataramen.
+-   `summary(dataram)`: Returnerar univariata mått på dataramens innehåll. Du kan kalla enskilda kolumner med \$-konstruktionen: `dataram$x` kallar kolumnen `x`.
+-   `tibble(data)`: Skapar en tibble. Konstruktionen sker på samma sätt som för dataramar. Tibbles är något enklare och tydligare än dataramar.
+-   `as_tibble(dataram)`: Omformar en dataram till en tibble.
+-   `as.data.frame(tibble)`: Omformar en tibble till en dataram.
+:::

@@ -1,0 +1,51 @@
+# Förord {.unnumbered}
+
+Först och främst: välkommen! Genom att öppna denna bok har du tagit dina första steg i att bli en statistiskt läskunnig forskare. Börja därför med att klappa dig själv på axeln.
+
+**Människovetaren och statistiken** är en öppen kursbok i statistisk analys för människovetare. Den meningen innehåller många nyckelord, så jag radar genom dem konsekvent.
+
+**Öppen** innebär att den är gratis - ja, helt *free*, *nada dineros* - och finns tillgänglig som nätbaserad bok. Du kanske läser den på nätet nu! Boken finns även tillgänglig för nedladdning som PDF-version (men notera dock att den inte är lika interaktiv), och förhoppningsvis även som fysisk kopia för er som tycker om doften av papper. Den sistnämnde kostar dock pengar, tyvärr.
+
+**Kursbok** menar att boken i första hand är skriven för studiebruk. Bokens kapitel har som mål att hjälpa dig genom statistikens tidvis grumliga och mångtydiga värld. Detta menar dock inte, a), att du blir expert genom att läsa boken pärm-till-pärm, eller b), att du inte får läsa boken om du inte går kurs i statistik vid universitetet. Statistik lär du dig endast genom *övning*! Boken handleder dig genom inlärningsprocessen, men du måste själv lägga ned tid för att faktiskt lära dig något. För det andra är alla välkomna att lära sig statistik, oavsett studie- eller kursnivå. Däremot kan bokens innehåll vara något krävande för till exempel elever i högstadium. Låt dig inte skrämmas av innehållet, men var inte heller missnöjd med dig själv om du inte genast förstår allt.
+
+**Statistisk** syftar till förståelsen av världen genom siffror, modeller och samband. Detta begrepp kommer att öppna sig för dig genom boken. Ta dock redan med dig följande insikter:
+
+1.  Statistik är inte enbart siffror.
+2.  Statistik är inte en världssyn.
+3.  Statistik är inte den hårdaste sanningen.
+
+Vad dessa insikter innebär blir förhoppningsvis tydligare under bokens gång. Det är dock förargligt många som inte håller överens med dessa tre insikter. Även meriterade forskare kan ha lustiga uppfattningar om vad statistik kan och inte kan göra, eller vad statistik säger om världens form och innehåll[^index-1].
+
+[^index-1]: Ontologi, för de filosofiskt inriktade läsarna
+
+**Analys** innebär att vi är här för att beskriva, tolka och förstå något. Det kan handla om människobeteende, kunskap, strukturer, tweets, videoessäer, ideologier, värderingar - ja, vad som helst. Det innebär även att den statistiska analysen inte enbart handlar om de *tekniska* tillämpningarna (medeltal, t-test och regressioner), utan även om förberedelse, datainsamling, tolkning, reproduktion, publikationer och mycket mer. Denna bok försöker handskas med helhetsprocessen av att utföra statistisk analys - i all dess rörighet, icke-linearitet och komplexitet.
+
+**För människovetare** menar att boken är främst riktad åt studenter i de vetenskaper som försöker förstå människan i hennes helhet - beteende, miljö, produktion, socialitet, *you name it*. Det betyder förstås inte att en biolog inte får läsa boken, bara att den presenterar verktyg som biologen inte nödvändigtvis behöver lika mycket som psykologen eller sociologen. En asterisk bör dock noteras: ekonomer med ekonometrisk utbildning har möjligen mindre nytta av boken än andra. Detta är främst eftersom många av de verktyg som ekonomer använder sig av (t.ex. autoregression eller tidsserieanalys) inte finns beskrivna i denna bok.
+
+**För människovetare** menar även att boken inte är riktad för studenter i sannolikhetsteori eller matematisk statistik. Vid vissa moment kommer jag att använda matematik, men jag är en sociolog, inte matematiker, och det syns förmodligen på dessa sidor. Det betyder även att du som läsare inte behöver kunna väldigt komplex matematik - kort matematik i gymnasiet (eller jämförbara kunskaper) torde räcka.
+
+## Bokens struktur {-}
+
+Boken är delad i fyra delar (fem, om du räknar denna del med).
+
+**Del I** presenterar det statistiska tankesättet. Målet med denna del är att få dig kalibrerad till att tänka *kvantifierande*: att omvandla världen till siffror för att säga något om dess struktur. Denna del är tämligen teoretisk, men hoppa inte över den! Jag anser att statistiskt tänkande är mångdubbelt viktigare för förståelsen av statistik än teknisk kunskap av modeller, och förhoppningsvis tänker du lika efter denna del av boken.
+
+Denna del handlar om statistik, definitionen av data, forskningsprocessen, variabler och modeller, samt statistisk inferens.
+
+**Del II** ger en introduktion till miljön där du (förmodligen) gör din statistisk analys: R. R är ett programmeringsspråk skapat av och för statistiska forskare. Här är det värt att säga några varningens ord:
+
+1.  Programmering tar en tid att lära sig. Du ska helst öva medan du läser, repetera exempel, och försöka utföra dina egna. Kom dock ihåg att det bara handlar om ett nytt "språk" - om du kan lära dig grunder i spanska, kan du lära dig grunder i R!
+2.  Du behöver inte ha några som helst baskunskaper i programmering. Jag förmodar att läsaren är en novis i programmering. Om du dock kan programmering, så kommer du garanterat undan med en översiktlig läsning av denna del. Om du även kan R, så kan du hoppa över delen helt och hållet.
+3.  Att jobba med programmering innebär att testa, testa på nytt, och testa än en gång. Du kommer att göra otroligt många misstag, glömma parenteser, använda `<-` när du menade använda `=`... Detta är en naturlig del av att programmera, och *inte* en fördömning av dina kunskaper eller ditt egenvärde!
+
+Denna del gör dig bekant med R-miljön, installationen av R och RStudio, installationen och aktiveringen av paket, importering och exportering av data i olika format, samt grafisk uppställning.
+
+**Del III** innehåller vad många skulle kalla "köttet på de statistiska benen"[^index-2]. Du blir bekant med flera olika statistiska modeller och metoder. Jag har försökt strukturera delen ungefär enligt svårighetsgrad. Vi inleder därmed med enkla metoder på enskilda variabler och ökar variabelmängden sakta men säkert. Jag har även valt att ta in två olika sorters innehåll: de främst använda metoderna inom människovetenskaplig statistisk forskning, samt nydanande metoder för studiet av komplexa och svårtillgängliga fenomen. Det finns dock fler statistiska metoder i världen än det finns forskare (inte nödvändigtvis sant, men riktgivande), och allt kan inte hanteras. Målet är därför att du blir *statistiskt läskunnig*, inte en vandrande encyklopedi av metoder och distributioner.
+
+[^index-2]: Kanske enbart jag skulle kalla det så...
+
+Varje kapitel innehåller en beskrivning av metodens mål, krav och process. Därutöver ger jag exempelanalyser på verkliga data, för att synliggöra processen i att tolka siffrorna som R spottar ut. Kapitlen kan läsas isolerat, så att du kan återvända till de metoder som är relevanta för just dig. Jag rekommenderar faktiskt varmt, att du *inte* läser denna del i ett sträck. Återvänd när du behöver en viss metod, fördjupa dig i källhänvisningarna, och läs precis så mycket du behöver för att utföra uppgiften du har framför dig.
+
+Denna del beskriver uni-, bi- och multivariata analysmetoder, faktoranalys, nätverksanalys och simulationsanalys.
+
+**Del IV** återvänder till forskningsprocessen. Denna del beskriver hur en vetenskaplig publikation blir till, vad referentgranskning är, och hur du kan publicera data på nätet och jobba på ett källöppet sätt. Vetenskapen blir bättre av öppenhet, och det är guld värt av dig att lära dig jobba öppet, kollaborativt och dokumenterande från första början.

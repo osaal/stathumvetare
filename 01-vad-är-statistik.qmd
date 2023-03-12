@@ -1,0 +1,51 @@
+# Vad är statistik?
+
+"Sextiotre procent av finländare stöder ett NATO-medlemskap."
+
+"Den absoluta mängden av långtidshemlösa fortsätter sjunka, trots ökningar i mängden unga hemlösa."
+
+"Forskare fann att köttätande är kopplat till kortare livslängd."
+
+Vi lever i ett informationssamhälle som peppras av nyhetsrubriker som de ovannämnda (påhittade!) rubrikerna. Idag förväntas vi vara **statistiskt läskunniga**, med motiveringen att det krävs data för att leda befolkningen, och befolkningen ska ledas demokratiskt av oss själva. Men trots detta har gemene medborgare inte alltför goda statistiska kunskaper - och det är inte deras fel! Om du som läser denna bok är en universitetsstudent med finländsk skolbakgrund är din statistiska förkunskap troligen begränsad till en väldigt teoretisk matematikkurs i sannolikhetslära i gymnasiet. Om du däremot har gått en annan utbildning än gymnasieutbildningen kanske du inte alls har blivit lärd statistik. Men detta ändrar nu!
+
+I detta kapitel börjar vi från noll: Vad är statistik? Vad innebär det att studera något statistiskt? Varför vill vi analysera siffror? Jag vill lägga en speciell betoning på vad statistik kan säga om världen, och vad det **inte** kan säga. Statistik är inte den enda metoden att förstå världen vi lever i och dess invånare. Använder du statistik rätt är den dock en väldigt slagkraftig metod, med insikter som kan vara svåra eller omöjliga att nå med icke-statistiska metoder.
+
+## Varför siffror?
+
+Att studera något statistiskt innebär att studera siffror. Den matematiskt mindre intresserade läsaren kanske ryggar tillbaka när hen hör detta: "Usch, jag var alltid så dålig på matematik i skolan, inte mera matte!". *Fear not, young padawan*, för jag har ett viktigt budord:
+
+1.  **Statistik är inte matematik.**
+
+Vad jag menar är, att statistik inte handlar direkt om att räkna abstrakta talföljder, lösa ekvationer eller rita upp trigonometriska funktioner^[Fast statistik kan handla om det, om du vill. Den statistik du lärt dig i skolan är närmare detta än statistiken du lär dig i denna kurs.]. Statistik handlar i grund och botten om att *svara på frågor*.
+
+Hurudana frågor besvarar vi? Här kommer budord två: 
+
+2.  **Statistik besvarar frågan: "Finns det ett förhållande mellan X och Y?"**
+
+Detta är allt statistik i grund och botten är. X och Y kan stå för vadsomhelst för fenomen: inkomsten mellan kvinnor och män, hemskolning i olika kommuner, kyrkobesökare under pandemiåren 2020-2022, och så vidare. Vad än vi kan **kvantifiera** kan vi ställa frågan om förhållande för. Och vi kan kvantifiera allting!
+
+Härifrån följer budord tre:
+
+3.  **Bara för att du kan, innebär inte att du bör.**
+
+Allting kan räknas och ställas om till siffror. Men statistik bör alltid börja med frågan om *meningsfullhet*: är det meningsfullt att du granskar förhållandet mellan X och Y? Detta är en **teoretisk** fråga, och en fråga som statistiken därmed inte kan besvara. Statistik är ett verktyg, bara du kan bestämma om verktyget passar din situation.
+
+## Faror och fallgropar
+
+Jag har redan nämnt den första faran med statistik: avsaknaden av meningsfullhet. Då du gör statistiska analyser bör du alltid inleda från din frågeställning (mera om detta senare), inte från verktygen du använder. Om du vill veta något om verklighetens kvalitet kanske statistik inte är det rätta verktyget - kanske hermeneutiska metoder passar bättre. Men om du vill förstå verklighetens relationer mellan väldefinierade nivåer är statistik möjligen en mycket lämplig metod.
+
+Men vänta, vad då "väldefinierade nivåer"? Detta hänvisar till samma meningsfullhetsproblem som tidigare: Om du inte kan dra en *teoretisk* skiljelinje mellan två saker du vill analysera, kan du naturligtvis inte heller *analysera* dem i förhållande till varandra. Ett klassiskt exempel är rasforskning. Inom rasforskning intresserade man sig förrut om människorasernas skillnader i kognition och kunskap - intelligens, med andra ord. Eftersom denna forskningstematik handlar om *skillnader*, vet vi att statistik passar som verktyg.
+
+Det finns endast ett litet problem: "människoraser" finns inte. Nivåerna rasforskarna ville jämföra var aldrig väldefinierade. De ändrade utan rim eller resonemang, de baserades på människokvaliteter som inte var så distinkta som forskarna ville tro, för att nämna några problem. Om det teoretiska resonemanget faller sönder (vilket det gjorde inom rasforskningen), är det meningslöst att studera skillnader med statistik.
+
+Men märk: meningslöshet är inte samma sak som omöjlighet. Det *görs* rasforskning än idag; mycket av den moderna IQ-forskningen handlar ännu om detta. Du kan med andra ord **kvantifiera det obefintliga**. Kom ihåg budord tre: bara för att du kan, innebär inte att du bör!
+
+Genom kursen kommer du att bli bekant med olika sätt att analysera siffror och data. Du kommer förmodligen också att märka, att våra analyser inte bryr sig om *vad* vi matar in i dem. Du kan tänka dig statistiska analyser som kontextlösa fabriker: allt som kommer in (input) kommer att bli behandlat till en slutprodukt (output), oavsett vad som faktiskt kommer in. Textilfabrikens uppgift är att sy kläder, det har ingen skillnad för fabriken om råmaterialet är giftigt för människor. På samma sätt är statistikfabrikens uppgift att analysera siffror, det har ingen skillnad om siffrorna är meningslösa.
+
+På grund av detta vill jag betona att **statistik börjar med teori**. Statistikens grundläggande verktyg är inte korrelationer, regressioner, korstabeller och variansanalyser - det grundläggande verktyget är *frågeställningen*. Utan en bra frågeställning kan du aldrig få bra svar, även hur avancerade dina analyser är. Kom ihåg detta när du börjar hopa dig in i de mest komplexa statistiska verktygens detaljer.
+
+## Avslutningsvis
+
+Denna korta inledning betonar kanske de mer negativa aspekterna av statistik än de positiva. Jag vill dock från första början avfjärma dig från idén att statistik på något sätt är "mer vetenskapligt", "mer sant" eller "mer äkta" än andra metoder eftersom den skulle handla om siffror och hårda fakta. Sanningen är, att statistiken bara är ett verktyg. Ett otroligt effektivt verktyg i en välformulerad undersökning, ett värdelöst verktyg i en dåligt formulerad undersökning.
+
+Till nästa ska vi ta itu med vad det är som studeras med statistik. Med andra ord: vad är "data"?

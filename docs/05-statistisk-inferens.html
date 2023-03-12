@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
+
+<title>Människovetaren och statistiken - 5&nbsp; Statistisk inferens</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06-introduktion-till-r-spraket.html" rel="next">
+<link href="./04-modeller.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Människovetaren och statistiken</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Förord</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Analysens logik</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R-miljön</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Paket</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Statistiska metoder</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#inledning" id="toc-inledning" class="nav-link active" data-scroll-target="#inledning"><span class="toc-section-number">5.1</span>  Inledning</a></li>
+  <li><a href="#den-kvantitativa-ryggraden" id="toc-den-kvantitativa-ryggraden" class="nav-link" data-scroll-target="#den-kvantitativa-ryggraden"><span class="toc-section-number">5.2</span>  Den kvantitativa ryggraden</a>
+  <ul class="collapse">
+  <li><a href="#sammanfattning" id="toc-sammanfattning" class="nav-link" data-scroll-target="#sammanfattning"><span class="toc-section-number">5.2.1</span>  Sammanfattning</a></li>
+  </ul></li>
+  <li><a href="#statistiska-fördelningar" id="toc-statistiska-fördelningar" class="nav-link" data-scroll-target="#statistiska-fördelningar"><span class="toc-section-number">5.3</span>  Statistiska fördelningar</a></li>
+  <li><a href="#nollhypotessignifikanstestning-nhst" id="toc-nollhypotessignifikanstestning-nhst" class="nav-link" data-scroll-target="#nollhypotessignifikanstestning-nhst"><span class="toc-section-number">5.4</span>  Nollhypotessignifikanstestning (NHST)</a>
+  <ul class="collapse">
+  <li><a href="#ronald-fisher-och-att-tillreda-te" id="toc-ronald-fisher-och-att-tillreda-te" class="nav-link" data-scroll-target="#ronald-fisher-och-att-tillreda-te"><span class="toc-section-number">5.4.1</span>  Ronald Fisher och att tillreda te</a></li>
+  <li><a href="#neyman-pearson-och-hypoteser" id="toc-neyman-pearson-och-hypoteser" class="nav-link" data-scroll-target="#neyman-pearson-och-hypoteser"><span class="toc-section-number">5.4.2</span>  Neyman, Pearson, och hypoteser</a></li>
+  </ul></li>
+  <li><a href="#nhst---att-kombinera-hypoteser-och-sannolikheter" id="toc-nhst---att-kombinera-hypoteser-och-sannolikheter" class="nav-link" data-scroll-target="#nhst---att-kombinera-hypoteser-och-sannolikheter"><span class="toc-section-number">5.5</span>  NHST - att kombinera hypoteser och sannolikheter</a></li>
+  <li><a href="#felgrader-typ-i-och-ii-fel" id="toc-felgrader-typ-i-och-ii-fel" class="nav-link" data-scroll-target="#felgrader-typ-i-och-ii-fel"><span class="toc-section-number">5.6</span>  Felgrader: Typ I och II fel</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="inledning" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="inledning"><span class="header-section-number">5.1</span> Inledning</h2>
+<p>När vi forskar om något vill vi berätta något om det - förstås. Vi vill beskriva hur världen är, hur den fungerar, hur människan beter sig, organisationens delar, <em>und so weiter</em>. Vi kan göra denna beskrivning på många olika sätt, men i denna bok fäster vi oss vid den statistiska beskrivningen.</p>
+<p>Verkligheten är dock stor - otroligt stor. Det finns många människor (snart åtta miljarder vid dagsdato!), många åsikter, många mönster, många sätt att vara.</p>
+<p>Tänk dig följande exempel: Du vill mäta hur många röster de olika politiska partierna skulle få om ett riksdagsval utfördes nu. Valröstning är ganska enkelt att kvantifiera: en person ger en röst åt ett parti från en förbestämd lista. För att mäta graden av röster för partierna kunde du alltså helt enkelt fråga den finländska röstberättigande befolkningen vem de skulle rösta på just nu.</p>
+<p>Men tänk lite noggrannare, så märker du säkert att det finns flera problem här. Hur ska du fråga <em>alla</em> fyra-eller-så miljoner röstberättigade finländare? Vem betalar för detta projekt? Vad ska du göra om ett politiskt parti upphör att existera under din datainsamling?</p>
+<p>Eftersom det är praktiskt taget omöjligt att göra sådana <strong>totalundersökningar</strong> som den ovan beskrivna partiundersökningen, har statistiker och människovetare utvecklat många verktyg för att härleda resultat från mindre grupper. Dessa grupper kallas <strong>urval</strong> eller <strong>sampel</strong>, och deras definition, begränsningar, metoder för undersökning, och härledda statistiker är både varierande och mycket viktiga att förstå.</p>
+<p>I detta kapitel kommer du att lära dig om denna process av härledning, vilket kan sammanfattningsvis kallas <strong>statistisk inferens</strong>. Du lär dig om olika sorters <strong>urvalsramar</strong>, förhållandet mellan urval och <strong>population</strong>, <strong>systematiska</strong> och <strong>osystematiska felmätningar</strong>, statistiska <strong>fördelningar</strong>, samt olika former av <strong>inferens-</strong> eller <strong>osäkerhetsmått</strong>. Detta kapitel hanterar de teoretiska grunderna - senare i boken kommer du att lära dig hur osäkerhet mäts i praktisk forskning.</p>
+</section>
+<section id="den-kvantitativa-ryggraden" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="den-kvantitativa-ryggraden"><span class="header-section-number">5.2</span> Den kvantitativa ryggraden</h2>
+<p>Den statistiska härledningsprocessen kan delas upp i fem grundläggande steg:</p>
+<ol type="1">
+<li>Parametrar</li>
+<li>Estimering</li>
+<li>Standardfel</li>
+<li>Intervall av konfidens</li>
+<li>Nollhypotessignifikanstestning</li>
+</ol>
+<p>Varje steg berättar något mera åt oss om det vi har mätt, och därigenom om verkligheten.</p>
+<p>Vi inleder med det vi vill veta, <strong>parametern</strong>. Det kan handla om ett medeltal, ett förhållande mellan två variabler, graden av förändring av en variabel över tid, eller något annat. Med andra ord: <em>vad vill vi veta om verkligheten?</em> Matematiskt kan vi förstå denna parameter som en okänd variabel:</p>
+<p><span class="math display">\[X\]</span></p>
+<p>Eftersom vi har tagit ett urval, så kan vi strikt taget inte säga något om den verkliga parametern. För att veta något om t.ex. könsfördelningen i Finland måste vi ju veta den exakta mängden invånare inom varje könskategori, och det kräver en totalundersökning. Men allt är inte förlorat: vi kan <strong>estimera</strong> parametern. En estimering, eller uppskattning, är väldigt enkel: den utgörs av parametern, tillsammans med någon grad av <strong>felmätning</strong>. Med andra ord: “Jag uppskattar könsfördelningen vara på detta sätt, plus/minus lite felmätning”. Matematiskt kan vi skriva det som en enkel formel:</p>
+<p><span class="math display">\[X = \bar{x} + \delta\]</span></p>
+<p>där <span class="math inline">\(\bar{x}\)</span> (uttalas ‘x-bar’) är vårt estimat och <span class="math inline">\(\delta\)</span> (grekiska delta, liten bokstav) är vår felmätning. I detta skede behöver vi inte bry oss om hur stora dessa siffror är, eller vad de egentligen står för.</p>
+<p>För att förstå <em>hur mycket</em> felmätning det finns i vårt estimat kan vi ta till ett statistiskt verktyg: <strong>standardfelet</strong> (eng. <em>standard error</em>). Standardfelets beräkning görs genom:</p>
+<p><span class="math display">\[ \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} \]</span></p>
+<p>eller i klarspråk: estimatets standardfel är lika med dess <strong>standardavvikelse</strong> (eng. <em>standard deviation</em>) dividerat med kvadratroten av urvalsstorleken. Nu behöver du inte tänka alltför länge på denna beräkning - du blir bekant med den senare i kapitel XXX. Vad som är viktigt att förstå är att vi kan räkna en exakt siffra på hur mycket felmätning vi tror att vi har i vårt estimat. Denna felmätning beräknas genom <strong>spridningen</strong> av datapunkterna runtom vårt estimat - något du lär dig mera om senare.</p>
+<p>I detta skede har vi redan åstadkommit mycket: vi vet att det finns ett värde som vi mätt (parametern), vi vet att vi har mätt det med onoggranna metoder (estimatet), och vi kan beräkna hur mycket onoggrannhet vi har i vårt mått (standardfelet). Detta säger dock inte ännu huruvida vårt estimat är korrekt, eller <em>hur</em> korrekt det är. För det behöver vi några flera mått: konfidensintervallet och nollhypotessignifikanstestningen.</p>
+<p><strong>Konfidensintervallet</strong> mäter hur mycket felmätning vi skulle åstadkomma <em>i det långa loppet</em> om vi upprepade vårt urval och estimat oändligt många gånger. Hur man beräknar konfidensintervallet kommer vi tillbaka till. Kort sagt beskriver det hur säkra vi är i urvalets påverkan på vårt estimat - hur mycket av vårt estimat är beroende av vårt urval, och hur mycket är faktiskt korrekt? Vi vill ju säga något om verkligheten i alla situationer, inte bara i vårt urval, så vi måste veta om vi prickar rätt med våra metoder.</p>
+<p><strong>Nollhypotessignifikanstestningen</strong> (NHST) är en statistisk filosofi som lägger grunden för all statistik vi behandlar i denna bok<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. I skillnad till konfidensintervallet, där vi mätte graden av felmätning i det långa loppet, så mäter NHST graden av felmätning <em>i detta urval</em>. Det är alltså ett sätt att kvantifiera hur mycket osäkerhet vi finner i vårt urval, i förhållandet till hur mycket osäkerhet vi vill tolerera. NHST är en filosofi med ungefär 100 år av misstolkningar, grubbel och manipulation, och därför handlar en stor del av detta kapitel om vad NHST kan (och inte kan) göra.</p>
+<section id="sammanfattning" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="sammanfattning"><span class="header-section-number">5.2.1</span> Sammanfattning</h3>
+<ul>
+<li>Den statistiska processen innehåller fem steg: parametrar, estimering, standardfel, konfidensintervall och nollhypotessignifikanstestning.</li>
+<li>Parametern är det mått vi vill räkna ut, t.ex. könsfördelningen i Finland.</li>
+<li>Estimering innebär att vi uppskattar parametern med någon grad av felmätning.</li>
+<li>Standardfelet är en kvantifiering av felmätningen i vårt estimat.</li>
+<li>Konfidensintervallet berättar hur mycket felmätning vår metod orsakar i det långa loppet.</li>
+<li>Nollhypotessignifikanstestningen berättar hur mycket felmätning vi orsakade denna gång.</li>
+</ul>
+</section>
+</section>
+<section id="statistiska-fördelningar" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="statistiska-fördelningar"><span class="header-section-number">5.3</span> Statistiska fördelningar</h2>
+<p>Hur kan vi säga något om felmätningsgraden i vårt parameterestimat, då vi inte vet något om den verkliga parametern? Hur kan vi veta hur noga vi mätte könsfördelningen i Finland, om vi inte vet hur den faktiskt ser ut? Detta dilemma kan se ganska olösligt ut! Som tur är, har några mycket klipska statistiker och matematiker utvecklat verktyg med vilka vi kan estimera det okända: <strong>fördelningar</strong>.</p>
+<p>En fördelning är en föruppfattning om sannolikheten för vissa värden. Fördelningar berättar alltså för oss hur sannolika vissa värden är. Nyckeln här är dock “föruppfattning”: för att vi ska kunna säga något om värdets sannolikhet, måste vi först bestämma för oss att denna sannolikhet har en fördelning som vi kan definiera. Detta kan låta påhittat, som att vi bara drar sannolikheter ur hatten med ingen respekt för verkligheten, men i själva verket fungerar vi som människor väldigt ofta på samma sätt! När jag går på gatan och min generaliserade ångeststörning frågar mig, “Hej du! Vad om en asteroid <em>just nu</em> skulle falla och krossa dig? Vad då?”, så kan jag ju faktiskt inte säga huruvida det kommer eller inte kommer att hända. Det är i framtiden, det okända, och jag måste härleda mig till ett svar. Jag kanske svarar “Ja du, det är väl ganska osannolikt”, eller så svarar jag “Skit då, det kommer säkert att hända, jag kommer att dö snart!”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>I bägge av svaren ovan, så ger jag egentligen asteroidens nedslag en sannolikhet. Högst troligen inte i siffror, men en sannolikhet likväl. Fördelningar gör samma sak, men de förmodar en kvantitativ sannolikhet - de lägger siffror på denna osäkerhet!</p>
+<p>Varför är fördelningar viktiga? Jo, för att om vi kan med tillräcklig säkerhet säga att vår parameter kommer från en viss fördelning, <em>så kan vi beräkna hur sannolikt det är att få ett estimatvärde eller ett annat!</em> Om vi tänker tillbaka till asteroidexemplet, så kan vi preliminärt ge några siffror. Enligt Wikipedia-artikeln “Impact event” slår en asteroid med en diameter på högst 1 kilometer ner på Jorden ungefär en gång per femhundratusen år. För enkelhetens skull förmodar vi att jag skulle dö i 100% av fallen där detta sker (oavsett hur nära jag är nedslaget). Sannolikheten för att jag dör i år av att bli krossad av en asteroid är därmed:</p>
+<p><span class="math display">\[p(\text{dö}) =  \frac{1}{500000} = 0.000002\]</span></p>
+<p>Sannolikheten att jag <em>inte</em> dör av ett asteroidnedslag är <strong>inversen</strong> av detta:</p>
+<p><span class="math display">\[p(\text{inte dö}) = 1-p(\text{dö}) = 1-0.000002 = 0.999998 \]</span></p>
+<p><em>So far so good</em>, chansen tycks vara väldigt liten för att dö, och väldigt stor för att inte dö. Dessa två siffror kan också ställas upp i en graf, där x-axeln beskriver de olika alternativen (dö, inte dö), och y-axeln beskriver deras unika sannolikhet. Figur @ref(fig:asteroid-pdf) åskådliggör detta.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"Inte dö"</span>, <span class="st">"Dö"</span>),</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">p=</span><span class="fl">0.000005</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Utsaga"</span>, <span class="at">ylab=</span><span class="st">"Sannolikhet"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-statistisk-inferens_files/figure-html/asteroid-pdf-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Sannolikheten för att jag dör i asteroidnedslag</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Vad jag har genererat här är faktiskt en sannolikhetsfördelning Den kallas även en <strong>bernoullifördelning</strong>, nämnd efter matematikern Jacob Bernoulli (1655/1654-1705). Bernoullifördelningen berättar åt oss sannolikheten för en binär variabel, alltså då utsagan kan vara en av två alternativ - död eller inte död, på eller av, noll eller ett. Många saker i vår värld följer en bernoullifördelning av något slag, och vi kan även förenkla världen till bernoullifördelningar väldigt lätt: antingen är jag utomhus eller inomhus, sjuk eller frisk, död eller i liv, hungrig eller mätt, och så vidare.</p>
+<p>Med vissa exempel är det lättare att se att fördelningen förmodas än med andra. Att vara död eller inte är en ganska binär sak - du kan inte riktigt vara “typ, så där liksom död”, alltså något mellan död och i liv. Men du kan vara mer eller mindre hungrig, mer eller mindre sjuk, mer eller mindre rik. Vi kan alltså skilja mellan flera olika sorters variabler: binära, kategoriska eller diskreta, och kontinuerliga. Dödhet är binärt<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, men vi kan även förlänga skalan till diskreta kategorier: död, dödligt sjuk, sjuk, frisk.</p>
+<p>Med flera kategorier använder vi inte längre bernoullifördelningen, utan en mer generell variant av den: <strong>binomialfördelningen</strong>.</p>
+</section>
+<section id="nollhypotessignifikanstestning-nhst" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="nollhypotessignifikanstestning-nhst"><span class="header-section-number">5.4</span> Nollhypotessignifikanstestning (NHST)</h2>
+<p>För att testa hur pålitligt vårt resultat är använder vi oss av <strong>nollhypotessignifikanstestning</strong> (NHST), en filosofi som kombinerar två viktiga tankesätt från vetenskapsteorin: Fishers sannolikhetstestning och Neyman och Pearsons hypotestestning.</p>
+<section id="ronald-fisher-och-att-tillreda-te" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="ronald-fisher-och-att-tillreda-te"><span class="header-section-number">5.4.1</span> Ronald Fisher och att tillreda te</h3>
+<p>Ronald Fisher föreslog att vetenskapens uppgift är att räkna ut sannolikheter för händelser. Vi kan förstå detta som att vi ska räkna sannolikheten för vår mätning - hur sannolikt är det att vi fick det resultat som vi mätte, t.ex. könsfördelningen eller medianlönen? Fisher exemplifierade detta genom tankeexperimentet om tetillredning.</p>
+<p>I tedryckens lovade land, Storbritannien, har det länge funnits en myt om att vissa människor kan känna igen huruvida en tekopp har tillagts genom att lägga i mjölk före tevatten, eller tevatten före mjölk. Kan vi testa detta empiriskt? Jo, säger Fisher! Vi låter en person som påstår sig kunna skilja på dessa tillredningssätt smaka på ett antal tillagda te. Hen<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> visste inte i vilken ordning tedrycken hade tillretts.</p>
+<p>[FUNDERA UT NÅGOT NYTT HÄR.]</p>
+</section>
+<section id="neyman-pearson-och-hypoteser" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="neyman-pearson-och-hypoteser"><span class="header-section-number">5.4.2</span> Neyman, Pearson, och hypoteser</h3>
+<p>Den andra delen av NHST baserar sig på tanken om hypoteser, av Neyman och Pearson. Det finns fyra grundläggande steg i hypotesprocessen:</p>
+<ol type="1">
+<li>Ställ en fråga av något slag.</li>
+<li>Formulera en <strong>alternativ hypotes</strong>, <span class="math inline">\(H_1\)</span>, som representerar ett positivt svar till frågan.</li>
+<li>Formulera en <strong>nollhypotes</strong>, <span class="math inline">\(H_0\)</span>, som representerar ett nollresultat för frågan.</li>
+<li>Utför ett test som kan bevisa nollhypotesen fel.</li>
+</ol>
+<p>Processen åskådliggörs bäst med ett exempel. Min partner har märkt att det tycks finnas väldigt många <em>metalheads</em> (personer som lyssnar på metallmusik) inom naturvetenskaperna i Finland, men jag har inte märkt någon större mängd av dem inom samhällsvetenskaperna. Frågan vi ställer är därmed: Finns det fler metalheads inom naturvetenskaperna än inom samhällsvetenskaper?</p>
+<p>Från denna fråga kan vi formulera två hypoteser:</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_1\)</span>: Det finns fler metalheads inom naturvetenskaperna än inom samhällsvetenskaperna.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><span class="math inline">\(H_0\)</span>: Det finns lika många metalheads inom naturvetenskaperna och samhällsvetenskaperna.</p>
+</blockquote>
+<p>Det är viktigt att märka, att nollhypotesen är inte inversen av den alternativa hypotesen - ett negativt förhållande är också ett förhållande. Vi vill jämföra med <em>avsaknaden</em> av förhållande.</p>
+<p>Härifrån kunde vi nu formulera ett test som kan bevisa nollhypotesen fel. Vi kan utföra en enkätstudie på alla natur- och samhällsvetare i Finland, och fråga dem vilken musikstil de främst lyssnar på. Sedan kan vi jämföra graden av metallyssnare inom bägge vetenskapsområde. Om de resulterande graderna <em>inte</em> är desamma, så kan vi förkasta nollhypotesen: det finns olika mängder metalheads inom respektive vetenskapsgren, så då kan det logiskt inte vara så att det finns lika många i bägge. Med andra ord:</p>
+<p><span class="math display">\[ H_0: \frac{n_\text{metall i naturvetare}}{n_\text{naturvetare}} =
+\frac{n_\text{metall i samhällsvetare}}{n_\text{samhällsvetare}}
+\]</span> <span class="math display">\[
+H_1: \frac{n_\text{metall i naturvetare}}{n_\text{naturvetare}} &gt;
+\frac{n_\text{metall i samhällsvetare}}{n_\text{samhällsvetare}}
+\]</span></p>
+</section>
+</section>
+<section id="nhst---att-kombinera-hypoteser-och-sannolikheter" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="nhst---att-kombinera-hypoteser-och-sannolikheter"><span class="header-section-number">5.5</span> NHST - att kombinera hypoteser och sannolikheter</h2>
+<p>Utifrån de två presenterade tankesätten får vi nollhypotessignifikanstestning, eller NHST:</p>
+<ol type="1">
+<li>Skapa en alternativ hypotes och en nollhypotes utifrån en frågeställning.</li>
+<li>Estimera ett test som kan bevisa nollhypotesen falsk.</li>
+<li>Räkna sannolikheten för att få ett så extremt test eller större <em>om</em> nollhypotesen vore sann.</li>
+<li>Om sannolikheten är tillräckligt liten: förkasta nollhypotesen.</li>
+</ol>
+<p>Hur räknar man då sannolikheten? Här kommer fördelningarna till hjälp! Om vi förmodar att vår urvalsprocess följer en viss fördelning, t.ex. normalfördelningen, så kan vi kolla var på fördelningskurvan vår mätta skillnad (skillnaden i graden av metalheads mellan naturvetenskaper och samhällsvetenskaper) ligger. För att göra detta måste man dock ofta <strong>standardisera</strong> det mätta värdet enligt en eller annan metod. Vi hanterar dessa metoder senare i boken, så låt oss nu bara säga att skillnaden, efter att den har blivit standardiserad, är 1 (på en skala av ungefär -4 till 4). Vi kan rita upp en graf som visar visuellt hur stor sannolikhet ett värde på 1 eller mera är på en normalfördelning:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)), <span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span> <span class="fu">stat_function</span>(<span class="at">fun=</span>dnorm) <span class="sc">+</span> <span class="fu">geom_area</span>(<span class="at">stat=</span><span class="st">"function"</span>, <span class="at">fun=</span>dnorm, <span class="at">fill=</span><span class="st">"grey"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Skillnad"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Sannolikhet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-statistisk-inferens_files/figure-html/sannolikhet-pa-kurvan-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Normalfördelning med svärtat område [1;4].</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hur vi exakt beräknar sannolikheten är aningen för komplext för att hantera i denna bok; i praktiken låter vi R räkna den för oss. Resultaten är en siffra, kallat ett <strong>p-värde</strong>, som varierar mellan 0 och 1 och berättar för oss <em>sannolikheten att få vårt värde eller större om nollhypotesen vore sann</em>.</p>
+</section>
+<section id="felgrader-typ-i-och-ii-fel" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="felgrader-typ-i-och-ii-fel"><span class="header-section-number">5.6</span> Felgrader: Typ I och II fel</h2>
+<p>Före vi går in för att förstå olika osäkerhetsmått är det bäst att klargöra vad det är som vi mäter. Vi har redan diskuterat noll- och alternativa hypoteser, men vi kan ställa upp en synnerligen enkel tabell av det vi mäter:</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Sant i verkligheten</td>
+<td>Falskt i verkligheten</td>
+</tr>
+<tr class="even">
+<td>Sant i mätningen</td>
+<td><em>hit vill vi nå!</em></td>
+<td><strong>Typ I fel</strong> (<span class="math inline">\(\alpha\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>Falskt i mätningen</td>
+<td><strong>Typ II fel</strong> (<span class="math inline">\(\beta\)</span>)</td>
+<td><em>detta är också okej!</em></td>
+</tr>
+</tbody>
+</table>
+<p>Vi vill att vår mätning motsvarar verkligheten; om skillnaden återfinns i mätningen, ska den helst återfinnas i verkligheten, och om skillnaden inte finns i mätningen, ska den helst inte heller finnas i verkligheten. Det kan dock gå ‘fel’ på två sätt:</p>
+<ol type="1">
+<li>Vi mäter en skillnad som inte finns i verkligheten. Detta kallas typ I fel eller <span class="math inline">\(\alpha\)</span> (grekiska alfa).</li>
+<li>Vi mäter avsaknaden av skillnad, trots att den finns i verkligheten. Detta kallas typ II fel eller <span class="math inline">\(\beta\)</span> (grekiska beta).</li>
+</ol>
+<p>Typ I fel är detsamma som vårt p-värde: det är sannolikheten att finna vår skillnad (eller större) om den inte finns i verkligheten, alltså att nollhypotesen är sann. Ju lägre gräns vi håller på typ I fel, desto säkrare kan vi vara på våra resultat om sannolikhetstestet underskrider gränsen.</p>
+<p>Typ II fel är ‘motsatsen’ av typ I fel, sannolikheten att vi mäter ett nollresultat då det faktiskt finns en skillnad. Inversen av typ II felet, <span class="math inline">\(1-\beta\)</span>, kallas för <strong>statistisk styrka</strong>, och mäter sannolikheten att finna sanna positiva. Denna vill vi hålla så hög som möjligt - vi vill ju inte missa skillnader då de faktiskt finns!</p>
+<p>Det finns dock ett förhållande mellan Typ I fel och Typ II fel: när <span class="math inline">\(\alpha\)</span> stiger så sjunker <span class="math inline">\(\beta\)</span>, och när <span class="math inline">\(\beta\)</span> stiger så sjunker <span class="math inline">\(\alpha\)</span>. Detta betyder att när graden av typ I fel faller (bra!), så stiger graden av typ II fel (dåligt!), vilket innebär att den statistiska styrkan faller (också dåligt!). Omformulerat: När vi minskar gränsen på vad som tas som pålitligt (och därmed ökar pålitligheten av resultat som uppfyller vårt krav), så ökar vi graden av sanna positiva som vi kastar bort. Det är alltså inte nödvändigtvis fallet att vi vill ha ett så lågt p-värde som möjligt, eftersom det ofta innebär att vi börjar kasta ut barnet med badvattnet.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Boken handlar om frekvensstatistik. Det finns alternativa synsätt på statistisk forskning, så som Bayesisk statistik, men dessa behandlas inte i boken.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Eller, om jag följer terapeutiska metoder, så svarar jag förhoppningsvis “Det kan hända, eller så händer det inte, det är bara att vänta och se.”<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>För att förenkla; en biolog har säkert en mer precis definition på liv än vad vi jobbar med här.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>I ursprungsexemplet var det tal om en kvinna, men könet är inte relevant för detta exempel.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-modeller.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06-introduktion-till-r-spraket.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

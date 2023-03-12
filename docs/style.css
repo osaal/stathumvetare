@@ -1,0 +1,45 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.extra-info {
+  padding: 1em;
+  background: lightgray;
+  color: black;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+}
+
+.packages-info {
+  padding: 1em;
+  background: lightgray;
+  color: black;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+}
+
+.functions-summary {
+  padding: 1em;
+  background: antiquewhite;
+  color: black;
+  border: 2px solid darkorange;
+  border-radius: 10px;
+}
+
+.center {
+  text-align: center;
+}
+.left-adj {
+  text-align: left;
+}
