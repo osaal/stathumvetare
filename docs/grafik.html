@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 9&nbsp; Grafik</title>
+<title>Människovetaren och statistiken - 10&nbsp; Grafik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./univariat-analys.html" rel="next">
-<link href="./grundläggande-kunskaper-i-programmering.html" rel="prev">
+<link href="./r-del-två.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduktion-till-r-språket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./introduktion-till-r-miljön.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-miljön</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -223,7 +223,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./grafik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./r-del-två.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R, del två</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -238,12 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
@@ -262,14 +267,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#varför-grafik" id="toc-varför-grafik" class="nav-link active" data-scroll-target="#varför-grafik"><span class="toc-section-number">9.1</span>  Varför grafik?</a></li>
-  <li><a href="#att-göra-grafik-ggplot2" id="toc-att-göra-grafik-ggplot2" class="nav-link" data-scroll-target="#att-göra-grafik-ggplot2"><span class="toc-section-number">9.2</span>  Att göra grafik: ´ggplot2´</a>
+  <li><a href="#varför-grafik" id="toc-varför-grafik" class="nav-link active" data-scroll-target="#varför-grafik"><span class="toc-section-number">10.1</span>  Varför grafik?</a></li>
+  <li><a href="#att-göra-grafik-ggplot2" id="toc-att-göra-grafik-ggplot2" class="nav-link" data-scroll-target="#att-göra-grafik-ggplot2"><span class="toc-section-number">10.2</span>  Att göra grafik: ´ggplot2´</a>
   <ul class="collapse">
-  <li><a href="#grafikens-grammatik" id="toc-grafikens-grammatik" class="nav-link" data-scroll-target="#grafikens-grammatik"><span class="toc-section-number">9.2.1</span>  Grafikens grammatik</a></li>
-  <li><a href="#geom-element" id="toc-geom-element" class="nav-link" data-scroll-target="#geom-element"><span class="toc-section-number">9.2.2</span>  Geom-element</a></li>
-  <li><a href="#text-på-grafen" id="toc-text-på-grafen" class="nav-link" data-scroll-target="#text-på-grafen"><span class="toc-section-number">9.2.3</span>  Text på grafen</a></li>
+  <li><a href="#grafikens-grammatik" id="toc-grafikens-grammatik" class="nav-link" data-scroll-target="#grafikens-grammatik"><span class="toc-section-number">10.2.1</span>  Grafikens grammatik</a></li>
+  <li><a href="#geom-element" id="toc-geom-element" class="nav-link" data-scroll-target="#geom-element"><span class="toc-section-number">10.2.2</span>  Geom-element</a></li>
+  <li><a href="#text-på-grafen" id="toc-text-på-grafen" class="nav-link" data-scroll-target="#text-på-grafen"><span class="toc-section-number">10.2.3</span>  Text på grafen</a></li>
   </ul></li>
-  <li><a href="#många-grafer-samtidigt" id="toc-många-grafer-samtidigt" class="nav-link" data-scroll-target="#många-grafer-samtidigt"><span class="toc-section-number">9.3</span>  Många grafer samtidigt</a></li>
+  <li><a href="#många-grafer-samtidigt" id="toc-många-grafer-samtidigt" class="nav-link" data-scroll-target="#många-grafer-samtidigt"><span class="toc-section-number">10.3</span>  Många grafer samtidigt</a></li>
   </ul>
 </nav>
     </div>
@@ -278,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></h1>
 </div>
 
 
@@ -317,8 +322,8 @@ Attaching package: 'dplyr'</code></pre>
 <p>Dessutom används följande paket: <code>tibble</code>, <code>dplyr</code></p>
 </div>
 <p>Detta kapitel handlar om att producera grafiska uppställningar i R-språket, med hjälp av paketet <code>ggplot2</code>. En av R:s stora styrkor är dess grafiska kapaciteter - du kan skapa nästan vadsomhelst för bilder med (jämförelsevis) enkla kodsnuttar!</p>
-<section id="varför-grafik" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="varför-grafik"><span class="header-section-number">9.1</span> Varför grafik?</h2>
+<section id="varför-grafik" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="varför-grafik"><span class="header-section-number">10.1</span> Varför grafik?</h2>
 <p>I grund och botten finns grafiska uppställningar till för att lösa två problem:</p>
 <ol type="1">
 <li>Hur summerar jag stora mängder siffror på ett översiktligt sätt?</li>
@@ -339,11 +344,11 @@ Attaching package: 'dplyr'</code></pre>
 <li>Resultaten för regressionsmodellen är summerade i Figur 3 nedan, där varje sektion visar det kontrollerade, standardiserade förhållandet mellan beroende och oberoende variabel.</li>
 </ul>
 </section>
-<section id="att-göra-grafik-ggplot2" class="level2 page-columns page-full" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="att-göra-grafik-ggplot2"><span class="header-section-number">9.2</span> Att göra grafik: ´ggplot2´</h2>
+<section id="att-göra-grafik-ggplot2" class="level2 page-columns page-full" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="att-göra-grafik-ggplot2"><span class="header-section-number">10.2</span> Att göra grafik: ´ggplot2´</h2>
 <div class="page-columns page-full"><p>I R finns det i princip två stora sätt att producera grafik: de inbyggda grafiska verktygen och paketet <code>ggplot2</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Vi kommer att lära oss det sedan nämnda, eftersom det är mer flexibelt. R:s inbyggda paket kan dock vara behändigt om du behöver snabbt granska ett förhållande (t.ex. lådgrafer för flera variabler), så tänk inte att du <em>måste</em> använda <code>ggplot</code>. Som alltid finns det flera sätt att lösa ett problem, och det bästa sättet är det du kan.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Siffran <code>2</code> står för version två. För att förenkla talar jag om <code>ggplot</code> i fortsättningen av texten, men syftar till den nyaste versionen vid skrivande stund.</p></li></div></div>
-<section id="grafikens-grammatik" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="grafikens-grammatik"><span class="header-section-number">9.2.1</span> Grafikens grammatik</h3>
+<section id="grafikens-grammatik" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="grafikens-grammatik"><span class="header-section-number">10.2.1</span> Grafikens grammatik</h3>
 <p><code>ggplot</code> följer något som kallas <strong>grafikens grammatik</strong> (eng. <em>grammar of graphics</em>). Detta är en designfilosofi som förenklar jämförelsen av olika grafiker och gör det lättare för dig att lära dig en ny grafisk funktion. Alla grafer i <code>ggplot</code> följer samma princip:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mitt.data,        <span class="co"># Obligatorisk: Skapar grafen.</span></span>
@@ -380,8 +385,8 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="geom-element" class="level3 page-columns page-full" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="geom-element"><span class="header-section-number">9.2.2</span> Geom-element</h3>
+<section id="geom-element" class="level3 page-columns page-full" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="geom-element"><span class="header-section-number">10.2.2</span> Geom-element</h3>
 <p>Som du säkert märkte ritade funktionerna inget data i graferna. Varför det, må du undra? Det är ganska enkelt: vi har berättat åt <code>ggplot</code> följande saker: “Hej <code>ggplot</code>, skapa en graf! Hej <code>ggplot</code>, skapa en graf med data från <code>databas</code>! Hej <code>ggplot</code>, skapa en graf med data från <code>databas</code>, och sätt kolumnen <code>a</code> på x-axeln och kolumnen <code>b</code> på y-axeln!</p>
 <p>Men märk: ingenstans sade vi åt <code>ggplot</code> <em>hur</em> den ska rita upp vårt data! Grafiska element kallas <em>geoms</em> i ggplot-språket, och för att se ett grafiskt element, måste vi förstås skapa en geom. Följande grafer ger exempel på sådana geoms:</p>
 <div class="cell">
@@ -424,8 +429,8 @@ Attaching package: 'dplyr'</code></pre>
 <p>Det sista argumentet är <code>show.legend = FALSE</code>, och säger åt <code>ggplot</code> att inte rita en förklaringsruta. Du kan prova lämna bort detta för att se vad den ritar - rutan är inte nödvändig i denna graf.</p>
 <p>Vi kan fortsätta stapla på geoms, hur många som helst! I något skede blir dock grafen obegriplig, så var sparsam. Skapa hellre flera grafer än att du tvingar en massa vetenskapliga argument in i en graf.</p>
 </section>
-<section id="text-på-grafen" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="text-på-grafen"><span class="header-section-number">9.2.3</span> Text på grafen</h3>
+<section id="text-på-grafen" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="text-på-grafen"><span class="header-section-number">10.2.3</span> Text på grafen</h3>
 <p>Ofta vill vi lägga till text på grafen. Detta kan vara en rubrik, underrubrik, alternativ text, text på koordinataxlarna, små textrutor här och där, och så vidare. <code>ggplot</code> sköter saken med ett antal olika funktioner. Dessa funktioner läggs till på samma sätt som alla andra element, genom att använda <code>+</code>-operatorn på baselementet.</p>
 <p>Funktionen <code>labs()</code> ställer in de flesta standardtexter:</p>
 <div class="cell">
@@ -493,8 +498,8 @@ Attaching package: 'dplyr'</code></pre>
 <p>Se hjälpfunktionen <code>?geom_text</code> eller <code>?geom_label</code> för mera information om alternativen.</p>
 </section>
 </section>
-<section id="många-grafer-samtidigt" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="många-grafer-samtidigt"><span class="header-section-number">9.3</span> Många grafer samtidigt</h2>
+<section id="många-grafer-samtidigt" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="många-grafer-samtidigt"><span class="header-section-number">10.3</span> Många grafer samtidigt</h2>
 
 
 </section>
@@ -636,13 +641,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./grundläggande-kunskaper-i-programmering.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></span>
+      <a href="./r-del-två.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R, del två</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./univariat-analys.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

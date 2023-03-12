@@ -94,8 +94,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./grafik.html" rel="next">
-<link href="./introduktion-till-r-språket.html" rel="prev">
+<link href="./r-del-två.html" rel="next">
+<link href="./introduktion-till-r-miljön.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduktion-till-r-språket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./introduktion-till-r-miljön.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-miljön</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -223,7 +223,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./r-del-två.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R, del två</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -238,12 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
@@ -659,39 +664,39 @@ $Inkomst
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      x y z
-1 -0.82 1 5
-2 -0.85 2 5
-3 -0.28 3 5
-4 -1.28 4 5
-5 -1.13 5 5
-6  0.52 6 5</code></pre>
+1 -0.48 1 5
+2  0.81 2 5
+3  0.28 3 5
+4  0.37 4 5
+5  0.70 5 5
+6 -1.27 6 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        x   y z
-95   0.54  95 5
-96  -1.15  96 5
-97   0.15  97 5
-98  -0.34  98 5
-99  -1.27  99 5
-100 -0.37 100 5</code></pre>
+95   0.18  95 5
+96  -1.13  96 5
+97  -1.26  97 5
+98  -1.03  98 5
+99  -0.62  99 5
+100  1.22 100 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   100 obs. of  3 variables:
- $ x: num  -0.82 -0.85 -0.28 -1.28 -1.13 0.52 -2.67 0.37 -1.42 -1.52 ...
+ $ x: num  -0.48 0.81 0.28 0.37 0.7 -1.27 0.92 1.2 0.76 1.12 ...
  $ y: int  1 2 3 4 5 6 7 8 9 10 ...
  $ z: num  5 5 5 5 5 5 5 5 5 5 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(min_dataram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       x                 y                z    
- Min.   :-2.6700   Min.   :  1.00   Min.   :5  
- 1st Qu.:-0.8400   1st Qu.: 25.75   1st Qu.:5  
- Median :-0.0700   Median : 50.50   Median :5  
- Mean   :-0.1546   Mean   : 50.50   Mean   :5  
- 3rd Qu.: 0.5425   3rd Qu.: 75.25   3rd Qu.:5  
- Max.   : 2.1400   Max.   :100.00   Max.   :5  </code></pre>
+ Min.   :-2.5900   Min.   :  1.00   Min.   :5  
+ 1st Qu.:-0.9125   1st Qu.: 25.75   1st Qu.:5  
+ Median :-0.1050   Median : 50.50   Median :5  
+ Mean   :-0.1444   Mean   : 50.50   Mean   :5  
+ 3rd Qu.: 0.7075   3rd Qu.: 75.25   3rd Qu.:5  
+ Max.   : 1.6300   Max.   :100.00   Max.   :5  </code></pre>
 </div>
 </div>
 </section>
@@ -713,16 +718,16 @@ $Inkomst
 <pre><code># A tibble: 100 × 3
        x     y     z
    &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
- 1 -0.82     1     5
- 2 -0.85     2     5
- 3 -0.28     3     5
- 4 -1.28     4     5
- 5 -1.13     5     5
- 6  0.52     6     5
- 7 -2.67     7     5
- 8  0.37     8     5
- 9 -1.42     9     5
-10 -1.52    10     5
+ 1 -0.48     1     5
+ 2  0.81     2     5
+ 3  0.28     3     5
+ 4  0.37     4     5
+ 5  0.7      5     5
+ 6 -1.27     6     5
+ 7  0.92     7     5
+ 8  1.2      8     5
+ 9  0.76     9     5
+10  1.12    10     5
 # … with 90 more rows</code></pre>
 </div>
 </div>
@@ -914,13 +919,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./introduktion-till-r-språket.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></span>
+      <a href="./introduktion-till-r-miljön.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-miljön</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./grafik.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./r-del-två.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R, del två</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

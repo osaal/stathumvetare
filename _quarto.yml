@@ -23,8 +23,9 @@ book:
         - "statistisk-inferens.qmd"
     - part: "R-miljön"
       chapters:
-        - "introduktion-till-r-språket.qmd"
+        - "introduktion-till-r-miljön.qmd"
         - "grundläggande-kunskaper-i-programmering.qmd"
+        - "r-del-två.qmd"
         - "grafik.qmd"
     - part: "Statistiska metoder"
       chapters:

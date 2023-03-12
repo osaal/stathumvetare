@@ -1,4 +1,4 @@
-# Introduktion till R-språket
+# Introduktion till R-miljön
 
 <!-- TODO:
 - Replace RStudio pictures with an empty project structure, to lessen confusion.
@@ -174,56 +174,3 @@ Detta betyder, att om du inte har kört en viss rad kod sedan du öppnade konsol
 När du stänger RStudio tömmer den sitt minne och "glömmer" bort allt som inte har sparats. Om du sparat dina kodfiler är det ingen fara, du kan öppna dem på nytt. Däremot glömmer R bort alla objekt du kallat i konsolen (mera om vad dessa är senare), så du måste upprepa dina steg på nytt när du börjar om nästa gång. Detta är en bra sak, trots att det låter arbetsdrygt! Det tvingar dig att reproducera dina resultat om och om igen, vilket säkrar att du vet vad du gör, resultaten stannar detsamma, och det faktiskt går att reproducera dina analyser.
 
 RStudio *kan* spara arbetsmiljön i formen av en `.Rdata`-fil, och när du stänger RStudio frågar den dig om du vill göra så. Detta är dålig praxis och rekommenderas inte, eftersom du riskerar att blanda ihop projekt och data om du byter mellan olika analyser.
-
-## Paket
-
-R-språket kan förstås som en bas, lite liknande som grunderna i ett naturligt språk. Du kan göra en hel del med grunderna, uttrycka grundläggande meningar och kanske även klara dig relativt långt i kommunikation. Snabbt når du dock en vägg, där språket inte räcker till. För att utvidga språket lär du dig nya semantiska register, samlingar av ord som alla tillhör något visst område. Du kanske lär dig naturvetenskapliga ord, eller IT-relaterade ord, eller ord om familjelivet.
-
-På samma sätt har R olika "register", vilka kallas för **paket**. I själva verket är basinstallationen av R uppbyggd av paket. I `Packages`-tabben i RStudio kan du se vilka paket som finns installerade samt aktiverade i din R-instans. Du kan även hämta en vektor med alla aktiva paket genom att köra kommandot `base::loadedNamespaces()`. Några viktiga paket som kan hjälpa dig i dina studier är:
-
--   `datasets`: Ett stort antal olika dataset som du kan använda i övningssyften.
--   `graphics`: Grundläggande grafikverktyg för datavisualisering.
--   `foreign`: Verktyg för att läsa in data från olika filformater, bl.a. SPSS- och Stata-filer.
--   `stats`: Grundläggande statistiska modeller och testverktyg.
-
-::: {.column-margin}
-`base::loadedNamespaces()`: Returnerar vektor med alla aktiva paket.
-:::
-
-::: {.extra-info data-latex=""}
-::: {.center data-latex=""}
-**Masking**
-:::
-
-Vad händer om du har två funktioner med samma namn från olika paket? Enkelt sagt: R tolkar kommandot som att det tillhör den senare aktiverade.
-
-Låt oss säga att vi har två paket, `A` och `B`, som båda innehåller en funktion med samma namn, `f()`. Om du aktiverar paket `A` först och paket `B` sedan, och kör `f()`, så kommer R att köra versionen från `B`. Om du aktiverar `B` först och `A` sedan, kör R versionen från `A`.
-
-Hur kommer man runt detta? Det lättaste sättet är att köra **explicita** kommandon. Dessa skrivs i formen `paket::funktion()`. Detta säkrar att du kör funktionen från det paket du vill köra från.
-:::
-
-### Installera och aktivera paket
-
-Paket laddas ned från CRAN[^introduktion-till-r-spraket-5], på samma sätt som basinstallationen av R. Men du behöver inte gå på nätet och söka efter suspekta `.exe`-filer - du kan installera paket direkt ur R!
-
-[^introduktion-till-r-spraket-5]: De kan även laddas ned och byggas från t.ex. GitHub, men vi håller oss till CRAN-paket i denna bok.
-
-Funktionen `install.packages(*paket)` låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument `install.packages()`, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. `install.packages(ppcor)`. Detta exempel installerar paketet `ppcor`, vilket innehåller funktioner för partiella och delkorrelationer.
-
-::: {.column-margin}
-`utils::install.packages(paket)`: Installerar paketet `paket` från CRAN. Ber dig välja CRAN-server om den inte redan är vald.
-:::
-
-För att ladda ned ett paket *samt* alla de subpaket paketet kräver för att fungera, använd argumentet "dependencies": `install.packages("ppcor", dependencies=TRUE)`.
-
-Du behöver endast installera ett paket en gång, så du har inget behov att köra funktionen varje gång du öppnar R. Däremot måste du **aktivera** ett paket varje gång du vill använda det i en unik R-instans. När du aktiverar ett paket dyker det upp i vektorn som `loadedNamespaces()` producerar, och då är alla paketets funktioner äntligen användbara.
-
-Du kan aktivera ett paket i RStudio genom att trycka för checkboxen bredvid paketets namn. I kod kan du aktivera ett paket med funktionen `library(paket)`. Märk att ordningen av paketens aktivering kan påverka vilken funktion som blir aktiv i en situation där du har dubbletter!
-
-::: {.column-margin}
-`base::library(paket)`: Aktiverar paketet `paket`. Paketet måste vara installerat först.
-:::
-
-## Data in och ut ur R
-
-Klappa dig själv på axeln, du har kommit långt i din R-inlärning!

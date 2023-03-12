@@ -1,0 +1,58 @@
+# R, del två
+
+Detta kapitel handlar om några ytterligare nödvändiga kunskaper i R: att aktivera paket och att jobba med externa data. Efter detta kapitel är du redo att börja generera en massa grejer i R - men oroa dig inte om du inte har förstått allt ännu. Programmering tar en stund att bli van med, och det kräver mycket övning.
+
+## Paket
+
+R-språket kan förstås som en bas, lite liknande som grunderna i ett naturligt språk. Du kan göra en hel del med grunderna, uttrycka grundläggande meningar och kanske även klara dig relativt långt i kommunikation. Snabbt når du dock en vägg, där språket inte räcker till. För att utvidga språket lär du dig nya semantiska register, samlingar av ord som alla tillhör något visst område. Du kanske lär dig naturvetenskapliga ord, eller IT-relaterade ord, eller ord om familjelivet.
+
+På samma sätt har R olika "register", vilka kallas för **paket**. I själva verket är basinstallationen av R uppbyggd av paket. I `Packages`-tabben i RStudio kan du se vilka paket som finns installerade samt aktiverade i din R-instans. Du kan även hämta en vektor med alla aktiva paket genom att köra kommandot `base::loadedNamespaces()`. Några viktiga paket som kan hjälpa dig i dina studier är:
+
+-   `datasets`: Ett stort antal olika dataset som du kan använda i övningssyften.
+-   `graphics`: Grundläggande grafikverktyg för datavisualisering.
+-   `foreign`: Verktyg för att läsa in data från olika filformater, bl.a. SPSS- och Stata-filer.
+-   `stats`: Grundläggande statistiska modeller och testverktyg.
+
+::: {.column-margin}
+`base::loadedNamespaces()`: Returnerar vektor med alla aktiva paket.
+:::
+
+::: {.extra-info data-latex=""}
+::: {.center data-latex=""}
+**Masking**
+:::
+
+Vad händer om du har två funktioner med samma namn från olika paket? Enkelt sagt: R tolkar kommandot som att det tillhör den senare aktiverade.
+
+Låt oss säga att vi har två paket, `A` och `B`, som båda innehåller en funktion med samma namn, `f()`. Om du aktiverar paket `A` först och paket `B` sedan, och kör `f()`, så kommer R att köra versionen från `B`. Om du aktiverar `B` först och `A` sedan, kör R versionen från `A`.
+
+Hur kommer man runt detta? Det lättaste sättet är att köra **explicita** kommandon. Dessa skrivs i formen `paket::funktion()`. Detta säkrar att du kör funktionen från det paket du vill köra från.
+:::
+
+### Installera och aktivera paket
+
+Paket laddas ned från CRAN[^introduktion-till-r-spraket-5], på samma sätt som basinstallationen av R. Men du behöver inte gå på nätet och söka efter suspekta `.exe`-filer - du kan installera paket direkt ur R!
+
+[^introduktion-till-r-spraket-5]: De kan även laddas ned och byggas från t.ex. GitHub, men vi håller oss till CRAN-paket i denna bok.
+
+Funktionen `install.packages(*paket)` låter dig installera paket på två olika sätt. Du kan köra funktionen utan argument `install.packages()`, vilket öppnar en meny med alla paket du kan installera från CRAN. Detta är dock väldigt många, och det kan vara svårt att hitta paketet du söker efter. Alternativt kan du köra funktionen med paketets namn som argument, t.ex. `install.packages(ppcor)`. Detta exempel installerar paketet `ppcor`, vilket innehåller funktioner för partiella och delkorrelationer.
+
+::: {.column-margin}
+`utils::install.packages(paket)`: Installerar paketet `paket` från CRAN. Ber dig välja CRAN-server om den inte redan är vald.
+:::
+
+För att ladda ned ett paket *samt* alla de subpaket paketet kräver för att fungera, använd argumentet "dependencies": `install.packages("ppcor", dependencies=TRUE)`.
+
+Du behöver endast installera ett paket en gång, så du har inget behov att köra funktionen varje gång du öppnar R. Däremot måste du **aktivera** ett paket varje gång du vill använda det i en unik R-instans. När du aktiverar ett paket dyker det upp i vektorn som `loadedNamespaces()` producerar, och då är alla paketets funktioner äntligen användbara.
+
+Du kan aktivera ett paket i RStudio genom att trycka för checkboxen bredvid paketets namn. I kod kan du aktivera ett paket med funktionen `library(paket)`. Märk att ordningen av paketens aktivering kan påverka vilken funktion som blir aktiv i en situation där du har dubbletter!
+
+::: {.column-margin}
+`base::library(paket)`: Aktiverar paketet `paket`. Paketet måste vara installerat först.
+:::
+
+## Data in och ut ur R
+
+Klappa dig själv på axeln, du har kommit långt i din R-inlärning! Till nästa lär vi oss hur du får data in i och ut ur R-miljön. Detta är väldigt viktigt, eftersom du ju behöver dina data för att kunna utföra data-analys.
+
+Grunderna i att läsa in data är faktiskt väldigt lätta: `mina_data <- dataläsningsfunktion()`. Med andra ord skapar du ett objekt för dina data, och sedan **tilldelar** du dina data till objektet genom en dataläsningsfunktion. Oroa dig inte så mycket om syntaxen (skrivformatet) nu, detta hanteras i följande kapitel.
