@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 3&nbsp; Variabler</title>
+<title>Människovetaren och statistiken - 4&nbsp; Variabler</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-modeller.html" rel="next">
-<link href="./02-från-ide-till-rapport.html" rel="prev">
+<link href="./modeller.html" rel="next">
+<link href="./från-ide-till-rapport.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,13 +67,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -111,27 +111,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
+  <a href="./vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  <a href="./vad-är-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vad är data?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  <a href="./från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  <a href="./variabler.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  <a href="./modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
   </div>
 </li>
       </ul>
@@ -146,27 +151,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./introduktion-till-r-språket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  <a href="./grundläggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Paket</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -181,12 +176,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
@@ -205,19 +200,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#vad-är-en-variabel" id="toc-vad-är-en-variabel" class="nav-link active" data-scroll-target="#vad-är-en-variabel"><span class="toc-section-number">3.1</span>  Vad är en variabel?</a></li>
-  <li><a href="#variabelförhållande-1-beroende-och-oberoende-variabler" id="toc-variabelförhållande-1-beroende-och-oberoende-variabler" class="nav-link" data-scroll-target="#variabelförhållande-1-beroende-och-oberoende-variabler"><span class="toc-section-number">3.2</span>  Variabelförhållande 1: Beroende och oberoende variabler</a></li>
-  <li><a href="#variabelskalenivåer" id="toc-variabelskalenivåer" class="nav-link" data-scroll-target="#variabelskalenivåer"><span class="toc-section-number">3.3</span>  Variabelskalenivåer</a></li>
-  <li><a href="#variabelförhållande-2-medierande-dämpande-och-externa-variabler" id="toc-variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="nav-link" data-scroll-target="#variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="toc-section-number">3.4</span>  Variabelförhållande 2: Medierande, dämpande och externa variabler</a></li>
+  <li><a href="#vad-är-en-variabel" id="toc-vad-är-en-variabel" class="nav-link active" data-scroll-target="#vad-är-en-variabel"><span class="toc-section-number">4.1</span>  Vad är en variabel?</a></li>
+  <li><a href="#variabelförhållande-1-beroende-och-oberoende-variabler" id="toc-variabelförhållande-1-beroende-och-oberoende-variabler" class="nav-link" data-scroll-target="#variabelförhållande-1-beroende-och-oberoende-variabler"><span class="toc-section-number">4.2</span>  Variabelförhållande 1: Beroende och oberoende variabler</a></li>
+  <li><a href="#variabelskalenivåer" id="toc-variabelskalenivåer" class="nav-link" data-scroll-target="#variabelskalenivåer"><span class="toc-section-number">4.3</span>  Variabelskalenivåer</a></li>
+  <li><a href="#variabelförhållande-2-medierande-dämpande-och-externa-variabler" id="toc-variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="nav-link" data-scroll-target="#variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="toc-section-number">4.4</span>  Variabelförhållande 2: Medierande, dämpande och externa variabler</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></h1>
 </div>
 
 
@@ -233,8 +228,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Detta kapitel handlar om <strong>variabler</strong>. Jag inleder med att förklara vad en variabel är, och diskuterar sedan vilka sorters variabler vi analytiskt kan skilja mellan.</p>
-<section id="vad-är-en-variabel" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="vad-är-en-variabel"><span class="header-section-number">3.1</span> Vad är en variabel?</h2>
+<section id="vad-är-en-variabel" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="vad-är-en-variabel"><span class="header-section-number">4.1</span> Vad är en variabel?</h2>
 <p>Låt oss säga att du vill undersöka följande frågeställning: “Är hunger relaterat till ökade matköp?” Du har bestämt dig att du undersöker frågan genom ett experiment, där du skickar 50 personer till Lidl för matköp. Du har valt att ställa upp ett kontrollerat experiment, så 25 av personerna är hungriga och 25 är mätta. Data du samlar är i formen “Euro spenderat på mat”, samt några bakgrundsfrågor från en enkät: kön och inkomst.</p>
 <p>Variabler är små lådor som kan innehålla någon form av data. En variabel innehåller data av en typ. Variabeln innehåller olika data för varje analysobjekt, eller med andra ord: variabeln <em>varierar</em> mellan analysobjekten.</p>
 <p>I exemplet ovan finns därför följande variabler:</p>
@@ -257,9 +252,9 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math inline">\(H_{0}\)</span>: Det finns ingen skillnad i matköp mellan hungriga och mätta personer.</p>
 </blockquote>
 </section>
-<section id="variabelförhållande-1-beroende-och-oberoende-variabler" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="variabelförhållande-1-beroende-och-oberoende-variabler"><span class="header-section-number">3.2</span> Variabelförhållande 1: Beroende och oberoende variabler</h2>
-<p>Om vi funderar på vår frågeställning, så finns det en inbyggd kausal<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> riktning. I vår frågeställning utreder vi egentligen huruvida hunger <em>orsakar</em> ökade matköp. Hypoteserna ställer upp påståenden i förhållande till denna kausalitet: <span class="math inline">\(H_0\)</span> handlar om avsaknaden av kausalt förhållande, medan <span class="math inline">\(H_{1a}\)</span> och <span class="math inline">\(H_{1b}\)</span> bägge handlar om <em>på vilket sätt</em> hunger orsakar ökade matköp.</p>
+<section id="variabelförhållande-1-beroende-och-oberoende-variabler" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="variabelförhållande-1-beroende-och-oberoende-variabler"><span class="header-section-number">4.2</span> Variabelförhållande 1: Beroende och oberoende variabler</h2>
+<div class="page-columns page-full"><p>Om vi funderar på vår frågeställning, så finns det en inbyggd kausal<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> riktning. I vår frågeställning utreder vi egentligen huruvida hunger <em>orsakar</em> ökade matköp. Hypoteserna ställer upp påståenden i förhållande till denna kausalitet: <span class="math inline">\(H_0\)</span> handlar om avsaknaden av kausalt förhållande, medan <span class="math inline">\(H_{1a}\)</span> och <span class="math inline">\(H_{1b}\)</span> bägge handlar om <em>på vilket sätt</em> hunger orsakar ökade matköp.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Kausalitet är, förenklat, idén att fenomen har orsak och verkan. A är orsaken till B, och B är därmed A:s verkan.</p></li></div></div>
 <p>Före vi går vidare, ett varningens ord: definitionen av en variabel som beroende definierar inte att det faktiskt skulle finnas kausalitet, även om du hittar ett förhållande i dina data. Detta kan vara svårbegripligt, men du har säkert hört detta påstående i en annan form: <strong>korrelation är inte kausalitet</strong>. [MERA HÄR]</p>
 <p>Vi kan klassificera variabler i <strong>beroende</strong> och <strong>oberoende</strong> variabler. Tänker vi tillbaka på kausaliteten i vår frågeställning, så kan vi med lite logik översätta våra termer:</p>
 <ul>
@@ -270,8 +265,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Således är “matköp” vår beroende variabel! De variabler som blir utanför, men som vi använder i vår analys, är våra oberoende variabler (eftersom de inte, i denna analys, beror på någonting utan enbart finns till).</p>
 <p>De flesta statistiska analyser utförs på en beroende variabel och en eller flera oberoende variabler. Fler än en beroende variabel kan i vissa fall användas (och vi blir bekanta med en sådan situation, vid multipel variansanalys eller MANOVA), och enbart en oberoende variabel är också möjligt.</p>
 </section>
-<section id="variabelskalenivåer" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="variabelskalenivåer"><span class="header-section-number">3.3</span> Variabelskalenivåer</h2>
+<section id="variabelskalenivåer" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="variabelskalenivåer"><span class="header-section-number">4.3</span> Variabelskalenivåer</h2>
 <p>För att kunna besvara våra hypoteser måste vi utföra något slags statistiskt <strong>test</strong>. Enligt NHST-principen ska vi specifikt utföra ett statistiskt test som kan bevisa nollhypotesen <em>fel</em>, alltså ett test som kan visa att det faktiskt finns skillnad i matköp mellan hungriga och mätta personer.</p>
 <p>Av diverse matematiska orsaker finns det olika statistiska test för olika former av data. En stor del av denna bok handlar om dessa test - men det finns nästan oändligt många. Dataformen som är relevant är variablernas <strong>skalenivåer</strong>. (eng. <em>scale level</em>). Följande figur exemplifierar dessa:</p>
 <div class="cell">
@@ -342,8 +337,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Om du följer med noga har du kanske märkt att jag ofta säger “mätt som” och “vi har mätt” i diskussionen. Detta är för att ingen operationalisering automatiskt har en viss skalenivå. Vi kan alltid välja att mäta kön genom graden av människor som skulle kalla personen ett visst kön (kvotvariabel), matköp genom mycket eller lite matköp (binär), inkomst enligt inkomstpercentiler (multikategorisk ordinalvariabel), och så vidare. Kvot- och intervallnivåer är behändiga, eftersom vi kan utföra väldigt komplexa statistiska analyser på dem, men allt är inte rimligt att mäta så - mitt exempel på att mäta kön på kvotnivå är ett exempel på en orimlig analys.</p>
 <p>Vi kan även omvandla mellan skalenivåer, men enbart åt ett håll: vi kan “förenkla” variabler ner från kvantitativa ändan mot kvalitativa ändan, men inte direkt vice versa. Inkomst kan därmed kategoriseras i hög, medel och låg inkomst, vilket skapar en multikategorisk ordinalvariabel, men kön kan inte kvantifieras till en skala av “könhet”.</p>
 </section>
-<section id="variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="header-section-number">3.4</span> Variabelförhållande 2: Medierande, dämpande och externa variabler</h2>
+<section id="variabelförhållande-2-medierande-dämpande-och-externa-variabler" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="variabelförhållande-2-medierande-dämpande-och-externa-variabler"><span class="header-section-number">4.4</span> Variabelförhållande 2: Medierande, dämpande och externa variabler</h2>
 <p>När vi utökar analysen från bivariat (två variabler) till multivariat (flera variabler), kan vi börja tala om mer komplexa förhållanden än bara beroende och oberoende variabler. I en multivariat analys inför man ofta <strong>kontrollvariabler</strong>. Deras uppgift är att kontrollera för någon variation som vi inte vill att ska påverka resultatet.</p>
 <p>Orsaken varför man gör multivariata analyser är att man vill <strong>elaborera</strong> ett samband: Vad kunde sambandet bero på? Finns det andra förklaringar till sambandet, eller är vår förklaring den bästa? Finns det situationer där sambandet försvinner eller blir starkare?</p>
 <p>För att exemplifiera detta, låt oss tänka oss några ytterligare hypoteser på vårt hungerexempel:</p>
@@ -367,12 +362,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Kausalitet är, förenklat, idén att fenomen har orsak och verkan. A är orsaken till B, och B är därmed A:s verkan.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -510,13 +500,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-från-ide-till-rapport.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></span>
+      <a href="./från-ide-till-rapport.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-modeller.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./modeller.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

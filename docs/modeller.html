@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 1&nbsp; Vad är statistik?</title>
+<title>Människovetaren och statistiken - 5&nbsp; Modeller</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./vad-är-data.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./statistisk-inferens.html" rel="next">
+<link href="./variabler.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-vad-är-statistik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
+  <a href="./vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -120,22 +120,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  <a href="./från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  <a href="./variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  <a href="./modeller.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  <a href="./statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
   </div>
 </li>
       </ul>
@@ -150,27 +150,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./introduktion-till-r-språket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  <a href="./grundläggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Paket</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -185,12 +175,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
@@ -205,22 +195,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#varför-siffror" id="toc-varför-siffror" class="nav-link active" data-scroll-target="#varför-siffror"><span class="toc-section-number">1.1</span>  Varför siffror?</a></li>
-  <li><a href="#faror-och-fallgropar" id="toc-faror-och-fallgropar" class="nav-link" data-scroll-target="#faror-och-fallgropar"><span class="toc-section-number">1.2</span>  Faror och fallgropar</a></li>
-  <li><a href="#avslutningsvis" id="toc-avslutningsvis" class="nav-link" data-scroll-target="#avslutningsvis"><span class="toc-section-number">1.3</span>  Avslutningsvis</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></h1>
 </div>
 
 
@@ -235,51 +217,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>“Sextiotre procent av finländare stöder ett NATO-medlemskap.”</p>
-<p>“Den absoluta mängden av långtidshemlösa fortsätter sjunka, trots ökningar i mängden unga hemlösa.”</p>
-<p>“Forskare fann att köttätande är kopplat till kortare livslängd.”</p>
-<p>Vi lever i ett informationssamhälle som peppras av nyhetsrubriker som de ovannämnda (påhittade!) rubrikerna. Idag förväntas vi vara <strong>statistiskt läskunniga</strong>, med motiveringen att det krävs data för att leda befolkningen, och befolkningen ska ledas demokratiskt av oss själva. Men trots detta har gemene medborgare inte alltför goda statistiska kunskaper - och det är inte deras fel! Om du som läser denna bok är en universitetsstudent med finländsk skolbakgrund är din statistiska förkunskap troligen begränsad till en väldigt teoretisk matematikkurs i sannolikhetslära i gymnasiet. Om du däremot har gått en annan utbildning än gymnasieutbildningen kanske du inte alls har blivit lärd statistik. Men detta ändrar nu!</p>
-<p>I detta kapitel börjar vi från noll: Vad är statistik? Vad innebär det att studera något statistiskt? Varför vill vi analysera siffror? Jag vill lägga en speciell betoning på vad statistik kan säga om världen, och vad det <strong>inte</strong> kan säga. Statistik är inte den enda metoden att förstå världen vi lever i och dess invånare. Använder du statistik rätt är den dock en väldigt slagkraftig metod, med insikter som kan vara svåra eller omöjliga att nå med icke-statistiska metoder.</p>
-<section id="varför-siffror" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="varför-siffror"><span class="header-section-number">1.1</span> Varför siffror?</h2>
-<p>Att studera något statistiskt innebär att studera siffror. Den matematiskt mindre intresserade läsaren kanske ryggar tillbaka när hen hör detta: “Usch, jag var alltid så dålig på matematik i skolan, inte mera matte!”. <em>Fear not, young padawan</em>, för jag har ett viktigt budord:</p>
-<ol type="1">
-<li><strong>Statistik är inte matematik.</strong></li>
-</ol>
-<p>Vad jag menar är, att statistik inte handlar direkt om att räkna abstrakta talföljder, lösa ekvationer eller rita upp trigonometriska funktioner<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Statistik handlar i grund och botten om att <em>svara på frågor</em>.</p>
-<p>Hurudana frågor besvarar vi? Här kommer budord två:</p>
-<ol start="2" type="1">
-<li><strong>Statistik besvarar frågan: “Finns det ett förhållande mellan X och Y?”</strong></li>
-</ol>
-<p>Detta är allt statistik i grund och botten är. X och Y kan stå för vadsomhelst för fenomen: inkomsten mellan kvinnor och män, hemskolning i olika kommuner, kyrkobesökare under pandemiåren 2020-2022, och så vidare. Vad än vi kan <strong>kvantifiera</strong> kan vi ställa frågan om förhållande för. Och vi kan kvantifiera allting!</p>
-<p>Härifrån följer budord tre:</p>
-<ol start="3" type="1">
-<li><strong>Bara för att du kan, innebär inte att du bör.</strong></li>
-</ol>
-<p>Allting kan räknas och ställas om till siffror. Men statistik bör alltid börja med frågan om <em>meningsfullhet</em>: är det meningsfullt att du granskar förhållandet mellan X och Y? Detta är en <strong>teoretisk</strong> fråga, och en fråga som statistiken därmed inte kan besvara. Statistik är ett verktyg, bara du kan bestämma om verktyget passar din situation.</p>
-</section>
-<section id="faror-och-fallgropar" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="faror-och-fallgropar"><span class="header-section-number">1.2</span> Faror och fallgropar</h2>
-<p>Jag har redan nämnt den första faran med statistik: avsaknaden av meningsfullhet. Då du gör statistiska analyser bör du alltid inleda från din frågeställning (mera om detta senare), inte från verktygen du använder. Om du vill veta något om verklighetens kvalitet kanske statistik inte är det rätta verktyget - kanske hermeneutiska metoder passar bättre. Men om du vill förstå verklighetens relationer mellan väldefinierade nivåer är statistik möjligen en mycket lämplig metod.</p>
-<p>Men vänta, vad då “väldefinierade nivåer”? Detta hänvisar till samma meningsfullhetsproblem som tidigare: Om du inte kan dra en <em>teoretisk</em> skiljelinje mellan två saker du vill analysera, kan du naturligtvis inte heller <em>analysera</em> dem i förhållande till varandra. Ett klassiskt exempel är rasforskning. Inom rasforskning intresserade man sig förrut om människorasernas skillnader i kognition och kunskap - intelligens, med andra ord. Eftersom denna forskningstematik handlar om <em>skillnader</em>, vet vi att statistik passar som verktyg.</p>
-<p>Det finns endast ett litet problem: “människoraser” finns inte. Nivåerna rasforskarna ville jämföra var aldrig väldefinierade. De ändrade utan rim eller resonemang, de baserades på människokvaliteter som inte var så distinkta som forskarna ville tro, för att nämna några problem. Om det teoretiska resonemanget faller sönder (vilket det gjorde inom rasforskningen), är det meningslöst att studera skillnader med statistik.</p>
-<p>Men märk: meningslöshet är inte samma sak som omöjlighet. Det <em>görs</em> rasforskning än idag; mycket av den moderna IQ-forskningen handlar ännu om detta. Du kan med andra ord <strong>kvantifiera det obefintliga</strong>. Kom ihåg budord tre: bara för att du kan, innebär inte att du bör!</p>
-<p>Genom kursen kommer du att bli bekant med olika sätt att analysera siffror och data. Du kommer förmodligen också att märka, att våra analyser inte bryr sig om <em>vad</em> vi matar in i dem. Du kan tänka dig statistiska analyser som kontextlösa fabriker: allt som kommer in (input) kommer att bli behandlat till en slutprodukt (output), oavsett vad som faktiskt kommer in. Textilfabrikens uppgift är att sy kläder, det har ingen skillnad för fabriken om råmaterialet är giftigt för människor. På samma sätt är statistikfabrikens uppgift att analysera siffror, det har ingen skillnad om siffrorna är meningslösa.</p>
-<p>På grund av detta vill jag betona att <strong>statistik börjar med teori</strong>. Statistikens grundläggande verktyg är inte korrelationer, regressioner, korstabeller och variansanalyser - det grundläggande verktyget är <em>frågeställningen</em>. Utan en bra frågeställning kan du aldrig få bra svar, även hur avancerade dina analyser är. Kom ihåg detta när du börjar hopa dig in i de mest komplexa statistiska verktygens detaljer.</p>
-</section>
-<section id="avslutningsvis" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="avslutningsvis"><span class="header-section-number">1.3</span> Avslutningsvis</h2>
-<p>Denna korta inledning betonar kanske de mer negativa aspekterna av statistik än de positiva. Jag vill dock från första början avfjärma dig från idén att statistik på något sätt är “mer vetenskapligt”, “mer sant” eller “mer äkta” än andra metoder eftersom den skulle handla om siffror och hårda fakta. Sanningen är, att statistiken bara är ett verktyg. Ett otroligt effektivt verktyg i en välformulerad undersökning, ett värdelöst verktyg i en dåligt formulerad undersökning.</p>
-<p>Till nästa ska vi ta itu med vad det är som studeras med statistik. Med andra ord: vad är “data”?</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Fast statistik kan handla om det, om du vill. Den statistik du lärt dig i skolan är närmare detta än statistiken du lär dig i denna kurs.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -417,13 +356,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Förord</span>
+      <a href="./variabler.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./vad-är-data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vad är data?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./statistisk-inferens.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

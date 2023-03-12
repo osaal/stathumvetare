@@ -15,23 +15,21 @@ book:
     - "index.qmd"
     - part: "Analysens logik"
       chapters:
-        - "01-vad-är-statistik.qmd"
+        - "vad-är-statistik.qmd"
         - "vad-är-data.qmd"
-        - "02-från-ide-till-rapport.qmd"
-        - "03-variabler.qmd"
-        - "04-modeller.qmd"
-        - "05-statistisk-inferens.qmd"
+        - "från-ide-till-rapport.qmd"
+        - "variabler.qmd"
+        - "modeller.qmd"
+        - "statistisk-inferens.qmd"
     - part: "R-miljön"
       chapters:
-        - "06-introduktion-till-r-spraket.qmd"
-        - "07-grundlaggande-kunskaper-i-programmering.qmd"
-        - "08-paket.qmd"
-        - "09-data-in-och-ut.qmd"
-        - "10-grafik.qmd"
+        - "introduktion-till-r-språket.qmd"
+        - "grundläggande-kunskaper-i-programmering.qmd"
+        - "grafik.qmd"
     - part: "Statistiska metoder"
       chapters:
-        - "11-univariat-analys.qmd"
-        - "12-bivariat-analys.qmd"
+        - "univariat-analys.qmd"
+        - "bivariat-analys.qmd"
     - "källförteckning.qmd"
         
   description: '"Människovetaren och statistiken" är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.'

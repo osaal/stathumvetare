@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 11&nbsp; Univariat analys</title>
+<title>Människovetaren och statistiken - 10&nbsp; Univariat analys</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,8 +94,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./12-bivariat-analys.html" rel="next">
-<link href="./10-grafik.html" rel="prev">
+<link href="./bivariat-analys.html" rel="next">
+<link href="./grafik.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -130,13 +130,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -174,27 +174,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
+  <a href="./vad-är-statistik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vad är statistik?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
+  <a href="./vad-är-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vad är data?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variabler</span></a>
+  <a href="./från-ide-till-rapport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Från idé till rapport</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  <a href="./variabler.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
+  <a href="./modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistisk-inferens.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></a>
   </div>
 </li>
       </ul>
@@ -209,27 +214,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-introduktion-till-r-spraket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
+  <a href="./introduktion-till-r-språket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduktion till R-språket</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-grundlaggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
+  <a href="./grundläggande-kunskaper-i-programmering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Grundläggande kunskaper i R-programmering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-paket.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Paket</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-data-in-och-ut.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data in och ut</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -244,16 +239,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-univariat-analys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./källförteckning.html" class="sidebar-item-text sidebar-link">Källförteckning</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -263,36 +263,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lägesmått" id="toc-lägesmått" class="nav-link active" data-scroll-target="#lägesmått"><span class="toc-section-number">11.1</span>  Lägesmått</a>
+  <li><a href="#lägesmått" id="toc-lägesmått" class="nav-link active" data-scroll-target="#lägesmått"><span class="toc-section-number">10.1</span>  Lägesmått</a>
   <ul class="collapse">
-  <li><a href="#medeltal" id="toc-medeltal" class="nav-link" data-scroll-target="#medeltal"><span class="toc-section-number">11.1.1</span>  Medeltal</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="toc-section-number">11.1.2</span>  Median</a></li>
-  <li><a href="#typvärde" id="toc-typvärde" class="nav-link" data-scroll-target="#typvärde"><span class="toc-section-number">11.1.3</span>  Typvärde</a></li>
-  <li><a href="#kvartiler-och-percentiler" id="toc-kvartiler-och-percentiler" class="nav-link" data-scroll-target="#kvartiler-och-percentiler"><span class="toc-section-number">11.1.4</span>  Kvartiler och percentiler</a></li>
+  <li><a href="#medeltal" id="toc-medeltal" class="nav-link" data-scroll-target="#medeltal"><span class="toc-section-number">10.1.1</span>  Medeltal</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="toc-section-number">10.1.2</span>  Median</a></li>
+  <li><a href="#typvärde" id="toc-typvärde" class="nav-link" data-scroll-target="#typvärde"><span class="toc-section-number">10.1.3</span>  Typvärde</a></li>
+  <li><a href="#kvartiler-och-percentiler" id="toc-kvartiler-och-percentiler" class="nav-link" data-scroll-target="#kvartiler-och-percentiler"><span class="toc-section-number">10.1.4</span>  Kvartiler och percentiler</a></li>
   </ul></li>
-  <li><a href="#grafisk-uppställning-av-lägesmått-boxplot" id="toc-grafisk-uppställning-av-lägesmått-boxplot" class="nav-link" data-scroll-target="#grafisk-uppställning-av-lägesmått-boxplot"><span class="toc-section-number">11.2</span>  Grafisk uppställning av lägesmått: <code>boxplot()</code></a></li>
-  <li><a href="#spridningsmått" id="toc-spridningsmått" class="nav-link" data-scroll-target="#spridningsmått"><span class="toc-section-number">11.3</span>  Spridningsmått</a>
+  <li><a href="#grafisk-uppställning-av-lägesmått-boxplot" id="toc-grafisk-uppställning-av-lägesmått-boxplot" class="nav-link" data-scroll-target="#grafisk-uppställning-av-lägesmått-boxplot"><span class="toc-section-number">10.2</span>  Grafisk uppställning av lägesmått: <code>boxplot()</code></a></li>
+  <li><a href="#spridningsmått" id="toc-spridningsmått" class="nav-link" data-scroll-target="#spridningsmått"><span class="toc-section-number">10.3</span>  Spridningsmått</a>
   <ul class="collapse">
-  <li><a href="#percentilavstånd" id="toc-percentilavstånd" class="nav-link" data-scroll-target="#percentilavstånd"><span class="toc-section-number">11.3.1</span>  Percentilavstånd</a></li>
-  <li><a href="#varians" id="toc-varians" class="nav-link" data-scroll-target="#varians"><span class="toc-section-number">11.3.2</span>  Varians</a></li>
-  <li><a href="#standardavvikelse" id="toc-standardavvikelse" class="nav-link" data-scroll-target="#standardavvikelse"><span class="toc-section-number">11.3.3</span>  Standardavvikelse</a></li>
+  <li><a href="#percentilavstånd" id="toc-percentilavstånd" class="nav-link" data-scroll-target="#percentilavstånd"><span class="toc-section-number">10.3.1</span>  Percentilavstånd</a></li>
+  <li><a href="#varians" id="toc-varians" class="nav-link" data-scroll-target="#varians"><span class="toc-section-number">10.3.2</span>  Varians</a></li>
+  <li><a href="#standardavvikelse" id="toc-standardavvikelse" class="nav-link" data-scroll-target="#standardavvikelse"><span class="toc-section-number">10.3.3</span>  Standardavvikelse</a></li>
   </ul></li>
-  <li><a href="#osäkerhetsmått" id="toc-osäkerhetsmått" class="nav-link" data-scroll-target="#osäkerhetsmått"><span class="toc-section-number">11.4</span>  Osäkerhetsmått</a>
+  <li><a href="#osäkerhetsmått" id="toc-osäkerhetsmått" class="nav-link" data-scroll-target="#osäkerhetsmått"><span class="toc-section-number">10.4</span>  Osäkerhetsmått</a>
   <ul class="collapse">
-  <li><a href="#standardfel" id="toc-standardfel" class="nav-link" data-scroll-target="#standardfel"><span class="toc-section-number">11.4.1</span>  Standardfel</a></li>
-  <li><a href="#p-värde" id="toc-p-värde" class="nav-link" data-scroll-target="#p-värde"><span class="toc-section-number">11.4.2</span>  p-värde</a></li>
-  <li><a href="#konfidensintervall" id="toc-konfidensintervall" class="nav-link" data-scroll-target="#konfidensintervall"><span class="toc-section-number">11.4.3</span>  Konfidensintervall</a></li>
+  <li><a href="#standardfel" id="toc-standardfel" class="nav-link" data-scroll-target="#standardfel"><span class="toc-section-number">10.4.1</span>  Standardfel</a></li>
+  <li><a href="#p-värde" id="toc-p-värde" class="nav-link" data-scroll-target="#p-värde"><span class="toc-section-number">10.4.2</span>  p-värde</a></li>
+  <li><a href="#konfidensintervall" id="toc-konfidensintervall" class="nav-link" data-scroll-target="#konfidensintervall"><span class="toc-section-number">10.4.3</span>  Konfidensintervall</a></li>
   </ul></li>
-  <li><a href="#grafisk-uppställning" id="toc-grafisk-uppställning" class="nav-link" data-scroll-target="#grafisk-uppställning"><span class="toc-section-number">11.5</span>  Grafisk uppställning</a></li>
+  <li><a href="#grafisk-uppställning" id="toc-grafisk-uppställning" class="nav-link" data-scroll-target="#grafisk-uppställning"><span class="toc-section-number">10.5</span>  Grafisk uppställning</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Univariat analys</span></h1>
 </div>
 
 
@@ -320,10 +320,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="lägesmått" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="lägesmått"><span class="header-section-number">11.1</span> Lägesmått</h2>
-<section id="medeltal" class="level3" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="medeltal"><span class="header-section-number">11.1.1</span> Medeltal</h3>
+<section id="lägesmått" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="lägesmått"><span class="header-section-number">10.1</span> Lägesmått</h2>
+<section id="medeltal" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="medeltal"><span class="header-section-number">10.1.1</span> Medeltal</h3>
 <p>Det första av lägesmåtten är <strong>medeltalet</strong>. Definitionen på (aritmetiska) medeltalet är tämligen enkel:</p>
 <p><span class="math display">\[ \bar{x} = \frac{x_i + x_{i+1} + ... + x_{n-1} + x_n}{n} = \frac{\sum_{i=1}^{n}{x_i}}{n} \]</span> I klarspråk: Medeltalet är lika med summan av alla individuella värden från <span class="math inline">\(1\)</span> till <span class="math inline">\(n\)</span>, dividerat med antalet värden <span class="math inline">\(n\)</span>.</p>
 <p>Medeltalet ger dig en siffra som berättar kring vilket värde variablens fördelning är <strong>centrerad</strong>. Däremot berättar den inget om spridningen runt detta värde. Följande tre beräkningar är tämligen olika men ger samma medeltal:</p>
@@ -343,8 +343,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="median" class="level3" data-number="11.1.2">
-<h3 data-number="11.1.2" class="anchored" data-anchor-id="median"><span class="header-section-number">11.1.2</span> Median</h3>
+<section id="median" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="median"><span class="header-section-number">10.1.2</span> Median</h3>
 <p>Det andra lägesmåttet är <strong>medianen</strong>. Dess matematiska definition är onödigt komplex, då det är lättare att förstå medianen med ord. Medianen är värdet som skiljer den största halvan från den minsta halvan av datafördelningen. Låt oss säga att vi har följande datafördelning:</p>
 <p><span class="math display">\[ D = \{4, 3, 8, 19, 2, 6, 2, 57, 2\} \]</span> Vi kan hämta medianen genom att rangordna alla värden från lägst till högst (eller vice versa):</p>
 <p><span class="math display">\[ D = \{2, 2, 3, 4, 6, 8, 19, 57\} \]</span> Medianen är värdet som ligger i mitten: <span class="math inline">\(6\)</span>. Om antalet värden är jämnt är medianen medeltalet av de två mittersta värden.</p>
@@ -357,8 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="typvärde" class="level3" data-number="11.1.3">
-<h3 data-number="11.1.3" class="anchored" data-anchor-id="typvärde"><span class="header-section-number">11.1.3</span> Typvärde</h3>
+<section id="typvärde" class="level3" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="typvärde"><span class="header-section-number">10.1.3</span> Typvärde</h3>
 <p>Det tredje lägesmåttet är <strong>typvärde</strong>. Det kan även definieras enkelt med ord: det är det oftast förekommande värdet i datafördelningen. I den föregående fördelningen är typvärdet <span class="math inline">\(2\)</span>, eftersom det fanns två förekomster av <span class="math inline">\(2\)</span> jämfört med en förekomst av alla andra värden.</p>
 <p>Typvärde kan användas på alla skalenivåer.</p>
 <p>R har, förvånansvärt nog, inte en inbyggd funktion för typvärde. För nominal- eller ordinalskalevariabler kan du använda funktionen <code>table(data)</code> för att finna typvärdet:</p>
@@ -373,8 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Tabellens första rad visar variabelvärdet, andra raden visar frekvensen. Typvärdet för variabeln <code>ordinal</code> är <span class="math inline">\(3\)</span>, som förekommer 6 gånger i materialet.</p>
 </section>
-<section id="kvartiler-och-percentiler" class="level3" data-number="11.1.4">
-<h3 data-number="11.1.4" class="anchored" data-anchor-id="kvartiler-och-percentiler"><span class="header-section-number">11.1.4</span> Kvartiler och percentiler</h3>
+<section id="kvartiler-och-percentiler" class="level3" data-number="10.1.4">
+<h3 data-number="10.1.4" class="anchored" data-anchor-id="kvartiler-och-percentiler"><span class="header-section-number">10.1.4</span> Kvartiler och percentiler</h3>
 <p>De fjärde och femte lägesmåtten är <strong>kvartiler</strong> och <strong>percentiler</strong>. Dessa är något besläktade till medianen. Om du skulle ordna alla tal i din datafördelning från lägst till högst, så representerar kvartilerna gränsen för 25 och 75 procent av data (50%-gränsen är medianen), och percentilerna representerar var tionde procentgräns. Med andra ord: den lägre kvartilen är värdet som högst 25 procent av ditt data underskrider, den högre kvartilen är värdet som minst 75 procent av ditt data underskrider, och percentilerna är tio-procents-kategorier från 10 till 90 procent.</p>
 <p>R använder samma verktyg för att hämta kvartiler och percentiler, eftersom de konceptuellt är samma sak (men med olika procentgränser), <code>quantile(data, probs = x)</code></p>
 <div class="cell">
@@ -394,14 +394,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Från resultaten kan vi bl.a. se att 10% av data ligger på <span class="math inline">\(-1.24\)</span> eller lägre, 25% av data ligger på <span class="math inline">\(-0.60\)</span> eller lägre, medianen är <span class="math inline">\(0.05\)</span>, och så vidare. Funktionen ger mer exakta värden än två decimaler, men för läsbarhetens skull är det lättare att avrunda något.</p>
 </section>
 </section>
-<section id="grafisk-uppställning-av-lägesmått-boxplot" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="grafisk-uppställning-av-lägesmått-boxplot"><span class="header-section-number">11.2</span> Grafisk uppställning av lägesmått: <code>boxplot()</code></h2>
+<section id="grafisk-uppställning-av-lägesmått-boxplot" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="grafisk-uppställning-av-lägesmått-boxplot"><span class="header-section-number">10.2</span> Grafisk uppställning av lägesmått: <code>boxplot()</code></h2>
 <p>Före vi går vidare till spridningsmått är det värt att nämna ett mycket behändigt verktyg. Eftersom det finns flera lägesmått, har några smarta statistiska grafiker kommit på ett verktyg för att summera de flesta i <em>en och samma graf</em>: lådgrafen (eng. <em>box plot</em>).</p>
 <p>Lättare visat än beskrivet. Du kan generera en lådgraf med funktionen <code>boxplot(data)</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>graf <span class="ot">&lt;-</span> <span class="fu">boxplot</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="11-univariat-analys_files/figure-html/ladgraf-exempel-1.png" class="img-fluid" width="672"></p>
+<p><img src="univariat-analys_files/figure-html/ladgraf-exempel-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Lådgrafen visar ett antal olika statistiker samtidigt: den tjocka svarta linjen i mitten är medianen, och lådans övre och nedre gränser är kvartilgränserna (25 och 75 procent). De horisontella linjerna långt ute är gränserna för vad som kallas <strong>extrema</strong> värden. De definieras i förhållande till det <strong>interkvartila avståndet</strong>. För exakta siffror kan du hämta <code>$stats</code> på den resulterande lådgrafen:</p>
@@ -418,17 +418,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Siffrorna står, i ordning, för: lägre extremvärdesgränsen, lägre kvartilen, medianen, högre kvartilen, och högre extremvärdesgränsen.</p>
 </section>
-<section id="spridningsmått" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="spridningsmått"><span class="header-section-number">11.3</span> Spridningsmått</h2>
+<section id="spridningsmått" class="level2 page-columns page-full" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="spridningsmått"><span class="header-section-number">10.3</span> Spridningsmått</h2>
 <p>Hittills har vi diskuterat hur du beskriver din datafördelning med en siffra. Vi har även använt flera olika siffror för att börja förstå fördelningen i en större helhet. Vi kan dock förenkla fördelningens beskrivning till ytterligare några nyckeltal: <strong>spridningsmåtten</strong>. Dessa beskriver hur data <em>sprider</em> sig runt medeltalet <em>i medeltal</em>.</p>
-<section id="percentilavstånd" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="percentilavstånd"><span class="header-section-number">11.3.1</span> Percentilavstånd</h3>
+<section id="percentilavstånd" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="percentilavstånd"><span class="header-section-number">10.3.1</span> Percentilavstånd</h3>
 <p>Det första spridningsmåttet är <strong>percentilavstånd</strong> (eng. <em>percentile range</em>). Detta används jämförelsevis sällan, men kan ge dig nyttig information. Percentilavståndet står helt enkelt för avståndet mellan två percentiler. Oftast syftar percentilavståndet dock på avståndet mellan 10:e percentilen och 90:e percentilen, alltså mellan 10 och 90 procent av data.</p>
 <p>Du beräknar percentilavståndet för hand väldigt enkelt: <span class="math inline">\(p_{90}-p_{10}\)</span>. Resultatet är mätt i samma skala som ditt data. Percentilavstånd kan beräknas på ordinal- samt kvantitativa skalenivåer, eftersom percentiler kan beräknas på dem.</p>
 <p>Percentilavstånd kan inte direkt räknas med basfunktionerna i R, men ärligt talat: du fixar det för hand med ekvationen ovan.</p>
 </section>
-<section id="varians" class="level3" data-number="11.3.2">
-<h3 data-number="11.3.2" class="anchored" data-anchor-id="varians"><span class="header-section-number">11.3.2</span> Varians</h3>
+<section id="varians" class="level3 page-columns page-full" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="varians"><span class="header-section-number">10.3.2</span> Varians</h3>
 <p>Det andra spridningsmåttet heter <strong>varians</strong>. Variansen kan beräknas på kvantitativa skalenivåer, eftersom den relaterar till medeltalet. För att förenkla variansen bör vi först definiera ett antal termer.</p>
 <p>Vi börjar med <strong>avvikelse</strong>. Detta innebär avståndet mellan datafördelningens medeltal och en enskild datapunkt:</p>
 <p><span class="math display">\[\text{avvikelse} = x-\bar{x}\]</span> Detta kvantifierar hur mycket “fel” medeltalet förutspår den enskilda respondentens svar. Ju större, desto längre ifrån det rätta svaret.</p>
@@ -439,7 +439,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Denna siffra är beroende på urvalsstorleken: ju fler datapunkter, desto större siffra, eftersom varje enskild datapunkt adderas till summan.</li>
 <li>Men vadå “kvadratfel”? Obegripligt!</li>
 </ol>
-<p>Problem ett löser vi nu, problem två löser vi strax. Genom att dividera kvadratsumman med <span class="math inline">\(N-1\)</span> får vi <strong>variansen</strong> - ett mått på hur mycket kvadratfel det <em>i medeltal</em> förekommer i datafördelningen. Orsaken till varför vi inte dividerar med N (så som man skulle göra med ett vanligt medeltal) är något komplex. Dividenden kallas för <strong>frihetsgraden</strong> (eng. <em>degrees of freedom</em>, df), och kan variera något beroende på vilken statistisk beräkning som görs. Eftersom R sköter beräkningen av dessa för dig i de allra flesta fallen, behöver du inte bry dig om hur siffran har kommit till<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="page-columns page-full"><p>Problem ett löser vi nu, problem två löser vi strax. Genom att dividera kvadratsumman med <span class="math inline">\(N-1\)</span> får vi <strong>variansen</strong> - ett mått på hur mycket kvadratfel det <em>i medeltal</em> förekommer i datafördelningen. Orsaken till varför vi inte dividerar med N (så som man skulle göra med ett vanligt medeltal) är något komplex. Dividenden kallas för <strong>frihetsgraden</strong> (eng. <em>degrees of freedom</em>, df), och kan variera något beroende på vilken statistisk beräkning som görs. Eftersom R sköter beräkningen av dessa för dig i de allra flesta fallen, behöver du inte bry dig om hur siffran har kommit till<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Läs gärna vidare vid KÄLLA om du trots allt vill veta vad frihetsgraden betyder.</p></li></div></div>
 <p>Därmed har vi variansen, <span class="math inline">\(s^2\)</span>:</p>
 <p><span class="math display">\[s^2 = \frac{\sum(x_i-\bar{x})^2}{N-1} \]</span> För att göra ekvationen tydligare har jag raderat summafunktionens gränser, men de finns ännu där!</p>
 <p>I R kan du beräkna variansen med funktionen <code>var(data)</code>:</p>
@@ -451,8 +451,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Kom ihåg att variansen mäts som kvadraten av din ursprungliga skala; om skalan är centimetrar är variansen i kvadratcentimeter, om skalan är celsius är den kvadratcelsius, och om skalan är euro är den… kvadrateuro.</p>
 </section>
-<section id="standardavvikelse" class="level3" data-number="11.3.3">
-<h3 data-number="11.3.3" class="anchored" data-anchor-id="standardavvikelse"><span class="header-section-number">11.3.3</span> Standardavvikelse</h3>
+<section id="standardavvikelse" class="level3 page-columns page-full" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="standardavvikelse"><span class="header-section-number">10.3.3</span> Standardavvikelse</h3>
 <p>Det sista spridningsmåttet fixar problemet med variansen: <strong>standardavvikelsen</strong>. Vi gjorde redan nästan alla beräkningar, och den sista står framför oss: vi måste ta kvadratroten på variansen.</p>
 <p><span class="math display">\[\text{SD} = \sqrt{\frac{\sum(x_i-\bar{x})^2}{N-1}} \]</span> I R räknar du standardavvikelsen med funktionen <code>sd(data)</code>:</p>
 <div class="cell">
@@ -470,19 +470,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>grafbas <span class="sc">+</span> <span class="fu">geom_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">sd =</span> <span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"SD = 1"</span>)</span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>grafbas <span class="sc">+</span> <span class="fu">geom_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">sd =</span> <span class="dv">2</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"SD = 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="11-univariat-analys_files/figure-html/sd-variation-exempel-1.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="univariat-analys_files/figure-html/sd-variation-exempel-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="11-univariat-analys_files/figure-html/sd-variation-exempel-2.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="univariat-analys_files/figure-html/sd-variation-exempel-2.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="11-univariat-analys_files/figure-html/sd-variation-exempel-3.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="univariat-analys_files/figure-html/sd-variation-exempel-3.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="11-univariat-analys_files/figure-html/sd-variation-exempel-4.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="univariat-analys_files/figure-html/sd-variation-exempel-4.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-<p>Vid <span class="math inline">\(SD = 0.1\)</span> är datafördelningen väldigt stram runt medeltalet <span class="math inline">\(\bar{x}=0\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, men när standardavvikelsen ökar, sprider sig fördelningen mera ut runtom medeltalet.</p>
+<div class="page-columns page-full"><p>Vid <span class="math inline">\(SD = 0.1\)</span> är datafördelningen väldigt stram runt medeltalet <span class="math inline">\(\bar{x}=0\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, men när standardavvikelsen ökar, sprider sig fördelningen mera ut runtom medeltalet.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Eller ungefär så: medeltalet är inte nödvändigtvis perfekt noll, eftersom jag har genererat grafen med en urvalsfunktion. Kan du tänka dig varför?</p></li></div></div>
 <div class="extra-info">
 <div class="center">
 <p><strong>Varför får jag inte fyra fina grafer?</strong></p>
@@ -492,30 +492,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="osäkerhetsmått" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="osäkerhetsmått"><span class="header-section-number">11.4</span> Osäkerhetsmått</h2>
-<section id="standardfel" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="standardfel"><span class="header-section-number">11.4.1</span> Standardfel</h3>
+<section id="osäkerhetsmått" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="osäkerhetsmått"><span class="header-section-number">10.4</span> Osäkerhetsmått</h2>
+<section id="standardfel" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="standardfel"><span class="header-section-number">10.4.1</span> Standardfel</h3>
 </section>
-<section id="p-värde" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="p-värde"><span class="header-section-number">11.4.2</span> p-värde</h3>
+<section id="p-värde" class="level3" data-number="10.4.2">
+<h3 data-number="10.4.2" class="anchored" data-anchor-id="p-värde"><span class="header-section-number">10.4.2</span> p-värde</h3>
 </section>
-<section id="konfidensintervall" class="level3" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="konfidensintervall"><span class="header-section-number">11.4.3</span> Konfidensintervall</h3>
+<section id="konfidensintervall" class="level3" data-number="10.4.3">
+<h3 data-number="10.4.3" class="anchored" data-anchor-id="konfidensintervall"><span class="header-section-number">10.4.3</span> Konfidensintervall</h3>
 </section>
 </section>
-<section id="grafisk-uppställning" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="grafisk-uppställning"><span class="header-section-number">11.5</span> Grafisk uppställning</h2>
+<section id="grafisk-uppställning" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="grafisk-uppställning"><span class="header-section-number">10.5</span> Grafisk uppställning</h2>
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Läs gärna vidare vid KÄLLA om du trots allt vill veta vad frihetsgraden betyder.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Eller ungefär så: medeltalet är inte nödvändigtvis perfekt noll, eftersom jag har genererat grafen med en urvalsfunktion. Kan du tänka dig varför?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -653,13 +647,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10-grafik.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></span>
+      <a href="./grafik.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Grafik</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./12-bivariat-analys.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./bivariat-analys.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Bivariat analys</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
