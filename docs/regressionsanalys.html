@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 5&nbsp; Modeller</title>
+<title>Människovetaren och statistiken - 14&nbsp; Regressionsanalys</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./statistisk-inferens.html" rel="next">
-<link href="./variabler.html" rel="prev">
+<link href="./källförteckning.html" rel="next">
+<link href="./bivariat-analys.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,13 +66,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./modeller.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
+  <a href="./modeller.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -195,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regressionsanalys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></a>
+  <a href="./regressionsanalys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></a>
   </div>
 </li>
       </ul>
@@ -210,14 +210,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ordinary-least-squares-regression" id="toc-ordinary-least-squares-regression" class="nav-link active" data-scroll-target="#ordinary-least-squares-regression"><span class="toc-section-number">14.1</span>  Ordinary Least Squares-regression</a>
+  <ul class="collapse">
+  <li><a href="#modellkrav" id="toc-modellkrav" class="nav-link" data-scroll-target="#modellkrav"><span class="toc-section-number">14.1.1</span>  Modellkrav</a></li>
+  <li><a href="#ols-regression-i-r" id="toc-ols-regression-i-r" class="nav-link" data-scroll-target="#ols-regression-i-r"><span class="toc-section-number">14.1.2</span>  OLS-regression i R</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeller</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></h1>
 </div>
 
 
@@ -232,8 +242,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="cell">
+
+</div>
+<p>I detta kapitel kommer du att lära dig om <strong>regressionsanalys</strong>. Med namnet syftar man oftast till <strong>OLS-regression</strong>, men jag står för åsikten att regressionsanalys bättre kan förstås som en generalisering av den <strong>lineära modellen</strong>. På grund av detta kommer vi att gå igenom de vanligaste formerna av lineära modeller i samma veva: OLS-regression, logistisk regression och Poisson-regression.</p>
+<section id="ordinary-least-squares-regression" class="level2 page-columns page-full" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="ordinary-least-squares-regression"><span class="header-section-number">14.1</span> Ordinary Least Squares-regression</h2>
+<p>Ordinary Least Squares-regression, eller OLS-regression, är en vanlig form av regressionsanalys i statistik. Regressionsmodellen tar en beroende variabel på kvantitativ skalenivå, och en eller flera oberoende variabler på binär eller kvantitativ skalenivå.</p>
+<section id="modellkrav" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="modellkrav"><span class="header-section-number">14.1.1</span> Modellkrav</h3>
+<p>OLS-regressionen har tre grundläggande modellkrav:</p>
+<ul>
+<li><strong>Additivitet och linearitet</strong>: De <em>oberoende</em> variablerna ska gå att summa ihop och deras förhållande till den beroende variabeln ska vara linjärt.</li>
+<li><strong>Heteroskedasticitet</strong>: Residualerna hos de <em>oberoende</em> variablerna ska vara oberoende av den beroende variabeln.</li>
+<li><strong>Normalfördelade felvärden</strong>: Residualerna hos de <em>oberoende</em> variablerna ska härstamma från en normalfördelning.</li>
+</ul>
+<p>Det är en vanlig folktro att OLS-regression kräver att ditt data ska vara normalfördelat. Så som (nästan) alltid i statistik kan du förlita dig på att detta är en fel tro: dina data får vara fördelade helt hursomhelst!</p>
+</section>
+<section id="ols-regression-i-r" class="level3 page-columns page-full" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="ols-regression-i-r"><span class="header-section-number">14.1.2</span> OLS-regression i R</h3>
+<p>Du kan utföra OLS-regressionen i <code>R</code> med den inbyggda funktionen <code>lm(formula, data)</code>. Funktionen tar två obligatoriska (och en rekommenderad) argument. Argumentet <code>data</code> är väldigt enkelt - där matar du in ditt dataset. Argumentet <code>formula</code> är en symbolisk representation av din regressionsformel. Men var ej rädd, det är inte alltför svårt! Formeln ges alltid i formen:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><code>stats::lm(formula, data, na.action, ...)</code>: Skapar en lineär modell utifrån givna <code>data</code> enligt den symboliska modellen <code>formula</code>. Modellen ges i formen <code>OV ~ BV</code>. Lägg till flera oberoende variabler med operatorn <code>+</code> och interaktioner med <code>*</code> i formeln. Argumentet <code>na.action</code> bestämmer vad som sker med saknande värden. Se kapitel XXX om saknande värden.</p>
+</div></div><p><code>BV ~ OV1 + OV2 + OV3 + ...</code></p>
+<p>Om du vill bygga interaktionstermer kan du göra det lätt med operatorn <code>*</code>. Som ett exempel, formeln <code>inkomst ~ kön + ålder + kön*ålder</code> ger dig en regression med variabeln <code>inkomst</code> som beroende variabel, och tre oberoende variabler: <code>kön</code> och <code>ålder</code> separat, samt interaktionen mellan de båda, <code>kön*ålder</code>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -371,13 +408,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./variabler.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variabler</span></span>
+      <a href="./bivariat-analys.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./statistisk-inferens.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Statistisk inferens</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./källförteckning.html" class="pagination-link">
+        <span class="nav-page-text">Källförteckning</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

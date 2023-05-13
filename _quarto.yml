@@ -32,6 +32,7 @@ book:
       chapters:
         - "univariat-analys.qmd"
         - "bivariat-analys.qmd"
+        - "regressionsanalys.qmd"
     - "källförteckning.qmd"
         
   description: '"Människovetaren och statistiken" är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.'

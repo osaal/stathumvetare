@@ -1,0 +1,35 @@
+# Regressionsanalys
+
+```{r regressionsanalys-imports}
+
+```
+
+
+I detta kapitel kommer du att lära dig om **regressionsanalys**. Med namnet syftar man oftast till **OLS-regression**, men jag står för åsikten att regressionsanalys bättre kan förstås som en generalisering av den **lineära modellen**. På grund av detta kommer vi att gå igenom de vanligaste formerna av lineära modeller i samma veva: OLS-regression, logistisk regression och Poisson-regression.
+
+## Ordinary Least Squares-regression
+
+Ordinary Least Squares-regression, eller OLS-regression, är en vanlig form av regressionsanalys i statistik. Regressionsmodellen tar en beroende variabel på kvantitativ skalenivå, och en eller flera oberoende variabler på binär eller kvantitativ skalenivå.
+
+### Modellkrav
+
+OLS-regressionen har tre grundläggande modellkrav:
+
+-  **Additivitet och linearitet**: De _oberoende_ variablerna ska gå att summa ihop och deras förhållande till den beroende variabeln ska vara linjärt.
+-  **Heteroskedasticitet**: Residualerna hos de _oberoende_ variablerna ska vara oberoende av den beroende variabeln.
+-  **Normalfördelade felvärden**: Residualerna hos de _oberoende_ variablerna ska härstamma från en normalfördelning.
+
+Det är en vanlig folktro att OLS-regression kräver att ditt data ska vara normalfördelat. Så som (nästan) alltid i statistik kan du förlita dig på att detta är en fel tro: dina data får vara fördelade helt hursomhelst! 
+
+### OLS-regression i R
+
+Du kan utföra OLS-regressionen i `R` med den inbyggda funktionen `lm(formula, data)`. Funktionen tar två obligatoriska (och en rekommenderad) argument. Argumentet `data` är väldigt enkelt - där matar du in ditt dataset. Argumentet `formula` är en symbolisk representation av din regressionsformel. Men var ej rädd, det är inte alltför svårt! Formeln ges alltid i formen:
+
+::: {.column-margin}
+`stats::lm(formula, data, na.action, ...)`: Skapar en lineär modell utifrån givna `data` enligt den symboliska modellen `formula`. Modellen ges i formen `OV ~ BV`. Lägg till flera oberoende variabler med operatorn `+` och interaktioner med `*` i formeln. Argumentet `na.action` bestämmer vad som sker med saknande värden. Se kapitel XXX om saknande värden.
+:::
+
+`BV ~ OV1 + OV2 + OV3 + ...`
+
+Om du vill bygga interaktionstermer kan du göra det lätt med operatorn `*`. Som ett exempel, formeln `inkomst ~ kön + ålder + kön*ålder` ger dig en regression med variabeln `inkomst` som beroende variabel, och tre oberoende variabler: `kön` och `ålder` separat, samt interaktionen mellan de båda, `kön*ålder`.
+

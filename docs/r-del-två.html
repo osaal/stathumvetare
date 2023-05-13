@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./grafik.html" rel="next">
+<link href="./datamanipulering.html" rel="next">
 <link href="./grundläggande-kunskaper-i-programmering.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -228,7 +228,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./datamanipulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datamanipulering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -243,12 +248,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressionsanalys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></a>
   </div>
 </li>
       </ul>
@@ -424,13 +434,13 @@ dbl (115): fsd_no, fsd_vr, fsd_id, q1a_lk, q2_lk, q3, q4, q5, q6, q7, q8, q9...
  8   3200      1      8 (A) öp…      2     6     1     3     4     3     2    NA
  9   3200      1      9 (A) öp…      9     6     2     7     4     1     1    NA
 10   3200      1     10 (A) öp…      2     2     1     2     1     3     2    NA
-# … with 809 more rows, and 104 more variables: q9_1 &lt;dbl&gt;, q9_2 &lt;dbl&gt;,
-#   q9_3 &lt;dbl&gt;, q9_4 &lt;dbl&gt;, q9_5 &lt;dbl&gt;, q9_6 &lt;dbl&gt;, q10 &lt;dbl&gt;, q11_1 &lt;dbl&gt;,
-#   q11_2 &lt;dbl&gt;, q11_3 &lt;dbl&gt;, q11_4 &lt;dbl&gt;, q11_5 &lt;dbl&gt;, q12_1 &lt;dbl&gt;,
-#   q12_2 &lt;dbl&gt;, q12_2b &lt;dbl&gt;, q12_2c &lt;dbl&gt;, q12_3 &lt;dbl&gt;, q12_4 &lt;dbl&gt;,
-#   q12_5 &lt;dbl&gt;, q12_6 &lt;dbl&gt;, q12_7 &lt;dbl&gt;, q12_8 &lt;dbl&gt;, q12_9 &lt;dbl&gt;,
-#   q12_10 &lt;dbl&gt;, q12_11 &lt;dbl&gt;, q12_12 &lt;dbl&gt;, q13_1 &lt;dbl&gt;, q13_2 &lt;dbl&gt;,
-#   q14_1 &lt;dbl&gt;, q14_2 &lt;dbl&gt;, q15_1 &lt;dbl&gt;, q15_2 &lt;dbl&gt;, q15_3 &lt;dbl&gt;, …</code></pre>
+# ℹ 809 more rows
+# ℹ 104 more variables: q9_1 &lt;dbl&gt;, q9_2 &lt;dbl&gt;, q9_3 &lt;dbl&gt;, q9_4 &lt;dbl&gt;,
+#   q9_5 &lt;dbl&gt;, q9_6 &lt;dbl&gt;, q10 &lt;dbl&gt;, q11_1 &lt;dbl&gt;, q11_2 &lt;dbl&gt;, q11_3 &lt;dbl&gt;,
+#   q11_4 &lt;dbl&gt;, q11_5 &lt;dbl&gt;, q12_1 &lt;dbl&gt;, q12_2 &lt;dbl&gt;, q12_2b &lt;dbl&gt;,
+#   q12_2c &lt;dbl&gt;, q12_3 &lt;dbl&gt;, q12_4 &lt;dbl&gt;, q12_5 &lt;dbl&gt;, q12_6 &lt;dbl&gt;,
+#   q12_7 &lt;dbl&gt;, q12_8 &lt;dbl&gt;, q12_9 &lt;dbl&gt;, q12_10 &lt;dbl&gt;, q12_11 &lt;dbl&gt;,
+#   q12_12 &lt;dbl&gt;, q13_1 &lt;dbl&gt;, q13_2 &lt;dbl&gt;, q14_1 &lt;dbl&gt;, q14_2 &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
 <p>Allt fungerade bra! Från förhandsgranskningen av tibbleobjektet ser vi att vi har 819 rader data (respondenter) och 116 kolumner (statistiska variabler). Inläsningsfunktionen producerar även en hel del debuggningstext, som kan vara nyttigt om du märker fel i inläsningen. För att försäkra oss att allt gick korrekt kan vi öppna den ursprungliga <code>csv</code>-filen i ett kalkylbladprogram och jämföra visuellt med vårt inlästa objekt. Gör du detta, så märker du att saknande värden (tomma celler i CSV-filen) har konverterats till <code>NA</code>-värden i R - något vi oftast vill att ska ske, som tur.</p>
@@ -583,8 +593,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./grafik.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datamanipulering.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datamanipulering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

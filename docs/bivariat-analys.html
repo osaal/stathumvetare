@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Människovetaren och statistiken” är en grundkurs i den statistiska analysens process, ämnad för universitetsstuderande i samhälls- och humanvetenskaper. Målet är att göra statistisk analys tillgänglig och begriplig, och att minska studentens statistikångest genom att synliggöra hur statistik egentligen är likt all annan forskning, fastän med siffror. Boken är en work-in-progress, med början den 12:e februari 2023.">
 
-<title>Människovetaren och statistiken - 12&nbsp; Bivariat analys</title>
+<title>Människovetaren och statistiken - 13&nbsp; Bivariat analys</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./källförteckning.html" rel="next">
+<link href="./regressionsanalys.html" rel="next">
 <link href="./univariat-analys.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -229,7 +229,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grafik</span></a>
+  <a href="./datamanipulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datamanipulering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Grafik</span></a>
   </div>
 </li>
       </ul>
@@ -244,12 +249,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
+  <a href="./univariat-analys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Univariat analys</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  <a href="./bivariat-analys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressionsanalys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></a>
   </div>
 </li>
       </ul>
@@ -268,18 +278,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#korstabulering" id="toc-korstabulering" class="nav-link active" data-scroll-target="#korstabulering"><span class="toc-section-number">12.1</span>  Korstabulering</a>
+  <li><a href="#korstabulering" id="toc-korstabulering" class="nav-link active" data-scroll-target="#korstabulering"><span class="toc-section-number">13.1</span>  Korstabulering</a>
   <ul class="collapse">
-  <li><a href="#chi-kvadrat-testet-chi2" id="toc-chi-kvadrat-testet-chi2" class="nav-link" data-scroll-target="#chi-kvadrat-testet-chi2"><span class="toc-section-number">12.1.1</span>  Chi-kvadrat-testet: <span class="math inline">\(\chi^2\)</span></a></li>
+  <li><a href="#chi-kvadrat-testet-chi2" id="toc-chi-kvadrat-testet-chi2" class="nav-link" data-scroll-target="#chi-kvadrat-testet-chi2"><span class="toc-section-number">13.1.1</span>  Chi-kvadrat-testet: <span class="math inline">\(\chi^2\)</span></a></li>
   </ul></li>
-  <li><a href="#students-t-test" id="toc-students-t-test" class="nav-link" data-scroll-target="#students-t-test"><span class="toc-section-number">12.2</span>  Students T-test</a>
+  <li><a href="#students-t-test" id="toc-students-t-test" class="nav-link" data-scroll-target="#students-t-test"><span class="toc-section-number">13.2</span>  Students T-test</a>
   <ul class="collapse">
-  <li><a href="#t-test-för-enkla-urval" id="toc-t-test-för-enkla-urval" class="nav-link" data-scroll-target="#t-test-för-enkla-urval"><span class="toc-section-number">12.2.1</span>  T-test för enkla urval</a></li>
-  <li><a href="#t-test-för-dubbla-urval" id="toc-t-test-för-dubbla-urval" class="nav-link" data-scroll-target="#t-test-för-dubbla-urval"><span class="toc-section-number">12.2.2</span>  T-test för dubbla urval</a></li>
-  <li><a href="#rapportering-av-t-test" id="toc-rapportering-av-t-test" class="nav-link" data-scroll-target="#rapportering-av-t-test"><span class="toc-section-number">12.2.3</span>  Rapportering av t-test</a></li>
+  <li><a href="#t-test-för-enkla-urval" id="toc-t-test-för-enkla-urval" class="nav-link" data-scroll-target="#t-test-för-enkla-urval"><span class="toc-section-number">13.2.1</span>  T-test för enkla urval</a></li>
+  <li><a href="#t-test-för-dubbla-urval" id="toc-t-test-för-dubbla-urval" class="nav-link" data-scroll-target="#t-test-för-dubbla-urval"><span class="toc-section-number">13.2.2</span>  T-test för dubbla urval</a></li>
+  <li><a href="#rapportering-av-t-test" id="toc-rapportering-av-t-test" class="nav-link" data-scroll-target="#rapportering-av-t-test"><span class="toc-section-number">13.2.3</span>  Rapportering av t-test</a></li>
   </ul></li>
-  <li><a href="#likhetstest-och-minimistorlekstest" id="toc-likhetstest-och-minimistorlekstest" class="nav-link" data-scroll-target="#likhetstest-och-minimistorlekstest"><span class="toc-section-number">12.3</span>  Likhetstest och minimistorlekstest</a></li>
-  <li><a href="#korrelationsanalys" id="toc-korrelationsanalys" class="nav-link" data-scroll-target="#korrelationsanalys"><span class="toc-section-number">12.4</span>  Korrelationsanalys</a></li>
+  <li><a href="#likhetstest-och-minimistorlekstest" id="toc-likhetstest-och-minimistorlekstest" class="nav-link" data-scroll-target="#likhetstest-och-minimistorlekstest"><span class="toc-section-number">13.3</span>  Likhetstest och minimistorlekstest</a></li>
+  <li><a href="#korrelationsanalys" id="toc-korrelationsanalys" class="nav-link" data-scroll-target="#korrelationsanalys"><span class="toc-section-number">13.4</span>  Korrelationsanalys</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bivariat analys</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bivariat analys</span></h1>
 </div>
 
 
@@ -320,8 +330,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Detta kapitel handlar om de första sambandsanalyserna du kommer att göra: bivariata analyser, med en beroende variabel och en oberoende variabel. Analysmetoderna är uppdelade enligt skalenivåer. Först kommer korstabuleringen, som kan utföras på två nominalvariabler. Sedan är det dags för ordningstesten, vilka fungerar på ordinalskalenivå. Efter det inleder vi variansanalysen med enkel ANOVA, vilken har en beroende variabel på intervall- eller kvotskala och en oberoende variabel på nominal- eller ordinalskala. T-testet är ett likadant, men något enklare, test som likväl utförs på kvantitativa beroende variabler, men med en binär oberoende variabel. Till sist introduceras korrelationsanalysen, som kräver intervall- eller kvotvariabler i bägge position.</p>
-<section id="korstabulering" class="level2 page-columns page-full" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="korstabulering"><span class="header-section-number">12.1</span> Korstabulering</h2>
+<section id="korstabulering" class="level2 page-columns page-full" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="korstabulering"><span class="header-section-number">13.1</span> Korstabulering</h2>
 <p>Du har tidigare blivit bekant med frekvenstabeller i denna bok. En frekvenstabell, för att påminna, är en tabell som innehåller information på hur många analysobjekt har fått ett visst värde på variabeln i fråga. Frekvenstabeller är därmed univariata metoder, eftersom de presenterar information på en variabel.</p>
 <div class="page-columns page-full"><p><strong>Korstabellen</strong> (eng. <em>crosstabulation</em> eller förkortat <em>crosstab</em>) är en bivariat version av detta. Istället för att lägga variabelnivåerna i raderna och frekvensen i kolumnerna, lägger vi den beroende variabeln i raderna och den oberoende variabeln i kolumnerna<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Egentligen är ordningen arbiträr, du kan likväl ha beroende i kolumnerna och oberoende i raderna. Av konvention brukar man följa ordningen jag nämner, men gör hur du vill - så länge du säger tydligt vad du menar.</p></li></div></div>
 <p>Idén med korstabellen är att vi kan granska enskilda frekvenser för vissa kategorier, och därmed se eventuella skillnader i beroende variabelns grad enligt oberoende variabel. Ser vi skillnader så tyder det på att det finns ett förhållande mellan beroende och oberoende variablerna. Om vi inte ser någon skillnad, så finns det troligen inte ett förhållande (men glöm inte elaborering!).</p>
@@ -340,8 +350,8 @@ alcgp       0-9g/day 10-19 20-29 30+
 </div>
 <p>[BYT TILL BÄTTRE EXEMPEL]</p>
 <p>Vi kan se en tabell med två variabler: <code>alcgp</code> i raderna, vilket står för gram av alkohol per dag, och <code>tobgp</code>, vilket står för gram av tobak per dag. Om vi granskar cellerna så tycks det inte finnas ett förhållande mellan alkoholkonsumption och tobakskonsumption i vårt data: alla celler har ungefär lika stora värden i sig.</p>
-<section id="chi-kvadrat-testet-chi2" class="level3 page-columns page-full" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="chi-kvadrat-testet-chi2"><span class="header-section-number">12.1.1</span> Chi-kvadrat-testet: <span class="math inline">\(\chi^2\)</span></h3>
+<section id="chi-kvadrat-testet-chi2" class="level3 page-columns page-full" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="chi-kvadrat-testet-chi2"><span class="header-section-number">13.1.1</span> Chi-kvadrat-testet: <span class="math inline">\(\chi^2\)</span></h3>
 <div class="page-columns page-full"><p>Chi<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>-kvadrat-testet är ett osäkerhetstest för korstabeller. Vi kan använda chi-kvadrat-testet för att undersöka huruvida våra observerade cellvärden (vårt data) motsvarar vad vi skulle förvänta oss under nollhypotesen. I detta fall är nollhypotesen att det inte finns ett förhållande mellan de två variablerna i korstabellen.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Uttalas [<span class="math inline">\(k^h\)</span>i:], med hårt K-ljud</p></li></div></div>
 <p><span class="math inline">\(\chi^2\)</span>-testet kan förstås som en generell lineär modell (GLM). Detta betyder att den gör samma sak som alla andra modeller: <span class="math inline">\(\text{Utsaga} = \text{Modell} + \text{Felvärde}\)</span>. <em>De facto</em> räknar <span class="math inline">\(\chi^2\)</span> faktiskt avvikelsens kvadratsumma (se kapitel XXX), men med en liten modifikation:</p>
 <p><span class="math display">\[\chi^2 = \sum_{i=1}^{n}\frac{(\text{observerat}_i-\text{modell}_i)^2}{\text{modell}_i} \]</span> I människospråk: <span class="math inline">\(\chi^2\)</span> räknar kvadratskillnaden mellan det observerade cellvärdet och det förväntande cellvärdet, och dividerar detta med det förväntade cellvärdet. Sedan räknar den summan av alla dessa beräkningar för varje cellvärde. Slutresultatet är ett värde, <span class="math inline">\(\chi^2\)</span>, som återspeglas i en <span class="math inline">\(\chi^2\)</span>-fördelning:</p>
@@ -468,8 +478,8 @@ odds ratio
 </div>
 </section>
 </section>
-<section id="students-t-test" class="level2 page-columns page-full" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="students-t-test"><span class="header-section-number">12.2</span> Students T-test</h2>
+<section id="students-t-test" class="level2 page-columns page-full" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="students-t-test"><span class="header-section-number">13.2</span> Students T-test</h2>
 <p>Korstabeller fungerar mycket bra för bivariata förhållanden mellan två kvalitativa variabler, men vad gör vi när ena variablen är kvantitativ? Svaret beror på vilken av våra variabler. Om vår beroende variabel är kvantitativ, men vår oberoende variabel är kvalitativ, så använder vi <strong>t-testet</strong>. Om situationen är tvärtemot, använder vi <strong>logistisk regression</strong> (vilket förklaras i samband med multivariata analyser).</p>
 <p><strong>Students t-test</strong> är skapat av statistikern William Sealy Gosset (1876-1937). Namnet kommer från att Gosset publicerade under pseudonymen “Student”, och termen “t-test” är egentligen lite fel: Gosset kallade testet för “t-statistiken”, vilket stod för “hypotesteststatistiken”. Vi fortsätter kalla det t-testet, eftersom namnet är välkänt, men märk att förkortningen då står för “hypotestesttestet”.</p>
 <p>T-testet mäter huruvida en skillnad kan anses vara tillräckligt stor för att den inte kunde orsakas under en nollhypotes - därför namnet “hypotestestet”. Vad denna skillnad är, och vilken nollhypotes som testas, beror på situationen. Vi kan tala om t-test för enkla urval och t-test för dubbla urval (eng. <em>one- and two-sample t-tests</em>).</p>
@@ -481,8 +491,8 @@ odds ratio
 </div>
 <p>Som du märker är t-fördelningen väldigt lik normalfördelningen. Den största skillnaden är att t-fördelningen har större <em>svansar</em>, alltså är den lite mera sensitiv för extrema värden.</p>
 <p>På grund av att t-testet följer en fördelning, kan vi hämta sannolikhetsvärden för att en skillnad ger ett visst testvärde. För att göra detta bör vi även bestämma om vi testar <em>två- eller ensidigt</em>. Ett ensidigt t-test räknar ut sannolikheten att värdet är antingen större än, eller mindre än, det förväntade värdet. Du måste välja vilkendera du förväntar dig. Ett tvåsidigt t-test, å andra sidan, räknar ut sannolikheten att värdet <em>skiljer sig</em> från det förväntade värdet, oavsett vilken riktning. Dessa är något olika alternativa hypoteser, och påverkar tröskelvärdet för t-statistiken. Välj därför rätt!</p>
-<section id="t-test-för-enkla-urval" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="t-test-för-enkla-urval"><span class="header-section-number">12.2.1</span> T-test för enkla urval</h3>
+<section id="t-test-för-enkla-urval" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="t-test-för-enkla-urval"><span class="header-section-number">13.2.1</span> T-test för enkla urval</h3>
 <p>Om vi testar skillnaden mellan ett urval och det förväntade populationsvärdet, talar vi om ett <em>t-test för ett urval</em> (eng. one-sample t-test). Då beräknas t-testet så här:</p>
 <p><span class="math display">\[\begin{equation}
 \text{t} = \frac{\bar{x} - \mu}{\text{SD}/\sqrt{n}}
@@ -510,13 +520,13 @@ odds ratio
     One Sample t-test
 
 data:  testdata
-t = 22.175, df = 99, p-value &lt; 2.2e-16
+t = 22.432, df = 99, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- 2.189935 2.620354
+ 2.115917 2.526565
 sample estimates:
 mean of x 
- 2.405145 </code></pre>
+ 2.321241 </code></pre>
 </div>
 </div>
 <p>Märk att jag inte behövde ge några som helst argument, förutom mitt data, åt <code>t.test()</code>. Detta är eftersom vi använde alla standardargument - vi gjorde tvåsidigt test mot nollhypotesen att värdet är 0, och vi bad om p-värde enligt konfidensnivån 0.95.</p>
@@ -541,8 +551,8 @@ mean of x
 </ul>
 </div>
 </section>
-<section id="t-test-för-dubbla-urval" class="level3 page-columns page-full" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="t-test-för-dubbla-urval"><span class="header-section-number">12.2.2</span> T-test för dubbla urval</h3>
+<section id="t-test-för-dubbla-urval" class="level3 page-columns page-full" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="t-test-för-dubbla-urval"><span class="header-section-number">13.2.2</span> T-test för dubbla urval</h3>
 <div class="page-columns page-full"><p>Vi kan även använda t-testet för att testa skillnaden mellan två grupper i vårt urval. Detta kallas för ett t-test för dubbla urval, men trots namnet behöver du inte ha två separata urval. Vad testet gör är att det egentligen testar om de två grupperna härstammar från <em>samma</em> population. Detta gör att vi kan testa avsaknaden av olikhet<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> mellan dessa två grupper.</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Se nedan för likhetstestning för att förstå varför avsaknaden av olikhet inte är detsamma som likhet.</p></li></div></div>
 <p>T-testet för dubbla urval ser ut på detta vis:</p>
 <p><span class="math display">\[\begin{equation}
@@ -561,19 +571,19 @@ mean of x
     Welch Two Sample t-test
 
 data:  a and b
-t = 17.275, df = 114.3, p-value &lt; 2.2e-16
+t = 16.463, df = 114.06, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- 1.722034 2.168135
+ 1.554825 1.980202
 sample estimates:
 mean of x mean of y 
-2.4051447 0.4600603 </code></pre>
+2.3212409 0.5537275 </code></pre>
 </div>
 </div>
 <p>Resultatet ser väldigt lika ut som för det enkla urvalets t-test, förutom att rubriken nu säger “Welch Two Sample t-test”. Testet berättar även åt oss vad vår alternativa hypotes denna gång är, samt att vi använde objekten <code>a</code> och <code>b</code> för vår analys. Vårt p-värde är väldigt lågt, och tydligt under en ordinarie gräns på <span class="math inline">\(5*10^{-2}\)</span>. Vi kan därmed med god sannolikhet förkasta vår nollhypotes: det vore väldigt sällsynt att få dessa resultat eller större om det faktiskt vore så, att bägge medeltal är desamma (alltså att skillnaden mellan dem är noll).</p>
 </section>
-<section id="rapportering-av-t-test" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="rapportering-av-t-test"><span class="header-section-number">12.2.3</span> Rapportering av t-test</h3>
+<section id="rapportering-av-t-test" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="rapportering-av-t-test"><span class="header-section-number">13.2.3</span> Rapportering av t-test</h3>
 <p>Ett t-test har tre viktiga kvantitativa mått: t-statistiken, frihetsgraderna och p-värdet. Alla tre bör rapporteras när du har gjort ett t-test. Utöver dessa kan konfidensintervallet vara bra om det finns en chans att resultatet upprepas och används i meta-analyser. Om du har gjort ändringar åt <code>mu</code>-koefficienten (gränsvärdet som testas emot) ska du rapportera det, annars förmodar läsare att du har testat emot noll:</p>
 <p><em>Skillnaden mellan X och Y på vår oberoende variabel är inte signifikant (t = 0.5, df = 12, p = 0.687).</em></p>
 <p><em>Welch robusta t-test visade på en signifikant skillnad mellan variablerna X och Y (t = 20.9, df = 117.28, p = 2 x 10^16, 95% CI av skillnaden [1.9; 2.3].</em></p>
@@ -589,8 +599,8 @@ mean of x mean of y
 </div>
 </section>
 </section>
-<section id="likhetstest-och-minimistorlekstest" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="likhetstest-och-minimistorlekstest"><span class="header-section-number">12.3</span> Likhetstest och minimistorlekstest</h2>
+<section id="likhetstest-och-minimistorlekstest" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="likhetstest-och-minimistorlekstest"><span class="header-section-number">13.3</span> Likhetstest och minimistorlekstest</h2>
 <p>Ett traditionellt vetenskapligt ordspråk lyder: <em>Avsaknaden av bevis är inte bevis för avsaknad</em>. Med andra ord: bara för att du inte finner en endaste svart svan, betyder det inte att de inte finns.</p>
 <p>Detta medför ett litet problem till nollhypotessignifikanstestning: förkastande av nollhypotesen är inte bevis för alternativa hypotesen. Då du utför t.ex. ett t-test eller chi-kvadrat, och får ett signifikant värde, betyder det endast att det resultat du fått vore <em>osannolikt</em> (på din alfanivå, t.ex. 0.05) <em>om</em> det faktiskt vore så, att den verkliga skillnaden var noll. Detta säger inget om huruvida ditt resultat är sant.</p>
 <p>Mer allmänt har detta varit ett problem för NHST: vetenskapsidkare vill ofta säga något om deras bevis, men NHST säger bara något om hypotesen. Lösningen, som tidigare sagt, kan vara Bayesisk statistik - istället för att undersöka hypotesens sannolikhet under data, kan man undersöka datas sannolikhet under hypotesen.</p>
@@ -626,29 +636,29 @@ mean of x mean of y
 <pre><code>
 Welch Two Sample t-test
 
-The minimal effect test was significant, t(114.3) = 21.715, p = 3.41e-24
-The null hypothesis test was significant, t(114.3) = 17.275, p = 1.19e-33
+The minimal effect test was significant, t(114.06) = 21.12, p &lt; 0.01
+The null hypothesis test was significant, t(114.06) = 16.463p &lt; 0.01
 NHST: reject null significance hypothesis that the effect is equal to zero 
 TOST: reject null MET hypothesis
 
 TOST Results 
                t    df p.value
-t-test     17.27 114.3 &lt; 0.001
-TOST Lower 21.72 114.3       1
-TOST Upper 12.83 114.3 &lt; 0.001
+t-test     16.46 114.1 &lt; 0.001
+TOST Lower 21.12 114.1       1
+TOST Upper 11.81 114.1 &lt; 0.001
 
 Effect Sizes 
                Estimate     SE             C.I. Conf. Level
-Raw               1.945 0.1126 [1.7584, 2.1318]         0.9
-Hedges's g(av)    2.427 0.4500  [2.0727, 2.774]         0.9
+Raw               1.768 0.1074 [1.5895, 1.9456]         0.9
+Hedges's g(av)    2.313 0.4314 [1.9677, 2.6509]         0.9
 Note: SMD confidence intervals are an approximation. See vignette("SMD_calcs").</code></pre>
 </div>
 </div>
 <p>Resultatet är tredelat: Först skriver testet ut en massa information i konsolen. Sedan ger den en dataram med T-statistikerna (<code>resultat$TOST</code>), och sedan en dataram med estimerade effektstorlekar (<code>resultat$effsize</code>). När vi läser av resultatet räcker det med konsolutskriften, men om du vill spara resultaten kan du senare använda t.ex. effektstorlekarna i grafiska uppsättningar.</p>
 <p>Att tolka en TOST-procedur är lite mer komplext än ett vanligt t-test. Det första att komma ihåg är att det är frågan om <em>två</em> ensidiga t-test. [HUR TOLKAS DETTA?]</p>
 </section>
-<section id="korrelationsanalys" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="korrelationsanalys"><span class="header-section-number">12.4</span> Korrelationsanalys</h2>
+<section id="korrelationsanalys" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="korrelationsanalys"><span class="header-section-number">13.4</span> Korrelationsanalys</h2>
 
 
 </section>
@@ -791,12 +801,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./univariat-analys.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Univariat analys</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Univariat analys</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./källförteckning.html" class="pagination-link">
-        <span class="nav-page-text">Källförteckning</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./regressionsanalys.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regressionsanalys</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
